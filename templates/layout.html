@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <title>UNCW Fit Shuffle</title>
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <div id="main-container">
+      <div id="main-header">
+        <div id="main-header-img-container">
+          <img src="{{ url_for('static', filename='images/UNCW_logo.png') }}" alt="UNCW logo" id="logo">
+        </div>
+        <div id="main-header-title-container">
+          <p id="title">UNCW Fit Shuffle</p>
+        </div>
+        <div id="main-header-username-container">
+
+        </div>
+      </div>
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+
+</html>

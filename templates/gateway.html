@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gateway.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="gateway-main">
+
+  <!-- NAV bar stuff -->
+  <div class="gateway-nav">
+    <div class="gateway-nav-login">
+      <p id="gateway-login">Login</p>
+    </div>
+    <div class="gateway-nav-register">
+      <p id="gateway-register">Register</p>
+    </div>
+    <div class="gateway-nav-forgot-password">
+      <p id="gateway-forgot">Forgot Password</p>
+    </div>
+  </div>
+
+
+  <!-- Submission form stuff -->
+  <div class="gateway-form">
+
+  </div>
+</div>
+{% endblock %}

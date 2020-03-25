@@ -1,0 +1,78 @@
+.gateway-main{
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+  /* background-color: yellow; */
+  display: block;
+}
+
+
+/* gateway nav bar elements */
+.gateway-nav{
+  box-sizing: border-box;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-color: blue; */
+}
+.gateway-nav-login{
+  box-sizing: border-box;
+  height: 100%;
+  width: 27%;
+  border-bottom: 3px solid #1A7E79;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#gateway-login{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #107E79;
+}
+.gateway-nav-register{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  border-bottom: 3px solid #1A7E79;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#gateway-register{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #107E79;
+}
+.gateway-nav-forgot-password{
+  box-sizing: border-box;
+  height: 100%;
+  width: 43%;
+  border-bottom: 3px solid #1A7E79;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#gateway-forgot{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #107E79;
+}
+
+
+
+.gateway-form{
+  box-sizing: border-box;
+  width: 100%;
+  height: 88%;
+  /* background-color: red; */
+}
