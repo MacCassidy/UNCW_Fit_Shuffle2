@@ -7,7 +7,11 @@
 }
 
 
-/* gateway nav bar elements */
+
+
+
+
+/************ gateway nav bar elements *************/
 .gateway-nav{
   box-sizing: border-box;
   width: 100%;
@@ -16,11 +20,16 @@
   flex-wrap: nowrap;
   /* background-color: blue; */
 }
+.gateway-nav-space-filler{
+  box-sizing: border-box;
+  width: 2%;
+}
 .gateway-nav-login{
   box-sizing: border-box;
   height: 100%;
-  width: 27%;
+  width: 25%;
   border-bottom: 3px solid #1A7E79;
+  /* border-bottom: 3px solid #FFFFFF; */
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -32,47 +41,349 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #107E79;
+  /* color: #B3B8BF; */
 }
 .gateway-nav-register{
   box-sizing: border-box;
   height: 100%;
-  width: 30%;
-  border-bottom: 3px solid #1A7E79;
+  width: 27%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+}
+.gateway-nav-register:hover{
+  cursor: pointer;
 }
 #gateway-register{
   box-sizing: border-box;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  color: #107E79;
+  /* color: #107E79; */
+  color: #B3B8BF;
+}
+.gateway-nav-register:hover{
+  box-sizing: border-box;
+  cursor:pointer;
 }
 .gateway-nav-forgot-password{
   box-sizing: border-box;
   height: 100%;
-  width: 43%;
-  border-bottom: 3px solid #1A7E79;
+  width: 40%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
-#gateway-forgot{
+.gateway-nav-forgot-password:hover{
+  cursor: pointer;
+}
+#gateway-forgot-password{
   box-sizing: border-box;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  color: #107E79;
+  /* color: #107E79; */
+  color: #B3B8BF;
+}
+.gateway-nav-forgot-password:hover{
+  box-sizing: border-box;
+  cursor:pointer;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+/************ gateway form elements *************/
 .gateway-form{
   box-sizing: border-box;
   width: 100%;
   height: 88%;
-  /* background-color: red; */
+  display: block;
+  overflow: hidden;
+}
+
+
+
+
+/************ gateway login form elements *************/
+.gateway-login-form-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.gateway-login-form-top{
+  box-sizing: border-box;
+  width: 100%;
+  height: 84%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.gateway-login-form-top-outer{
+  box-sizing: border-box;
+  width: 90%;
+  height: 90%;
+  display: block;
+}
+.gateway-login-form-top-outer-top{
+  box-sizing: border-box;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#login-quote{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #3C446B;
+}
+#login-quote-span{
+  font-size: 18px;
+  font-weight: bold;
+}
+.gateway-login-form-top-outer-top-spacer{
+  box-sizing: border-box;
+  height: 12%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#logged_in_error{
+  box-sizing: border-box;
+  display: none;
+  margin: 0;
+  padding-top: 2px;
+  text-align: center;
+  color: #FC0D1B;
+  font-size: 11px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.gateway-login-form-top-outer-bottom{
+  box-sizing: border-box;
+  width: 100%;
+  height: 58%;
+  display: block;
+}
+#login-form{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.login-form-email-container{
+  box-sizing: border-box;
+  height: 50%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.login-form-email-error-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 35%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+#login-form-email-error-message{
+  box-sizing: border-box;
+  margin: 0px;
+  padding-top: 8px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 14px;
+  display: none;
+  color: #FC0D1B;
+}
+.login-form-email-input-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#login-form-email-input{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #C3C3C3;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding-left: 7px;
+  /* color: #B3B8BF; */
+}
+#login-form-email-input::placeholder{
+  color: #B3B8BF;
+}
+#login-form-email-input:focus{
+  outline-style: groove;
+  outline-width: 6px;
+  outline-color: #F5B649;
+}
+.login-form-password-container{
+  box-sizing: border-box;
+  height: 50%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.login-form-password-error-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+#login-form-password-error-message{
+  box-sizing: border-box;
+  margin: 0px;
+  padding-top: 8px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 14px;
+  display: none;
+  color: #FC0D1B;
+}
+.login-form-password-input-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#login-form-password-input{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #C3C3C3;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding-left: 7px;
+  /* color: #B3B8BF; */
+}
+#login-form-password-input::placeholder{
+  color: #B3B8BF;
+}
+#login-form-password-input:focus{
+  outline-style: groove;
+  outline-width: 6px;
+  outline-color: #F5B649;
+}
+.gateway-login-form-button{
+  box-sizing: border-box;
+  width: 100%;
+  height: 16%;
+  background-color: #107E79;
+  border-top: 1px solid #AFAFAF;
+  opacity: 0.6;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#sign-in{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.hidden_loggin_form{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  height: 0px;
+  width: 0px;
+  display: none;
+}
+
+
+
+/************ gateway Register form elements *************/
+.gateway-register-form-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  background-color: blue;
+}
+
+.gateway-register-form-container-1{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  background-color: red;
+}
+.gateway-register-form-container-1-top{
+  box-sizing: border-box;
+  width: 100%;
+  height: 84%;
+  background-color: green;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.gateway-register-form-container-1-button{
+
+}
+.gateway-register-form-container-2{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  background-color: green;
+}
+
+
+
+/************ gateway forgot password form elements *************/
+.gateway-forgot-password-form-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  background-color: yellow;
 }

@@ -1,0 +1,4 @@
+everything set up from last time, (check commit one)
+begun working on the front end for the gateway
+
+Added the current/ up to date table for the Account schema by writing all the SQL in create_Account.sql

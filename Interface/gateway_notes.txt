@@ -1,0 +1,36 @@
+Nav bar:
+  - login tab border (.gateway-nav-login)
+  - login tab text (#gateway-login)
+  - login tab cursor (.gateway-nav-login)
+  - login tab onclick able (.gateway-nav-login) (var loginTabActive)
+  - login tab onclick function (.gateway-nav-login) *clean up the other pages*
+
+  - register tab border (.gateway-nav-register)
+  - register tab text (#gateway-register)
+  - register tab cursor (.gateway-nav-register)
+  - register tab onclick able (.gateway-nav-register) (var registerTabActive)
+  - register tab onclick function (.gateway-nav-register) *clean up the other pages*
+
+  - forgot password tab border (.gateway-nav-forgot-password)
+  - forgot password tab text (#gateway-forgot-password)
+  - forgot password tab cursor (.gateway-nav-forgot-password)
+  - forgot password tab onclick able (.gateway-nav-forgot-password) (var forgotPasswordTabActive)
+  - forgot password tab onclick function (.gateway-nav-forgot-password) *clean up the other pages*
+
+Login Tab: - (.gateway-login-form-container) *hide/show* (*******display: block)
+  Login main container: (.gateway-login-form-container) *hide/show*
+    - (#logged_in_error) *hide/show*
+    - (#login-form-email-error-message) *hide/show*
+    - (#login-form-email-input) border changes, val() reset, disabled/able, focus
+    - (#login-form-password-error-message) *hide/show*
+    - (#login-form-password-error-message) border changes, val() reset, disabled/able, focus
+    - (.gateway-login-form-button) opacity, disabled/able, onclick, cursor hover
+    - var loginButtonActive
+
+Register Tab:
+  Register Form main container: (.gateway-register-form-container) *hide/show* (*******display: block)
+    Register Form container 1: (.gateway-register-form-container-1)
+    Register Form container 2: (.gateway-register-form-container-2)
+
+
+Forgot Password Tab:

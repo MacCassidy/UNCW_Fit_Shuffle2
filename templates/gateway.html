@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/gateway.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/gateway.css') }}">
 {% endblock %}
 
@@ -9,21 +10,100 @@
 
   <!-- NAV bar stuff -->
   <div class="gateway-nav">
+    <div class="gateway-nav-space-filler"></div>
     <div class="gateway-nav-login">
       <p id="gateway-login">Login</p>
     </div>
+    <div class="gateway-nav-space-filler"></div>
     <div class="gateway-nav-register">
       <p id="gateway-register">Register</p>
     </div>
+    <div class="gateway-nav-space-filler"></div>
     <div class="gateway-nav-forgot-password">
-      <p id="gateway-forgot">Forgot Password</p>
+      <p id="gateway-forgot-password">Forgot Password</p>
     </div>
+    <div class="gateway-nav-space-filler"></div>
   </div>
 
 
   <!-- Submission form stuff -->
   <div class="gateway-form">
 
+
+
+    <div class="gateway-login-form-container">
+      <div class="gateway-login-form-top">
+        <div class="gateway-login-form-top-outer">
+          <div class="gateway-login-form-top-outer-top">
+            <p id="login-quote"><span id="login-quote-span">Welcome to Fit Shuffle:</span> A personalized training app that creates intuitive workout routines based on your experience and progress. <br><br> Login below, or click Register to sign up.</p>
+          </div>
+          <div class="gateway-login-form-top-outer-top-spacer">
+            <p id="logged_in_error">You're account's previous session has not expired. <br> Try again in a few minutes.</p>
+          </div>
+          <div class="gateway-login-form-top-outer-bottom">
+            <form id="login-form">
+              <div class="login-form-email-container">
+                <div class="login-form-email-error-container">
+                  <p id="login-form-email-error-message">Invalid Email</p>
+                </div>
+                <div class="login-form-email-input-container">
+                  <input id="login-form-email-input" type="text" name="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="login-form-password-container">
+                <div class="login-form-password-error-container">
+                  <p id="login-form-password-error-message">Invalid Password</p>
+                </div>
+                <div class="login-form-password-input-container">
+                  <input id="login-form-password-input" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="gateway-login-form-button">
+        <p id="sign-in">Sign In</p>
+      </div>
+      <form class="hidden_loggin_form" action="/homepage" method="get"></form>
+    </div>
+
+
+
+    <div class="gateway-register-form-container">
+      <div class="gateway-register-form-container-1">
+        .gateway-login-form-button{
+          box-sizing: border-box;
+          width: 100%;
+          height: 16%;
+          background-color: #107E79;
+          border-top: 1px solid #AFAFAF;
+          opacity: 0.6;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: center;
+        } -->
+        <div class="gateway-register-form-container-1-top">
+
+        </div>
+        <div class="gateway-register-form-container-1-button">
+
+        </div>
+      </div>
+
+      <div class="gateway-register-form-container-2">
+
+      </div>
+    </div>
+
+
+
+    <div class="gateway-forgot-password-form-container">
+
+    </div>
   </div>
 </div>
 {% endblock %}
