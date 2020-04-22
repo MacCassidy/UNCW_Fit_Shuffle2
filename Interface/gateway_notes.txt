@@ -1,3 +1,6 @@
+LEFT off in
+
+
 Nav bar:
   - login tab border (.gateway-nav-login)
   - login tab text (#gateway-login)
@@ -34,3 +37,122 @@ Register Tab:
 
 
 Forgot Password Tab:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*********************************************************************Variables ******************************************
+var gateway_nav_login = $('.gateway-nav-login');
+var gateway_login = $('#gateway-login');
+var gateway_nav_register = $('.gateway-nav-register');
+var gateway_register = $('#gateway-register');
+var gateway_nav_forgot_password = $('.gateway-nav-forgot-password');
+var gateway_forgot_password = $('#gateway-forgot-password');
+***********************************************************************************Gateway Form Container Variables
+var gateway_login_form_container = $('.gateway-login-form-container');
+var gateway_register_form_container = $('.gateway-register-form-container');
+var gateway_forgot_password_form_container = $('.gateway-forgot-password-form-container');
+***********************************************************************************Gateway Login Form Variables
+var login_form_email_input = $('#login-form-email-input');
+var login_form_email_error_message = $('#login-form-email-error-message');
+var login_form_password_input = $('#login-form-password-input');
+var login_form_password_error_message = $('#login-form-password-error-message');
+var gateway_login_form_button = $('.gateway-login-form-button');
+var logged_in_error = $('#logged_in_error');
+var hidden_loggin_form = $('.hidden_loggin_form');
+***********************************************************************************Gateway Register Form Variables
+var register_form_username_input = $('#register-form-username-input');
+var register_form_email_error_message = $('#register-form-email-error-message');
+var register_form_email_input = $('#register-form-email-input');
+var register_form_password_input = $('#register-form-password-input');
+var password_hide = $('#password-hide');
+var password_show = $('#password-show');
+var register_form_password_input_eye_container = $('.register-form-password-input-eye-container');
+var register_form_age_input = $('#register-form-age-input');
+var register_form_height_ft_input = $('#register-form-height-ft-input');
+var register_form_height_in_input = $('#register-form-height-in-input');
+
+
+
+
+
+
+
+var gender_field = $("input[name='gender']");
+var male_button = $('#male-button');
+var male_button_container = $('.register-form-gender-input-male-button-container');
+var female_button = $('#female-button');
+var female_button_container = $('.register-form-gender-input-female-button-container');
+
+var timezone_buttons_container = $('.register-form-timezone-input-container');
+var timezone_field = $("input[name='timezone']");
+var eastern_time_button = $('#eastern-time-button');
+var pacific_time_button = $('#pacific-time-button');
+var alaska_time_button = $('#alaska-time-button');
+var central_time_button = $('#central-time-button');
+var mountain_time_button = $('#mountain-time-button');
+var hawaii_time_button = $('#hawaii-time-button');
+
+
+var cardio_buttons_container = $('#experience-input-container-cardio');
+var cardio_field = $("input[name='cardio-experience']");
+var cardio_beginner_button = $('#cardio-button-beginner');
+var cardio_novice_button = $('#cardio-button-novice');
+var cardio_intermediate_button = $('#cardio-button-intermediate');
+var cardio_experienced_button = $('#cardio-button-experienced');
+
+
+var chest_buttons_container = $('#experience-input-container-chest');
+var chest_field = $("input[name='chest-experience']");
+var chest_beginner_button = $('#chest-button-beginner');
+var chest_novice_button = $('#chest-button-novice');
+var chest_intermediate_button = $('#chest-button-intermediate');
+var chest_experienced_button = $('#chest-button-experienced');
+
+var legs_buttons_container = $('#experience-input-container-legs');
+var legs_field = $("input[name='legs-experience']");
+var legs_beginner_button = $('#legs-button-beginner');
+var legs_novice_button = $('#legs-button-novice');
+var legs_intermediate_button = $('#legs-button-intermediate');
+var legs_experienced_button = $('#legs-button-experienced');
+
+var back_buttons_container = $('#experience-input-container-back');
+var back_field = $("input[name='back-experience']");
+var back_beginner_button = $('#back-button-beginner');
+var back_novice_button = $('#back-button-novice');
+var back_intermediate_button = $('#back-button-intermediate');
+var back_experienced_button = $('#back-button-experienced');
+
+var core_buttons_container = $('#experience-input-container-core');
+var core_field = $("input[name='core-experience']");
+var core_beginner_button = $('#core-button-beginner');
+var core_novice_button = $('#core-button-novice');
+var core_intermediate_button = $('#core-button-intermediate');
+var core_experienced_button = $('#core-button-experienced');
+
+var shoulders_buttons_container = $('#experience-input-container-shoulders');
+var shoulders_field = $("input[name='shoulders-experience']");
+var shoulders_beginner_button = $('#shoulders-button-beginner');
+var shoulders_novice_button = $('#shoulders-button-novice');
+var shoulders_intermediate_button = $('#shoulders-button-intermediate');
+var shoulders_experienced_button = $('#shoulders-button-experienced');
+
+var arms_buttons_container = $('#experience-input-container-arms');
+var arms_field = $("input[name='arms-experience']");
+var arms_beginner_button = $('#arms-button-beginner');
+var arms_novice_button = $('#arms-button-novice');
+var arms_intermediate_button = $('#arms-button-intermediate');
+var arms_experienced_button = $('#arms-button-experienced');
+
+var gateway_register_form_container_button = $('.gateway-register-form-container-1-button');
+var hidden_register_form = $('.hidden_register_form');

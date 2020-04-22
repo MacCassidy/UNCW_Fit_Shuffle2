@@ -58,7 +58,7 @@ def homepage():
         account_id = session['account_id']
         email = session['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and %(account_id)s", {'email': email, 'account_id': account_id})
+        cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and account_id = %(account_id)s", {'email': email, 'account_id': account_id})
         account = cursor.fetchone()
         email = account['email']
         username = account['username']
@@ -157,4 +157,5 @@ def logout():
 #     return r
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    # app.run(debug = True)
+    app.run(host="localhost", port=8000, debug=True)

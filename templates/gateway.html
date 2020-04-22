@@ -1,8 +1,8 @@
 {% extends 'layout.html' %}
 
 {% block head %}
-<script type="text/javascript" src="{{ url_for('static', filename='js/gateway.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/gateway.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/gateway2.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gateway2.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -30,7 +30,7 @@
   <div class="gateway-form">
 
 
-
+    <!-- Login Form Stuff -->
     <div class="gateway-login-form-container">
       <div class="gateway-login-form-top">
         <div class="gateway-login-form-top-outer">
@@ -41,13 +41,13 @@
             <p id="logged_in_error">You're account's previous session has not expired. <br> Try again in a few minutes.</p>
           </div>
           <div class="gateway-login-form-top-outer-bottom">
-            <form id="login-form">
+            <form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
               <div class="login-form-email-container">
                 <div class="login-form-email-error-container">
                   <p id="login-form-email-error-message">Invalid Email</p>
                 </div>
                 <div class="login-form-email-input-container">
-                  <input id="login-form-email-input" type="text" name="email" placeholder="Email">
+                  <input id="login-form-email-input" type="text" name="email" placeholder="Email" maxlength="50" onpaste="return false">
                 </div>
               </div>
               <div class="login-form-password-container">
@@ -55,7 +55,7 @@
                   <p id="login-form-password-error-message">Invalid Password</p>
                 </div>
                 <div class="login-form-password-input-container">
-                  <input id="login-form-password-input" type="password" name="password" placeholder="Password">
+                  <input id="login-form-password-input" type="password" name="password" placeholder="Password" maxlength="60" onpaste="return false">
                 </div>
               </div>
             </form>
@@ -72,31 +72,402 @@
 
 
 
+    <!-- Register Form Stuff -->
     <div class="gateway-register-form-container">
       <div class="gateway-register-form-container-1">
-        .gateway-login-form-button{
-          box-sizing: border-box;
-          width: 100%;
-          height: 16%;
-          background-color: #107E79;
-          border-top: 1px solid #AFAFAF;
-          opacity: 0.6;
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: center;
-          align-items: center;
-        } -->
         <div class="gateway-register-form-container-1-top">
+          <div class="gateway-register-form-container-1-top-outer">
+            <form id="register-form" action="index.html" method="post" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 
+              <!-- Header information for the whole registeration form -->
+              <div class="register-form-header-info-container">
+                <p id="register-form-header-info">Fill entire form (scroll)</p>
+              </div>
+
+              <!-- ***** USERNAME INPUT FIELDS ***** -->
+              <input type="text" name="username" placeholder="Name" id="register-form-username-input" maxlength="25" onpaste="return false">
+
+
+              <!-- ***** EMAIL INPUT FIELDS ***** -->
+              <div class="register-form-error-container" id="register-form-email-error">
+                <p class="register-form-error-message" id="register-form-email-error-message">Email invalid or already in use</p>
+              </div>
+              <input type="text" name="email" placeholder="Email" id="register-form-email-input" maxlength="50" onpaste="return false">
+
+
+              <!-- ***** PASSWORD INPUT FIELDS ***** -->
+              <!-- password spacer -->
+              <div class="register-form-error-container" id="register-form-password-error"></div>
+              <div class="register-form-password-input-container">
+                <input type="password" name="password" placeholder="Password" id="register-form-password-input" maxlength="60" onpaste="return false">
+                <div class="register-form-password-input-eye-container">
+                  <img src="{{ url_for('static', filename='images/password-show.png') }}" alt="icon for the show password button" id="password-show">
+                  <img src="{{ url_for('static', filename='images/password-hide.png') }}" alt="icon for the hide password button" id="password-hide">
+                </div>
+              </div>
+
+
+              <!-- ***** AGE INPUT FIELDS ***** -->
+              <div class="register-form-error-container" id="register-form-age-error">
+                <p class="register-form-error-message" id="register-form-age-error-message">Age must be 14-64</p>
+              </div>
+              <!-- <input type="number" name="age" placeholder="Age -   [14-64]" maxlength="2" id="register-form-age-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
+              <input type="text" name="age" placeholder="Age -   [14-64]" maxlength="2" id="register-form-age-input" onpaste="return false">
+              <!-- yeet -->
+
+              <!-- ***** HEIGHT: FT INPUT FIELDS ***** -->
+              <div class="register-form-error-container" id="register-form-height-ft-error">
+                <p class="register-form-error-message" id="register-form-height-ft-error-message">Height: ft must be 3-8</p>
+              </div>
+              <input type="number" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+
+              <!-- ***** HEIGHT: IN INPUT FIELDS ***** -->
+              <div class="register-form-error-container" id="register-form-height-in-error">
+                <p class="register-form-error-message" id="register-form-height-in-error-message">Height: in must be 0-12</p>
+              </div>
+              <input type="number" name="height_in" placeholder="Height:in [0-12]" maxlength="1" id="register-form-height-in-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+              <!-- height: in spacer -->
+              <div class="register-form-error-container">
+              </div>
+
+
+              <!-- ***** GENDER INPUT FIELDS ***** -->
+              <div class="register-form-gender-input-container">
+                <div class="register-form-gender-input-container-left">
+                  <div class="register-form-gender-input-male-header">
+                    <p id="male-header">Male:</p>
+                  </div>
+                  <div class="register-form-gender-input-male-button-container">
+                    <input type="radio" name="gender" value="male" id="male-button">
+                  </div>
+                </div>
+                <div class="register-form-gender-input-container-right">
+                  <div class="register-form-gender-input-female-header">
+                    <p id="female-header">Female:</p>
+                  </div>
+                  <div class="register-form-gender-input-female-button-container">
+                    <input type="radio" name="gender" value="female" id="female-button">
+                  </div>
+                </div>
+              </div>
+              <div class="register-form-timezone-gender-spacer"></div>
+
+
+              <!-- ***** TIMEZONE INPUT FIELDS ***** -->
+              <div class="register-form-timezone-header-container">
+                <p id="register-form-timezone-header">Timezone:</p>
+              </div>
+              <div class="register-form-timezone-input-container">
+                <div class="register-form-timezone-input-container-left">
+                  <div class="timezone-input-container-left" id="eastern-time-container">
+                    <p id="eastern-time-header" class="timzone-header" >Eastern:</p>
+                    <div class="timezone-button-container" class="eastern-time-button-container">
+                      <input type="radio" name="timezone" value="America/New_York" id="eastern-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                  <div class="timezone-input-container-left" id="pacific-time-container">
+                    <p id="pacific-time-header" class="timzone-header" >Pacific:</p>
+                    <div class="timezone-button-container" class="pacific-time-button-container">
+                      <input type="radio" name="timezone" value="America/Dawson" id="pacific-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                  <div class="timezone-input-container-left" id="alaska-time-container">
+                    <p id="alaska-time-header" class="timzone-header" >Alaska:</p>
+                    <div class="timezone-button-container" class="alaska-time-button-container">
+                      <input type="radio" name="timezone" value="America/Anchorage" id="alaska-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                </div>
+                <div class="register-form-timezone-input-container-right">
+                  <div class="timezone-input-container-right" id="central-time-container">
+                    <p id="central-time-header" class="timzone-header" >Central:</p>
+                    <div class="timezone-button-container" class="central-time-button-container">
+                      <input type="radio" name="timezone" value="America/Merida" id="central-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                  <div class="timezone-input-container-right" id="mountain-time-container">
+                    <p id="mountain-time-header" class="timzone-header" >Mountain:</p>
+                    <div class="timezone-button-container" class="mountain-time-button-container">
+                      <input type="radio" name="timezone" value="America/Boise" id="mountain-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                  <div class="timezone-input-container-right" id="hawaii-time-container">
+                    <p id="hawaii-time-header" class="timzone-header" >Hawaii:</p>
+                    <div class="timezone-button-container" class="hawaii-time-button-container">
+                      <input type="radio" name="timezone" value="Pacific/Honolulu" id="hawaii-time-button" class="timezone-button">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- eexperience-timezone spacer -->
+              <div class="register-form-experience-timezone-spacer"></div>
+
+
+
+              <!-- ***** EXPERIENCE INPUT FIELDS ***** -->
+
+              <!-- experience input header -->
+              <div class="register-form-experience-header-container">
+                <p id="register-form-experience-header">Experience in categories</p>
+              </div>
+
+              <!-- cardio experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-cardio">
+                <p class="experience-header" id="experience-header-cardio">Cardio:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-cardio">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="cario-button-container-beginner">
+                      <input type="radio" name="cardio-experience" value="beginner" class="experience-input-button" id="cardio-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="cario-button-container-novice">
+                      <input type="radio" name="cardio-experience" value="novice" class="experience-input-button" id="cardio-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="cario-button-container-intermediate">
+                      <input type="radio" name="cardio-experience" value="intermediate" class="experience-input-button" id="cardio-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="cario-button-container-experienced">
+                      <input type="radio" name="cardio-experience" value="experienced" class="experience-input-button" id="cardio-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- chest experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-chest">
+                <p class="experience-header" id="experience-header-chest">Chest:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-chest">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="chest-button-container-beginner">
+                      <input type="radio" name="chest-experience" value="beginner" class="experience-input-button" id="chest-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="chest-button-container-novice">
+                      <input type="radio" name="chest-experience" value="novice" class="experience-input-button" id="chest-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="chest-button-container-intermediate">
+                      <input type="radio" name="chest-experience" value="intermediate" class="experience-input-button" id="chest-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="chest-button-container-experienced">
+                      <input type="radio" name="chest-experience" value="experienced" class="experience-input-button" id="chest-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- legs experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-legs">
+                <p class="experience-header" id="experience-header-legs">Legs:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-legs">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="legs-button-container-beginner">
+                      <input type="radio" name="legs-experience" value="beginner" class="experience-input-button" id="legs-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="legs-button-container-novice">
+                      <input type="radio" name="legs-experience" value="novice" class="experience-input-button" id="legs-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="legs-button-container-intermediate">
+                      <input type="radio" name="legs-experience" value="intermediate" class="experience-input-button" id="legs-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="legs-button-container-experienced">
+                      <input type="radio" name="legs-experience" value="experienced" class="experience-input-button" id="legs-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- back experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-back">
+                <p class="experience-header" id="experience-header-back">Back:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-back">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="back-button-container-beginner">
+                      <input type="radio" name="back-experience" value="beginner" class="experience-input-button" id="back-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="back-button-container-novice">
+                      <input type="radio" name="back-experience" value="novice" class="experience-input-button" id="back-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="back-button-container-intermediate">
+                      <input type="radio" name="back-experience" value="intermediate" class="experience-input-button" id="back-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="back-button-container-experienced">
+                      <input type="radio" name="back-experience" value="experienced" class="experience-input-button" id="back-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- core experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-core">
+                <p class="experience-header" id="experience-header-core">Core:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-core">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="core-button-container-beginner">
+                      <input type="radio" name="core-experience" value="beginner" class="experience-input-button" id="core-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="core-button-container-novice">
+                      <input type="radio" name="core-experience" value="novice" class="experience-input-button" id="core-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="core-button-container-intermediate">
+                      <input type="radio" name="core-experience" value="intermediate" class="experience-input-button" id="core-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="core-button-container-experienced">
+                      <input type="radio" name="core-experience" value="experienced" class="experience-input-button" id="core-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- shoulders experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-shoulders">
+                <p class="experience-header" id="experience-header-shoulders">Shoulders:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-shoulders">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="shoulders-button-container-beginner">
+                      <input type="radio" name="shoulders-experience" value="beginner" class="experience-input-button" id="shoulders-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="shoulders-button-container-novice">
+                      <input type="radio" name="shoulders-experience" value="novice" class="experience-input-button" id="shoulders-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="shoulders-button-container-intermediate">
+                      <input type="radio" name="shoulders-experience" value="intermediate" class="experience-input-button" id="shoulders-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="shoulders-button-container-experienced">
+                      <input type="radio" name="shoulders-experience" value="experienced" class="experience-input-button" id="shoulders-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- arms experience input stuff -->
+              <div class="experience-header-container" id="experience-header-container-arms">
+                <p class="experience-header" id="experience-header-arms">Arms:</p>
+              </div>
+              <div class="experience-input-container" id="experience-input-container-arms">
+                <div class="experience-input-container-left">
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Beginner:</p>
+                    <div class="experience-input-button-container" id="arms-button-container-beginner">
+                      <input type="radio" name="arms-experience" value="beginner" class="experience-input-button" id="arms-button-beginner">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-left">
+                    <p class="experience-input-header">Novice:</p>
+                    <div class="experience-input-button-container" id="arms-button-container-novice">
+                      <input type="radio" name="arms-experience" value="novice" class="experience-input-button" id="arms-button-novice">
+                    </div>
+                  </div>
+                </div>
+                <div class="experience-input-container-right">
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Intermediate:</p>
+                    <div class="experience-input-button-container" id="arms-button-container-intermediate">
+                      <input type="radio" name="arms-experience" value="intermediate" class="experience-input-button" id="arms-button-intermediate">
+                    </div>
+                  </div>
+                  <div class="experience-input-container-cell-right">
+                    <p class="experience-input-header">Experienced:</p>
+                    <div class="experience-input-button-container" id="arms-button-container-experienced">
+                      <input type="radio" name="arms-experience" value="experienced" class="experience-input-button" id="arms-button-experienced">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- registration form bottom spacer -->
+              <div class="register-form-bottom-spacer"></div>
+
+            </form>
+          </div>
         </div>
         <div class="gateway-register-form-container-1-button">
-
+          <p id="sign-up">Sign Up</p>
         </div>
       </div>
-
-      <div class="gateway-register-form-container-2">
-
-      </div>
+      <form class="hidden_register_form" action="/homepage" method="get"></form>
     </div>
 
 
