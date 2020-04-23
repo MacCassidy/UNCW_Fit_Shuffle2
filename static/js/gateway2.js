@@ -150,32 +150,32 @@ $(document).ready(function(){
   });
 
   // 4. #login-form-email-input:focusin and focusout
-  Vars.login_form_email_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '6px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.login_form_email_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.login_form_email_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '6px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.login_form_email_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 5 #login-form-password-input:focus
-  Vars.login_form_password_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '6px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.login_form_password_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.login_form_password_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '6px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.login_form_password_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 6 .gateway-login-form-button:hover
   Vars.gateway_login_form_button.hover(function(e){
@@ -189,46 +189,46 @@ $(document).ready(function(){
   });
 
   // 7 #register-form-username-input:focus
-  Vars.register_form_username_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_username_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_username_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_username_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 8 #register-form-email-input:focus
-  Vars.register_form_email_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_email_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_email_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_email_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 9 #register-form-password-input:focus
-  Vars.register_form_password_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_password_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_password_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_password_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 10 #password-show:hover
   Vars.password_show.hover(function(e){
@@ -253,46 +253,46 @@ $(document).ready(function(){
   });
 
   // 12 #register-form-age-input:focus
-  Vars.register_form_age_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_age_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_age_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_age_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 13 #register-form-height-ft-input:focus
-  Vars.register_form_height_ft_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_height_ft_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_height_ft_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_height_ft_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
   // 14 #register-form-height-in-input:focus
-  Vars.register_form_height_in_input.focusin(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'groove');
-    $(this).css('outline-width', '3px');
-    $(this).css('outline-color', '#F5B649');
-  });
-  Vars.register_form_height_in_input.focusout(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).css('outline-style', 'none');
-  });
+  // Vars.register_form_height_in_input.focusin(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'groove');
+  //   $(this).css('outline-width', '3px');
+  //   $(this).css('outline-color', '#F5B649');
+  // });
+  // Vars.register_form_height_in_input.focusout(function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   $(this).css('outline-style', 'none');
+  // });
 
 
 
@@ -382,6 +382,7 @@ $(document).ready(function(){
   Vars.login_form_email_input.on('keyup', function(e) {
     e.preventDefault();
     e.stopPropagation();
+    Vars.login_form_email_input.css('border', '1px solid #3D456A');
     Vars.logged_in_error.hide();
     Vars.login_form_email_error_message.hide();
     if (Vars.login_form_password_input.val() && Vars.login_form_email_input.val()) {
@@ -400,6 +401,7 @@ $(document).ready(function(){
   Vars.login_form_password_input.on('keyup', function(e) {
     e.preventDefault();
     e.stopPropagation();
+    Vars.login_form_password_input.css('border', '1px solid #3D456A');
     Vars.logged_in_error.hide();
     Vars.login_form_password_error_message.hide();
     if (Vars.login_form_password_input.val() && Vars.login_form_email_input.val()) {
@@ -420,7 +422,7 @@ $(document).ready(function(){
     e.preventDefault();
     if (Vars.login_form_password_input.val() && Vars.login_form_email_input.val()) {
       // disable everything
-      //>>>>>>>>>>>>>>>>>>>>>>>>>>>>> yeet YEET (Possible missing stuff)
+      //>>>>>>>>>>>>>>>>>>>>>>>>>>>>> yeet YEET (Possible missing stuff: like disable stuff on other tabs)
       Vars.gateway_nav_login.css("pointer-events", "none");
       Vars.gateway_nav_register.css("pointer-events", "none");
       Vars.gateway_nav_forgot_password.css("pointer-events", "none");
