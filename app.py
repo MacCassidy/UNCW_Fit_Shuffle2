@@ -18,8 +18,9 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 # MySql config
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'tempuser1'
-app.config['MYSQL_PASSWORD'] = 'temppass1'
+app.config['MYSQL_PASSWORD'] = 'Meenoo737!'
 app.config['MYSQL_DB'] = 'tempdb1'
+app.config['MYSQL_PORT'] = 3306
 mysql = MySQL(app)
 # mysql.connection.commit()
 # cur.close()
