@@ -119,7 +119,7 @@
 .gateway-login-form-top{
   box-sizing: border-box;
   width: 100%;
-  height: 89%;
+  height: 87%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -306,7 +306,7 @@
 .gateway-login-form-button{
   box-sizing: border-box;
   width: 100%;
-  height: 11%;
+  height: 13%;
   background-color: #107E79;
   border-top: 1px solid #AFAFAF;
   opacity: 0.4;
@@ -358,7 +358,7 @@
 .gateway-register-form-container-1-top{
   box-sizing: border-box;
   width: 100%;
-  height: 84%;
+  height: 87%;
   overflow: visible;
   display: block;
   padding-left: 15px;
@@ -883,7 +883,7 @@
 .gateway-register-form-container-1-button{
   box-sizing: border-box;
   width: 100%;
-  height: 16%;
+  height: 13%;
   background-color: #107E79;
   border-top: 1px solid #AFAFAF;
   opacity: 0.4;

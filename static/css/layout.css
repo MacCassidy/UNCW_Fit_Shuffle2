@@ -33,12 +33,12 @@ body{
 #main-header-img-container{
   box-sizing: border-box;
   height: 100%;
-  width: 15%;
+  width: 17%;
 }
 #main-header-title-container{
   box-sizing: border-box;
   height: 100%;
-  width: 55%;
+  width: 56%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -47,8 +47,7 @@ body{
 #main-header-username-container{
   box-sizing: border-box;
   height: 100%;
-  width: 30%;
-  background-color: blue;
+  width: 31%;
 }
 #logo{
   height: 100%;
