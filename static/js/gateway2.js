@@ -320,7 +320,7 @@ $(document).ready(function(){
     // reset login form stuff
     Vars.logged_in_error.hide();
     Vars.login_form_email_error_message.hide();
-    Vars.login_form_email_input.val("");
+    Vars.login_form_email_input.val("yo");
     Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
     Vars.login_form_password_error_message.hide();
     Vars.login_form_password_input.val("");
