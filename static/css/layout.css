@@ -11,12 +11,12 @@ body{
 }
 #main-container{
   box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   max-width: 450px;
   max-height: 850px;
   min-width: 320px;
   min-height: 550px;
-  height: 100%;
-  width: 100%;
   border: 1px solid #AFAFAF;
   display: block;
   background-color: #FFFFFF;
