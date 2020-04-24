@@ -224,6 +224,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  outline: none;
 }
 #login-form-email-input{
   box-sizing: border-box;
@@ -233,6 +234,7 @@
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
   padding-left: 7px;
+  outline: none;
 }
 #login-form-email-input::placeholder{
   color: #B3B8BF;
@@ -244,6 +246,7 @@
   width: 100%;
   display: block;
   overflow: hidden;
+  outline: none;
 }
 .login-form-password-error-container{
   box-sizing: border-box;
@@ -272,6 +275,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  outline: none;
 }
 #login-form-password-input{
   box-sizing: border-box;
@@ -281,6 +285,7 @@
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
   padding-left: 7px;
+  outline: none;
   /* color: #B3B8BF; */
 }
 #login-form-password-input::placeholder{
@@ -405,6 +410,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-username-input::placeholder{
   color: #B3B8BF;
@@ -418,6 +424,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-email-input::placeholder{
   color: #B3B8BF;
@@ -438,6 +445,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-password-input::placeholder{
   color: #B3B8BF;
@@ -479,6 +487,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-age-input::placeholder{
   color: #B3B8BF;
@@ -492,6 +501,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-height-ft-input::placeholder{
   color: #B3B8BF;
@@ -505,6 +515,7 @@
   font-size: 18px;
   padding-left: 7px;
   overflow: hidden;
+  outline: none;
 }
 #register-form-height-in-input::placeholder{
   color: #B3B8BF;

@@ -669,7 +669,10 @@ $(document).ready(function(){
   Vars.register_form_age_input.on('keydown', function(e){
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.key);
+    // var code = e.key;
+    var str = '' + e.key;
+    $(this).val(str);
+    // console.log(e.key);
     return false;
     //change password back to hidden state
     Vars.password_hide.hide();
