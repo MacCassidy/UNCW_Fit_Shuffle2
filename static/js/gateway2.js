@@ -667,11 +667,13 @@ $(document).ready(function(){
 
   // Register Tab Age Input
   Vars.register_form_age_input.on("input", function(e){
-    // $(this)
-    // e.preventDefault();
-    // e.stopPropagation();
-    $(this).val("yaaa");
+    e.preventDefault();
+    e.stopPropagation();
+    let str = $(this).val();
+    $(this).val(str.slice(0, str.length - 1));
+    $(this).val(str);
     console.log("yayayyay");
+    return false
   });
 
   // Vars.register_form_age_input.on('keydown', function(e){
