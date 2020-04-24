@@ -231,6 +231,7 @@
   height: 100%;
   width: 100%;
   outline: none;
+  box-shadow: none;
   border: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
@@ -285,6 +286,7 @@
   width: 100%;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -411,6 +413,7 @@
   width: 100%;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -427,6 +430,7 @@
   width: 100%;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -450,6 +454,7 @@
   width: 80%;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -494,6 +499,7 @@
   width: 150px;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -510,6 +516,7 @@
   width: 150px;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
@@ -526,6 +533,7 @@
   width: 150px;
   outline: none;
   border: none;
+  box-shadow: none;
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
