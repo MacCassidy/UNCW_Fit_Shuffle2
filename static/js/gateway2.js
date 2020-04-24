@@ -666,77 +666,89 @@ $(document).ready(function(){
   }
 
   // Register Tab Age Input
-  Vars.register_form_age_input.on('keydown', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    // var code = e.key;
-    var str = '' + e.which;
-    $(this).val(str);
-    // console.log(e.key);
-    return false;
-    //change password back to hidden state
-    Vars.password_hide.hide();
-    Vars.password_show.show();
-    Vars.register_form_password_input.attr("type","password");
-    // key codes are digits 0-9 (48 = 0) in asc order
-    var code;
-    if (e.which !== undefined) {
-      code = e.which;
-    } else if (e.keyCode !== undefined) {
-      code = e.keyCode;
-    } else if (e.keyIdentifier !== undefined) {
-      code = e.keyIdentifier;
-    } else if (e.key !== undefined){
-      code = e.key;
-    }
-    if (e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57){
-
-
-      if ($(this).val().length >= 2) {
-        // console.log(">=2");
-        Vars.age_check();
-        return false
-      } else if($(this).val().length == 1) {
-        // console.log("one");
-        let temp = parseInt("" + $(this).val() + String.fromCharCode(e.which));
-        if (temp > 13 && temp < 65) {
-          $(this).val(temp);
-          Vars.age_check();
-          return false;
-        } else {
-          Vars.age_check();
-          return false
-        }
-      } else {
-        // console.log("none");
-        $(this).val(String.fromCharCode(e.which));
-        Vars.age_check();
-        return false
-      }
-
-
-
-    } else {
-      if(e.which == 8){
-        // console.log("backspace");
-        if($(this).val().length == 2){
-           $(this).val($(this).val().slice(0, 1));
-           Vars.age_check();
-           return false;
-        } else if ($(this).val().length == 1) {
-          $(this).val('');
-          Vars.age_check();
-          return false
-        } else {
-          Vars.age_check();
-          return false
-        }
-
-      }
-      Vars.age_check();
-      return false
-    }
+  Vars.register_form_age_input.on("input", function(e){
+    // $(this)
+    // e.preventDefault();
+    // e.stopPropagation();
+    $(this).val("yaaa");
+    console.log("yayayyay");
   });
+
+  // Vars.register_form_age_input.on('keydown', function(e){
+  //   // e.preventDefault();
+  //   // e.stopPropagation();
+  //   return false;
+  //   // var code = e.key;
+  //   var str = '' + e.which;
+  //   $(this).val(str);
+  //   // console.log(e.key);
+  //   return false;
+  //   //change password back to hidden state
+  //   Vars.password_hide.hide();
+  //   Vars.password_show.show();
+  //   Vars.register_form_password_input.attr("type","password");
+  //   // key codes are digits 0-9 (48 = 0) in asc order
+  //   var code;
+  //   if (e.which !== undefined) {
+  //     code = e.which;
+  //   } else if (e.keyCode !== undefined) {
+  //     code = e.keyCode;
+  //   } else if (e.keyIdentifier !== undefined) {
+  //     code = e.keyIdentifier;
+  //   } else if (e.key !== undefined){
+  //     code = e.key;
+  //   }
+  //   if (e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57){
+  //
+  //
+  //     if ($(this).val().length >= 2) {
+  //       // console.log(">=2");
+  //       Vars.age_check();
+  //       return false
+  //     } else if($(this).val().length == 1) {
+  //       // console.log("one");
+  //       let temp = parseInt("" + $(this).val() + String.fromCharCode(e.which));
+  //       if (temp > 13 && temp < 65) {
+  //         $(this).val(temp);
+  //         Vars.age_check();
+  //         return false;
+  //       } else {
+  //         Vars.age_check();
+  //         return false
+  //       }
+  //     } else {
+  //       // console.log("none");
+  //       $(this).val(String.fromCharCode(e.which));
+  //       Vars.age_check();
+  //       return false
+  //     }
+  //
+  //
+  //
+  //   } else {
+  //     if(e.which == 8){
+  //       // console.log("backspace");
+  //       if($(this).val().length == 2){
+  //          $(this).val($(this).val().slice(0, 1));
+  //          Vars.age_check();
+  //          return false;
+  //       } else if ($(this).val().length == 1) {
+  //         $(this).val('');
+  //         Vars.age_check();
+  //         return false
+  //       } else {
+  //         Vars.age_check();
+  //         return false
+  //       }
+  //
+  //     }
+  //     Vars.age_check();
+  //     return false
+  //   }
+  // });
+
+
+
 
   // Register Tab Height ft Post-Input Function
   // Vars.register_form_height_ft_input
