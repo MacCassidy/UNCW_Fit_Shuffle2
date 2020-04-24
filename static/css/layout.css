@@ -1,7 +1,7 @@
 body{
   box-sizing: border-box;
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  /* width: 100vw; */
   background-color: #3C446B;
   display: flex;
   flex-wrap: nowrap;
