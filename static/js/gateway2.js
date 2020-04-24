@@ -670,7 +670,7 @@ $(document).ready(function(){
     e.preventDefault();
     e.stopPropagation();
     // var code = e.key;
-    var str = '' + e.key;
+    var str = '' + e.which;
     $(this).val(str);
     // console.log(e.key);
     return false;
