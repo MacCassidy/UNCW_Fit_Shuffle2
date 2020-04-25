@@ -53,60 +53,95 @@ $(document).ready(function(){
   // timezone input
   Vars.timezone_buttons_container = $('.register-form-timezone-input-container');
   Vars.timezone_field = $("input[name='timezone']");
+  Vars.eastern_time_button_container = $('#eastern-time-button-container');
   Vars.eastern_time_button = $('#eastern-time-button');
+  Vars.pacific_time_button_container = $('#pacific-time-button-container');
   Vars.pacific_time_button = $('#pacific-time-button');
+  Vars.alaska_time_button_container = $('#alaska-time-button-container');
   Vars.alaska_time_button = $('#alaska-time-button');
+  Vars.central_time_button_container = $('#central-time-button-container');
   Vars.central_time_button = $('#central-time-button');
+  Vars.mountain_time_button_container = $('#mountain-time-button-container');
   Vars.mountain_time_button = $('#mountain-time-button');
+  Vars.hawaii_time_button_container = $('#hawaii-time-button-container');
   Vars.hawaii_time_button = $('#hawaii-time-button');
+
   // cardio input
   Vars.cardio_buttons_container = $('#experience-input-container-cardio');
   Vars.cardio_field = $("input[name='cardio-experience']");
+  Vars.cardio_button_container_beginner = $('#cardio-button-container-beginner');
   Vars.cardio_beginner_button = $('#cardio-button-beginner');
+  Vars.cardio_button_container_novice = $('#cardio-button-container-novice');
   Vars.cardio_novice_button = $('#cardio-button-novice');
+  Vars.cardio_button_container_intermediate = $('#cardio-button-container-intermediate');
   Vars.cardio_intermediate_button = $('#cardio-button-intermediate');
+  Vars.cardio_button_container_experienced = $('#cardio-button-container-experienced');
   Vars.cardio_experienced_button = $('#cardio-button-experienced');
   // chest input
   Vars.chest_buttons_container = $('#experience-input-container-chest');
   Vars.chest_field = $("input[name='chest-experience']");
+  Vars.chest_button_container_beginner = $('#chest-button-container-beginner');
   Vars.chest_beginner_button = $('#chest-button-beginner');
+  Vars.chest_button_container_novice = $('#chest-button-container-novice');
   Vars.chest_novice_button = $('#chest-button-novice');
+  Vars.chest_button_container_intermediate = $('#chest-button-container-intermediate');
   Vars.chest_intermediate_button = $('#chest-button-intermediate');
+  Vars.chest_button_container_experienced = $('#chest-button-container-experienced');
   Vars.chest_experienced_button = $('#chest-button-experienced');
   // legs input
   Vars.legs_buttons_container = $('#experience-input-container-legs');
   Vars.legs_field = $("input[name='legs-experience']");
+  Vars.legs_button_container_beginner = $('#legs-button-container-beginner');
   Vars.legs_beginner_button = $('#legs-button-beginner');
+  Vars.legs_button_container_novice = $('#legs-button-container-novice');
   Vars.legs_novice_button = $('#legs-button-novice');
+  Vars.legs_button_container_intermediate = $('#legs-button-container-intermediate');
   Vars.legs_intermediate_button = $('#legs-button-intermediate');
+  Vars.legs_button_container_experienced = $('#legs-button-container-experienced');
   Vars.legs_experienced_button = $('#legs-button-experienced');
   // back input
   Vars.back_buttons_container = $('#experience-input-container-back');
   Vars.back_field = $("input[name='back-experience']");
+  Vars.back_button_container_beginner = $('#back-button-container-beginner');
   Vars.back_beginner_button = $('#back-button-beginner');
+  Vars.back_button_container_novice = $('#back-button-container-novice');
   Vars.back_novice_button = $('#back-button-novice');
+  Vars.back_button_container_intermediate = $('#back-button-container-intermediate');
   Vars.back_intermediate_button = $('#back-button-intermediate');
+  Vars.back_button_container_experienced = $('#back-button-container-experienced');
   Vars.back_experienced_button = $('#back-button-experienced');
   // core input
   Vars.core_buttons_container = $('#experience-input-container-core');
   Vars.core_field = $("input[name='core-experience']");
+  Vars.core_button_container_beginner = $('#core-button-container-beginner');
   Vars.core_beginner_button = $('#core-button-beginner');
+  Vars.core_button_container_novice = $('#core-button-container-novice');
   Vars.core_novice_button = $('#core-button-novice');
+  Vars.core_button_container_intermediate = $('#core-button-container-intermediate');
   Vars.core_intermediate_button = $('#core-button-intermediate');
+  Vars.core_button_container_experienced = $('#core-button-container-experienced');
   Vars.core_experienced_button = $('#core-button-experienced');
   // shoulders input
   Vars.shoulders_buttons_container = $('#experience-input-container-shoulders');
   Vars.shoulders_field = $("input[name='shoulders-experience']");
+  Vars.shoulders_button_container_beginner = $('#shoulders-button-container-beginner');
   Vars.shoulders_beginner_button = $('#shoulders-button-beginner');
+  Vars.shoulders_button_container_novice = $('#shoulders-button-container-novice');
   Vars.shoulders_novice_button = $('#shoulders-button-novice');
+  Vars.shoulders_button_container_intermediate = $('#shoulders-button-container-intermediate');
   Vars.shoulders_intermediate_button = $('#shoulders-button-intermediate');
+  Vars.shoulders_button_container_experienced = $('#shoulders-button-container-experienced');
   Vars.shoulders_experienced_button = $('#shoulders-button-experienced');
   // arms input
   Vars.arms_buttons_container = $('#experience-input-container-arms');
   Vars.arms_field = $("input[name='arms-experience']");
+  Vars.arms_button_container_beginner = $('#arms-button-container-beginner');
   Vars.arms_beginner_button = $('#arms-button-beginner');
+  Vars.arms_button_container_novice = $('#arms-button-container-novice');
   Vars.arms_novice_button = $('#arms-button-novice');
+  Vars.arms_button_container_intermediate = $('#arms-button-container-intermediate');
   Vars.arms_intermediate_button = $('#arms-button-intermediate');
+  Vars.arms_button_container_experienced = $('#arms-button-container-experienced');
   Vars.arms_experienced_button = $('#arms-button-experienced');
   // button stuff
   Vars.gateway_register_form_container_button = $('.gateway-register-form-container-1-button');
@@ -304,31 +339,89 @@ $(document).ready(function(){
   Vars.gateway_nav_login.on('click', function(e){
     e.preventDefault();
     e.stopPropagation();
+    // Reset Tabs
     Vars.gateway_nav_register.css("pointer-events", "auto");
     Vars.gateway_nav_login.css("pointer-events", "none");
     Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-    // change borders and font colors of other tabs
+    // Change borders and font colors of other tabs
     Vars.gateway_nav_register.css("border-bottom", "3px solid #FFFFFF");
     Vars.gateway_register.css("color", "#B3B8BF");
     Vars.gateway_nav_login.css("border-bottom", "3px solid #1A7E79");
     Vars.gateway_login.css("color", "#107E79");
     Vars.gateway_nav_forgot_password.css("border-bottom", "3px solid #FFFFFF");
     Vars.gateway_forgot_password.css("color", "#B3B8BF");
-    // hide all Other tab containers
+    // Hide Other Forms
     Vars.gateway_register_form_container.hide();
     Vars.gateway_forgot_password_form_container.hide();
-    // reset login form stuff
+    // Reset Login form
     Vars.logged_in_error.hide();
     Vars.login_form_email_error_message.hide();
+    Vars.login_form_email_input.prop('disabled', false);
     Vars.login_form_email_input.val('');
     Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
     Vars.login_form_password_error_message.hide();
+    Vars.login_form_password_input.prop('disabled', false);
     Vars.login_form_password_input.val('');
     Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
     Vars.gateway_login_form_button.css('opacity', '0.4');
     Vars.gateway_login_form_button.css("pointer-events", "none");
-    // show login form container
+    // Show Login Form
     Vars.gateway_login_form_container.show();
+    // Reset Register Form
+    Vars.register_form_username_input.prop('disabled', false);
+    Vars.register_form_username_input.val('');
+    Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_email_error_message.hide();
+    Vars.register_form_email_input.prop('disabled', false);
+    Vars.register_form_email_input.val('');
+    Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input.prop('disabled', false);
+    Vars.register_form_password_input.val('');
+    Vars.register_form_password_input.attr("type","password");
+    Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.password_show.show();
+    Vars.password_hide.hide();
+    Vars.register_form_age_input.prop('disabled', false);
+    Vars.register_form_age_input.val('');
+    Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_ft_input.prop('disabled', false);
+    Vars.register_form_height_ft_input.val('');
+    Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_in_input.prop('disabled', false);
+    Vars.register_form_height_in_input.val('');
+    Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
+    Vars.male_button.prop('disabled', false);
+    Vars.male_button.prop('checked', false);
+    Vars.male_button_container.css('border', '1px solid #C3C3C3');
+    Vars.female_button.prop('disabled', false);
+    Vars.female_button.prop('checked', false);
+    Vars.female_button_container.css('border', '1px solid #C3C3C3');
+    Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.eastern_time_button.prop('disabled', false);
+    Vars.eastern_time_button.prop('checked', false);
+    Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.pacific_time_button.prop('disabled', false);
+    Vars.pacific_time_button.prop('checked', false);
+    Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.alaska_time_button.prop('disabled', false);
+    Vars.alaska_time_button.prop('checked', false);
+    Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.central_time_button.prop('disabled', false);
+    Vars.central_time_button.prop('checked', false);
+    Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.mountain_time_button.prop('disabled', false);
+    Vars.mountain_time_button.prop('checked', false);
+    Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.hawaii_time_button.prop('disabled', false);
+    Vars.hawaii_time_button.prop('checked', false);
+    Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    // Reset Forgot Password Form
+    //**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
   });
 
 
@@ -349,8 +442,75 @@ $(document).ready(function(){
     // hide all Other tab containers
     Vars.gateway_login_form_container.hide();
     Vars.gateway_forgot_password_form_container.hide();
+    // Reset Register Form
+    Vars.register_form_username_input.prop('disabled', false);
+    Vars.register_form_username_input.val('');
+    Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_email_error_message.hide();
+    Vars.register_form_email_input.prop('disabled', false);
+    Vars.register_form_email_input.val('');
+    Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input.prop('disabled', false);
+    Vars.register_form_password_input.val('');
+    Vars.register_form_password_input.attr("type","password");
+    Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.password_show.show();
+    Vars.password_hide.hide();
+    Vars.register_form_age_input.prop('disabled', false);
+    Vars.register_form_age_input.val('');
+    Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_ft_input.prop('disabled', false);
+    Vars.register_form_height_ft_input.val('');
+    Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_in_input.prop('disabled', false);
+    Vars.register_form_height_in_input.val('');
+    Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
+    Vars.male_button.prop('disabled', false);
+    Vars.male_button.prop('checked', false);
+    Vars.male_button_container.css('border', '1px solid #C3C3C3');
+    Vars.female_button.prop('disabled', false);
+    Vars.female_button.prop('checked', false);
+    Vars.female_button_container.css('border', '1px solid #C3C3C3');
+    Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.eastern_time_button.prop('disabled', false);
+    Vars.eastern_time_button.prop('checked', false);
+    Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.pacific_time_button.prop('disabled', false);
+    Vars.pacific_time_button.prop('checked', false);
+    Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.alaska_time_button.prop('disabled', false);
+    Vars.alaska_time_button.prop('checked', false);
+    Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.central_time_button.prop('disabled', false);
+    Vars.central_time_button.prop('checked', false);
+    Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.mountain_time_button.prop('disabled', false);
+    Vars.mountain_time_button.prop('checked', false);
+    Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.hawaii_time_button.prop('disabled', false);
+    Vars.hawaii_time_button.prop('checked', false);
+    Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    Vars.gateway_register_form_container_button.css("pointer-events", "none");
     // show register form container
     Vars.gateway_register_form_container.show();
+    // Reset Login Form
+    Vars.logged_in_error.hide();
+    Vars.login_form_email_error_message.hide();
+    Vars.login_form_email_input.prop('disabled', false);
+    Vars.login_form_email_input.val('');
+    Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
+    Vars.login_form_password_error_message.hide();
+    Vars.login_form_password_input.prop('disabled', false);
+    Vars.login_form_password_input.val('');
+    Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
+    Vars.gateway_login_form_button.css('opacity', '0.4');
+    Vars.gateway_login_form_button.css("pointer-events", "none");
+    //Reset Forgot PASSWORD Form
+    // /**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
   });
 
 
@@ -371,8 +531,75 @@ $(document).ready(function(){
     // hide all Other tab containers
     Vars.gateway_login_form_container.hide();
     Vars.gateway_register_form_container.hide();
+    // Reset Forgot Password Form
+    // /**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
     // show forgot password form container
     Vars.gateway_forgot_password_form_container.show();
+    // Reset Register Form
+    Vars.register_form_username_input.prop('disabled', false);
+    Vars.register_form_username_input.val('');
+    Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_email_error_message.hide();
+    Vars.register_form_email_input.prop('disabled', false);
+    Vars.register_form_email_input.val('');
+    Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input.prop('disabled', false);
+    Vars.register_form_password_input.val('');
+    Vars.register_form_password_input.attr("type","password");
+    Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+    Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.password_show.show();
+    Vars.password_hide.hide();
+    Vars.register_form_age_input.prop('disabled', false);
+    Vars.register_form_age_input.val('');
+    Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_ft_input.prop('disabled', false);
+    Vars.register_form_height_ft_input.val('');
+    Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
+    Vars.register_form_height_in_input.prop('disabled', false);
+    Vars.register_form_height_in_input.val('');
+    Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
+    Vars.male_button.prop('disabled', false);
+    Vars.male_button.prop('checked', false);
+    Vars.male_button_container.css('border', '1px solid #C3C3C3');
+    Vars.female_button.prop('disabled', false);
+    Vars.female_button.prop('checked', false);
+    Vars.female_button_container.css('border', '1px solid #C3C3C3');
+    Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.eastern_time_button.prop('disabled', false);
+    Vars.eastern_time_button.prop('checked', false);
+    Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.pacific_time_button.prop('disabled', false);
+    Vars.pacific_time_button.prop('checked', false);
+    Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.alaska_time_button.prop('disabled', false);
+    Vars.alaska_time_button.prop('checked', false);
+    Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.central_time_button.prop('disabled', false);
+    Vars.central_time_button.prop('checked', false);
+    Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.mountain_time_button.prop('disabled', false);
+    Vars.mountain_time_button.prop('checked', false);
+    Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.hawaii_time_button.prop('disabled', false);
+    Vars.hawaii_time_button.prop('checked', false);
+    Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    // Reset Login Form
+    Vars.logged_in_error.hide();
+    Vars.login_form_email_error_message.hide();
+    Vars.login_form_email_input.prop('disabled', false);
+    Vars.login_form_email_input.val('');
+    Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
+    Vars.login_form_password_error_message.hide();
+    Vars.login_form_password_input.prop('disabled', false);
+    Vars.login_form_password_input.val('');
+    Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
+    Vars.gateway_login_form_button.css('opacity', '0.4');
+    Vars.gateway_login_form_button.css("pointer-events", "none");
   });
 
 
@@ -454,6 +681,7 @@ $(document).ready(function(){
           Vars.login_form_password_input.val('');
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
+          alert("sever request failed somehow, try again");
         } else if (data.error == 'invalid email') {
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
@@ -519,6 +747,7 @@ $(document).ready(function(){
           Vars.login_form_password_input.val('');
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
+          alert("sever request failed somehow, try again");
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
         Vars.gateway_nav_login.css("pointer-events", "none");
@@ -530,6 +759,7 @@ $(document).ready(function(){
         Vars.login_form_password_error_message.hide();
         Vars.login_form_password_input.prop('disabled', false);
         Vars.gateway_login_form_button.css("pointer-events", "auto");
+        alert("sever request failed somehow, try again");
       });
     }
   });
@@ -669,140 +899,2066 @@ $(document).ready(function(){
   Vars.register_form_age_input.on("input", function(e){
     e.preventDefault();
     e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    let numbers = /^[0-9]+$/;
     let str = $(this).val();
-    $(this).val(str.slice(0, str.length - 1));
-    $(this).val(str);
-    console.log("yayayyay");
-    return false
+    if (str.match(numbers)){
+      if (str.length > 2){
+        $(this).val(str.slice(0, str.length - 1));
+        Vars.age_check();
+      } else if(str.length == 2 && (parseInt(str) < 14 || parseInt(str) > 65) ){
+        $(this).val(str.slice(0, str.length - 1));
+        Vars.age_check();
+      } else {
+        $(this).val(str);
+        Vars.age_check();
+      }
+    } else {
+      $(this).val('');
+      Vars.age_check();
+    }
   });
 
-  // Vars.register_form_age_input.on('keydown', function(e){
-  //   // e.preventDefault();
-  //   // e.stopPropagation();
-  //   return false;
-  //   // var code = e.key;
-  //   var str = '' + e.which;
-  //   $(this).val(str);
-  //   // console.log(e.key);
-  //   return false;
-  //   //change password back to hidden state
-  //   Vars.password_hide.hide();
-  //   Vars.password_show.show();
-  //   Vars.register_form_password_input.attr("type","password");
-  //   // key codes are digits 0-9 (48 = 0) in asc order
-  //   var code;
-  //   if (e.which !== undefined) {
-  //     code = e.which;
-  //   } else if (e.keyCode !== undefined) {
-  //     code = e.keyCode;
-  //   } else if (e.keyIdentifier !== undefined) {
-  //     code = e.keyIdentifier;
-  //   } else if (e.key !== undefined){
-  //     code = e.key;
-  //   }
-  //   if (e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57){
-  //
-  //
-  //     if ($(this).val().length >= 2) {
-  //       // console.log(">=2");
-  //       Vars.age_check();
-  //       return false
-  //     } else if($(this).val().length == 1) {
-  //       // console.log("one");
-  //       let temp = parseInt("" + $(this).val() + String.fromCharCode(e.which));
-  //       if (temp > 13 && temp < 65) {
-  //         $(this).val(temp);
-  //         Vars.age_check();
-  //         return false;
-  //       } else {
-  //         Vars.age_check();
-  //         return false
-  //       }
-  //     } else {
-  //       // console.log("none");
-  //       $(this).val(String.fromCharCode(e.which));
-  //       Vars.age_check();
-  //       return false
-  //     }
-  //
-  //
-  //
-  //   } else {
-  //     if(e.which == 8){
-  //       // console.log("backspace");
-  //       if($(this).val().length == 2){
-  //          $(this).val($(this).val().slice(0, 1));
-  //          Vars.age_check();
-  //          return false;
-  //       } else if ($(this).val().length == 1) {
-  //         $(this).val('');
-  //         Vars.age_check();
-  //         return false
-  //       } else {
-  //         Vars.age_check();
-  //         return false
-  //       }
-  //
-  //     }
-  //     Vars.age_check();
-  //     return false
-  //   }
-  // });
-
-
-
+  // Register Tab Age Input Focus OUT
+  Vars.register_form_age_input.focusout(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let val = $(this).val();
+    if(val < 10 || val > 65){
+      $(this).val('');
+      Vars.age_check();
+    }
+  });
 
   // Register Tab Height ft Post-Input Function
-  // Vars.register_form_height_ft_input
-  // Vars.height_ft_check = function(){
-  //   if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
-  //     //change border in email input field incase it's not darkend
-  //     Vars.register_form_height_ft_input.css('border', '1px solid #3D456A');
-  //     //change sign-up button properties
-  //     Vars.gateway_register_form_container_button.css('opacity', '1');
-  //     Vars.gateway_register_form_container_button.css("pointer-events", "auto");
-  //   } else if (Vars.register_form_age_input.val()){
-  //     Vars.register_form_age_input.css('border', '1px solid #3D456A');
-  //   } else {
-  //     Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
-  //     Vars.gateway_register_form_container_button.css('opacity', '0.4');
-  //     Vars.gateway_register_form_container_button.css("pointer-events", "none");
-  //   }
-  // }
+  Vars.height_ft_check = function(param){
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      //change border in email input field incase it's not darkend
+      Vars.register_form_height_ft_input.css('border', '1px solid #3D456A');
+      //change sign-up button properties
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.register_form_height_ft_input.val()){
+      Vars.register_form_height_ft_input.css('border', '1px solid #3D456A');
+    } else {
+      Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  }
+
   // Register Tab Height ft Input
+  Vars.register_form_height_ft_input.on("input", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    let numbers = /^[0-9]+$/;
+    let str = $(this).val();
+    if (str.match(numbers)){
+      if (str.length > 1){
+        $(this).val(str.slice(0, str.length - 1));
+        Vars.height_ft_check();
+      } else if(str.length == 1 && (parseInt(str) < 3 || parseInt(str) > 8)){
+        $(this).val('');
+        Vars.height_ft_check();
+      } else {
+        $(this).val(str);
+        Vars.height_ft_check();
+      }
+    } else {
+      $(this).val('');
+      Vars.height_ft_check();
+    }
+  });
+
 
   // Register Tab Height in Post-Input Function
+  Vars.register_form_height_in_input
+  Vars.height_in_check = function(param){
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      //change border in email input field incase it's not darkend
+      Vars.register_form_height_in_input.css('border', '1px solid #3D456A');
+      //change sign-up button properties
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.register_form_height_in_input.val()){
+      Vars.register_form_height_in_input.css('border', '1px solid #3D456A');
+    } else {
+      Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  }
 
-
-  // Vars.register_form_age_input.keyup(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //
-  //
-  // });
-
-
-  // Vars.register_form_age_input.on('keyup', function(){
-
-
-
-
-
-  // Register Tab Height ft Input
   // Register Tab Height in Input
-  // Register Tab Gender Input
-  // Register Tab Timezone Input
-  // Register Tab Cardio Input
-  // Register Tab Chest Input
-  // Register Tab Legs Input
-  // Register Tab Back Input
-  // Register Tab Core Input
-  // Register Tab Shoulders Input
-  // Register Tab Arms Input
+  Vars.register_form_height_in_input.on("input", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    let numbers = /^[0-9]+$/;
+    let str = $(this).val();
+    if (str.match(numbers)){
+      if (str.length > 2){
+        $(this).val(str.slice(0, str.length - 1));
+        Vars.height_in_check();
+      } else if(str.length == 2 && (parseInt(str) > 11  || str.charAt(0) == "0")){
+        $(this).val(str.slice(0, str.length - 1));
+        Vars.height_in_check();
+      } else {
+        $(this).val(str);
+        Vars.height_in_check();
+      }
+    } else {
+      $(this).val('');
+      Vars.height_in_check();
+    }
+  });
+
+  // Register Tab Gender Male Button Click
+  Vars.male_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.female_button_container.css('border', '1px solid #C3C3C3');
+      Vars.male_button_container.css('border', '1px solid #3D456A');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.male_button.is(":checked")){
+      Vars.female_button_container.css('border', '1px solid #C3C3C3');
+      Vars.male_button_container.css('border', '1px solid #3D456A');
+    } else {
+      Vars.female_button_container.css('border', '1px solid #C3C3C3');
+      Vars.male_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Gender Female Button Click
+  Vars.female_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.male_button_container.css('border', '1px solid #C3C3C3');
+      Vars.female_button_container.css('border', '1px solid #3D456A');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.female_button.is(":checked")){
+      Vars.male_button_container.css('border', '1px solid #C3C3C3');
+      Vars.female_button_container.css('border', '1px solid #3D456A');
+    } else {
+      Vars.male_button_container.css('border', '1px solid #C3C3C3');
+      Vars.female_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Timezone Eastern Button Click
+  Vars.eastern_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.eastern_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.eastern_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.eastern_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Timezone Pacific Button Click
+  Vars.pacific_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #3D456A');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.pacific_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #3D456A');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Timezone Alaska Button Click
+  Vars.alaska_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.alaska_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.alaska_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.alaska_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Timezone Central Button Click
+  Vars.central_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.central_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.central_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.central_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Timezone Mountain Button Click
+  Vars.mountain_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.mountain_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.mountain_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.mountain_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Timezone Hawaii Button Click
+  Vars.hawaii_time_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.hawaii_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.hawaii_time_button.is(":checked")){
+      Vars.timezone_buttons_container.css('border', '1px solid #3D456A');
+      Vars.hawaii_time_button_container.css('border', '1px solid #3D456A');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.eastern_time_button.prop('checked', false);
+      Vars.pacific_time_button.prop('checked', false);
+      Vars.alaska_time_button.prop('checked', false);
+      Vars.central_time_button.prop('checked', false);
+      Vars.mountain_time_button.prop('checked', false);
+      Vars.hawaii_time_button.prop('checked', false);
+      Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Cardio Beginner Button Click
+  Vars.cardio_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.cardio_beginner_button.is(":checked")){
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.cardio_beginner_button.prop('checked', false);
+      Vars.cardio_novice_button.prop('checked', false);
+      Vars.cardio_intermediate_button.prop('checked', false);
+      Vars.cardio_experienced_button.prop('checked', false);
+      Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Cardio Novice Button Click
+  Vars.cardio_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.cardio_novice_button.is(":checked")){
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.cardio_beginner_button.prop('checked', false);
+      Vars.cardio_novice_button.prop('checked', false);
+      Vars.cardio_intermediate_button.prop('checked', false);
+      Vars.cardio_experienced_button.prop('checked', false);
+      Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Cardio Intermediate Button Click
+  Vars.cardio_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.cardio_intermediate_button.is(":checked")){
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.cardio_beginner_button.prop('checked', false);
+      Vars.cardio_novice_button.prop('checked', false);
+      Vars.cardio_intermediate_button.prop('checked', false);
+      Vars.cardio_experienced_button.prop('checked', false);
+      Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Cardio Experienced Button Click
+  Vars.cardio_experienced_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.cardio_experienced_button.is(":checked")){
+      Vars.cardio_buttons_container.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.cardio_beginner_button.prop('checked', false);
+      Vars.cardio_novice_button.prop('checked', false);
+      Vars.cardio_intermediate_button.prop('checked', false);
+      Vars.cardio_experienced_button.prop('checked', false);
+      Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Chest Beginner Button Click
+  Vars.chest_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.chest_beginner_button.is(":checked")) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.chest_beginner_button.prop('checked', false);
+      Vars.chest_novice_button.prop('checked', false);
+      Vars.chest_intermediate_button.prop('checked', false);
+      Vars.chest_experienced_button.prop('checked', false);
+      Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Chest Novice Button Click
+  Vars.chest_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.chest_novice_button.is(":checked")) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.chest_beginner_button.prop('checked', false);
+      Vars.chest_novice_button.prop('checked', false);
+      Vars.chest_intermediate_button.prop('checked', false);
+      Vars.chest_experienced_button.prop('checked', false);
+      Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Chest Intermediate Button Click
+  Vars.chest_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.chest_intermediate_button.is(":checked")) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.chest_beginner_button.prop('checked', false);
+      Vars.chest_novice_button.prop('checked', false);
+      Vars.chest_intermediate_button.prop('checked', false);
+      Vars.chest_experienced_button.prop('checked', false);
+      Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Chest Experienced Button Click
+  Vars.chest_experienced_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.chest_experienced_button.is(":checked")) {
+      Vars.chest_buttons_container.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.chest_beginner_button.prop('checked', false);
+      Vars.chest_novice_button.prop('checked', false);
+      Vars.chest_intermediate_button.prop('checked', false);
+      Vars.chest_experienced_button.prop('checked', false);
+      Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Legs Beginner Button Click
+  Vars.legs_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.legs_beginner_button.is(":checked")) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.legs_novice_button.prop('checked', false);
+      Vars.legs_beginner_button.prop('checked', false);
+      Vars.legs_intermediate_button.prop('checked', false);
+      Vars.legs_experienced_button.prop('checked', false);
+      Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Legs Novice Button Click
+  Vars.legs_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.legs_novice_button.is(":checked")) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.legs_novice_button.prop('checked', false);
+      Vars.legs_beginner_button.prop('checked', false);
+      Vars.legs_intermediate_button.prop('checked', false);
+      Vars.legs_experienced_button.prop('checked', false);
+      Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Legs Intermediate Button Click
+  Vars.legs_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.legs_intermediate_button.is(":checked")) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.legs_novice_button.prop('checked', false);
+      Vars.legs_beginner_button.prop('checked', false);
+      Vars.legs_intermediate_button.prop('checked', false);
+      Vars.legs_experienced_button.prop('checked', false);
+      Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Legs Experienced Button Click
+  Vars.legs_experienced_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.legs_experienced_button.is(":checked")) {
+      Vars.legs_buttons_container.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.legs_novice_button.prop('checked', false);
+      Vars.legs_beginner_button.prop('checked', false);
+      Vars.legs_intermediate_button.prop('checked', false);
+      Vars.legs_experienced_button.prop('checked', false);
+      Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Back Beginner Button Click
+  Vars.back_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.back_beginner_button.is(":checked")) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.back_beginner_button.prop('checked', false);
+      Vars.back_novice_button.prop('checked', false);
+      Vars.back_intermediate_button.prop('checked', false);
+      Vars.back_experienced_button.prop('checked', false);
+      Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Back Novice Button Click
+  Vars.back_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.back_novice_button.is(":checked")) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.back_beginner_button.prop('checked', false);
+      Vars.back_novice_button.prop('checked', false);
+      Vars.back_intermediate_button.prop('checked', false);
+      Vars.back_experienced_button.prop('checked', false);
+      Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Back Intermediate Button Click
+  Vars.back_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.back_intermediate_button.is(":checked")) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.back_beginner_button.prop('checked', false);
+      Vars.back_novice_button.prop('checked', false);
+      Vars.back_intermediate_button.prop('checked', false);
+      Vars.back_experienced_button.prop('checked', false);
+      Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Back Experienced Button Click
+  Vars.back_experienced_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.back_experienced_button.is(":checked")) {
+      Vars.back_buttons_container.css('border', '1px solid #3D456A');
+      Vars.back_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.back_beginner_button.prop('checked', false);
+      Vars.back_novice_button.prop('checked', false);
+      Vars.back_intermediate_button.prop('checked', false);
+      Vars.back_experienced_button.prop('checked', false);
+      Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Core Beginner Button Click
+  Vars.core_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.core_beginner_button.is(":checked")) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.core_beginner_button.prop('checked', false);
+      Vars.core_novice_button.prop('checked', false);
+      Vars.core_intermediate_button.prop('checked', false);
+      Vars.core_experienced_button.prop('checked', false);
+      Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Core Novice Button Click
+  Vars.core_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.core_novice_button.is(":checked")) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.core_beginner_button.prop('checked', false);
+      Vars.core_novice_button.prop('checked', false);
+      Vars.core_intermediate_button.prop('checked', false);
+      Vars.core_experienced_button.prop('checked', false);
+      Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Core Intermediate Button Click
+  Vars.core_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.core_intermediate_button.is(":checked")) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.core_beginner_button.prop('checked', false);
+      Vars.core_novice_button.prop('checked', false);
+      Vars.core_intermediate_button.prop('checked', false);
+      Vars.core_experienced_button.prop('checked', false);
+      Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Core Experienced Button Click
+  Vars.core_experienced_button.click(function(e){
+    e.stopPropagation(e);
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.core_experienced_button.is(":checked")) {
+      Vars.core_buttons_container.css('border', '1px solid #3D456A');
+      Vars.core_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.core_beginner_button.prop('checked', false);
+      Vars.core_novice_button.prop('checked', false);
+      Vars.core_intermediate_button.prop('checked', false);
+      Vars.core_experienced_button.prop('checked', false);
+      Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Shoulders Beginner Button Click
+  Vars.shoulders_beginner_button.click(function(e){
+    e.stopPropagation(e);
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.shoulders_beginner_button.is(":checked")) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.shoulders_beginner_button.prop('checked', false);
+      Vars.shoulders_novice_button.prop('checked', false);
+      Vars.shoulders_intermediate_button.prop('checked', false);
+      Vars.shoulders_experienced_button.prop('checked', false);
+      Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Shoulders Novice Button Click
+  Vars.shoulders_novice_button.click(function(e){
+    e.stopPropagation(e);
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.shoulders_novice_button.is(":checked")) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.shoulders_beginner_button.prop('checked', false);
+      Vars.shoulders_novice_button.prop('checked', false);
+      Vars.shoulders_intermediate_button.prop('checked', false);
+      Vars.shoulders_experienced_button.prop('checked', false);
+      Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Shoulders Intermediate Button Click
+  Vars.shoulders_intermediate_button.click(function(e){
+    e.stopPropagation(e);
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.shoulders_intermediate_button.is(":checked")) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.shoulders_beginner_button.prop('checked', false);
+      Vars.shoulders_novice_button.prop('checked', false);
+      Vars.shoulders_intermediate_button.prop('checked', false);
+      Vars.shoulders_experienced_button.prop('checked', false);
+      Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Shoulders Experienced Button Click
+  Vars.shoulders_experienced_button.click(function(e){
+    e.stopPropagation(e);
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.shoulders_experienced_button.is(":checked")) {
+      Vars.shoulders_buttons_container.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.shoulders_beginner_button.prop('checked', false);
+      Vars.shoulders_novice_button.prop('checked', false);
+      Vars.shoulders_intermediate_button.prop('checked', false);
+      Vars.shoulders_experienced_button.prop('checked', false);
+      Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Arms Beginner Button Click
+  Vars.arms_beginner_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.arms_beginner_button.is(":checked")) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.arms_beginner_button.prop('checked', false);
+      Vars.arms_novice_button.prop('checked', false);
+      Vars.arms_intermediate_button.prop('checked', false);
+      Vars.arms_experienced_button.prop('checked', false);
+      Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+  // Register Tab Arms Novice Button Click
+  Vars.arms_novice_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.arms_novice_button.is(":checked")) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_novice.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.arms_beginner_button.prop('checked', false);
+      Vars.arms_novice_button.prop('checked', false);
+      Vars.arms_intermediate_button.prop('checked', false);
+      Vars.arms_experienced_button.prop('checked', false);
+      Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Arms Intermediate Button Click
+  Vars.arms_intermediate_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.arms_intermediate_button.is(":checked")) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.arms_beginner_button.prop('checked', false);
+      Vars.arms_novice_button.prop('checked', false);
+      Vars.arms_intermediate_button.prop('checked', false);
+      Vars.arms_experienced_button.prop('checked', false);
+      Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    }
+  });
+
+
+  // Register Tab Arms Experienced Button Click
+  Vars.arms_experienced_button.click(function(e){
+    e.stopPropagation();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '1');
+      Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    } else if (Vars.arms_experienced_button.is(":checked")) {
+      Vars.arms_buttons_container.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_experienced.css('border', '1px solid #3D456A');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    } else {
+      Vars.arms_beginner_button.prop('checked', false);
+      Vars.arms_novice_button.prop('checked', false);
+      Vars.arms_intermediate_button.prop('checked', false);
+      Vars.arms_experienced_button.prop('checked', false);
+      Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+      Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
+      Vars.gateway_register_form_container_button.css('opacity', '0.4');
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+
+    }
+  });
+
+
   // Register Ajax Call
-
-
-
+  Vars.gateway_register_form_container_button.click(function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    Vars.password_hide.hide();
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
+    // return false;
+    if ( Vars.register_form_username_input.val() && Vars.register_form_email_input.val() && Vars.register_form_password_input.val() && Vars.register_form_age_input.val() && Vars.register_form_height_ft_input.val() && Vars.register_form_height_in_input.val() && Vars.gender_field.is(":checked") && Vars.timezone_field.is(":checked") && Vars.cardio_field.is(":checked") && Vars.chest_field.is(":checked") && Vars.legs_field.is(":checked") && Vars.back_field.is(":checked") && Vars.core_field.is(":checked") && Vars.shoulders_field.is(":checked") && Vars.arms_field.is(":checked") ) {
+      // disable everything
+      Vars.gateway_nav_login.css("pointer-events", "none");
+      Vars.gateway_nav_register.css("pointer-events", "none");
+      Vars.gateway_nav_forgot_password.css("pointer-events", "none");
+      Vars.register_form_username_input.prop('disabled', true);
+      Vars.register_form_email_input.prop('disabled', true);
+      Vars.register_form_password_input.prop('disabled', true);
+      Vars.password_show.css("pointer-events", "none");
+      Vars.password_hide.css("pointer-events", "none");
+      Vars.register_form_age_input.prop('disabled', true);
+      Vars.register_form_height_ft_input.prop('disabled', true);
+      Vars.register_form_height_in_input.prop('disabled', true);
+      Vars.male_button.prop('disabled', true);
+      Vars.female_button.prop('disabled', true);
+      Vars.eastern_time_button.prop('disabled', true);
+      Vars.pacific_time_button.prop('disabled', true);
+      Vars.alaska_time_button.prop('disabled', true);
+      Vars.central_time_button.prop('disabled', true);
+      Vars.mountain_time_button.prop('disabled', true);
+      Vars.hawaii_time_button.prop('disabled', true);
+      Vars.cardio_beginner_button.prop('disabled', true);
+      Vars.cardio_novice_button.prop('disabled', true);
+      Vars.cardio_intermediate_button.prop('disabled', true);
+      Vars.cardio_experienced_button.prop('disabled', true);
+      Vars.chest_beginner_button.prop('disabled', true);
+      Vars.chest_novice_button.prop('disabled', true);
+      Vars.chest_intermediate_button.prop('disabled', true);
+      Vars.chest_experienced_button.prop('disabled', true);
+      Vars.legs_beginner_button.prop('disabled', true);
+      Vars.legs_novice_button.prop('disabled', true);
+      Vars.legs_intermediate_button.prop('disabled', true);
+      Vars.legs_experienced_button.prop('disabled', true);
+      Vars.back_beginner_button.prop('disabled', true);
+      Vars.back_novice_button.prop('disabled', true);
+      Vars.back_intermediate_button.prop('disabled', true);
+      Vars.back_experienced_button.prop('disabled', true);
+      Vars.core_beginner_button.prop('disabled', true);
+      Vars.core_novice_button.prop('disabled', true);
+      Vars.core_intermediate_button.prop('disabled', true);
+      Vars.core_experienced_button.prop('disabled', true);
+      Vars.shoulders_beginner_button.prop('disabled', true);
+      Vars.shoulders_novice_button.prop('disabled', true);
+      Vars.shoulders_intermediate_button.prop('disabled', true);
+      Vars.shoulders_experienced_button.prop('disabled', true);
+      Vars.arms_beginner_button.prop('disabled', true);
+      Vars.arms_novice_button.prop('disabled', true);
+      Vars.arms_intermediate_button.prop('disabled', true);
+      Vars.arms_experienced_button.prop('disabled', true);
+      Vars.gateway_register_form_container_button.css("pointer-events", "none");
+      // make ajax call here
+      $.ajax({
+        data : {
+            // Vars.login_form
+            username : Vars.register_form_username_input.val(),
+            email : Vars.register_form_email_input.val(),
+            password : Vars.register_form_password_input.val(),
+            age : Vars.register_form_age_input.val(),
+            height_ft : Vars.register_form_height_ft_input.val(),
+            height_in : Vars.register_form_height_in_input.val(),
+            gender : $("input[name='gender']:checked").val(),
+            timezone : $("input[name='timezone']:checked").val(),
+            exp_cardio : $("input[name='cardio-experience']:checked").val(),
+            exp_chest : $("input[name='chest-experience']:checked").val(),
+            exp_legs : $("input[name='legs-experience']:checked").val(),
+            exp_back : $("input[name='back-experience']:checked").val(),
+            exp_core : $("input[name='core-experience']:checked").val(),
+            exp_shoulders : $("input[name='shoulders-experience']:checked").val(),
+            exp_arms : $("input[name='arms-experience']:checked").val()
+          },
+          type : 'POST',
+          url : '/register'
+      }).done(function(data){
+        if(data.error == 'missing data') {
+          $('.gateway-register-form-container-1-top-outer').scrollTop(0);
+          Vars.gateway_nav_login.css("pointer-events", "auto");
+          Vars.gateway_nav_register.css("pointer-events", "none");
+          Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
+          Vars.register_form_username_input.prop('disabled', false);
+          Vars.register_form_email_input.prop('disabled', false);
+          Vars.register_form_password_input.prop('disabled', false);
+          Vars.password_show.css("pointer-events", "auto");
+          Vars.password_hide.css("pointer-events", "auto");
+          Vars.register_form_age_input.prop('disabled', false);
+          Vars.register_form_height_ft_input.prop('disabled', false);
+          Vars.register_form_height_in_input.prop('disabled', false);
+          Vars.male_button.prop('disabled', false);
+          Vars.female_button.prop('disabled', false);
+          Vars.eastern_time_button.prop('disabled', false);
+          Vars.pacific_time_button.prop('disabled', false);
+          Vars.alaska_time_button.prop('disabled', false);
+          Vars.central_time_button.prop('disabled', false);
+          Vars.mountain_time_button.prop('disabled', false);
+          Vars.hawaii_time_button.prop('disabled', false);
+          Vars.cardio_beginner_button.prop('disabled', false);
+          Vars.cardio_novice_button.prop('disabled', false);
+          Vars.cardio_intermediate_button.prop('disabled', false);
+          Vars.cardio_experienced_button.prop('disabled', false);
+          Vars.chest_beginner_button.prop('disabled', false);
+          Vars.chest_novice_button.prop('disabled', false);
+          Vars.chest_intermediate_button.prop('disabled', false);
+          Vars.chest_experienced_button.prop('disabled', false);
+          Vars.legs_beginner_button.prop('disabled', false);
+          Vars.legs_novice_button.prop('disabled', false);
+          Vars.legs_intermediate_button.prop('disabled', false);
+          Vars.legs_experienced_button.prop('disabled', false);
+          Vars.back_beginner_button.prop('disabled', false);
+          Vars.back_novice_button.prop('disabled', false);
+          Vars.back_intermediate_button.prop('disabled', false);
+          Vars.back_experienced_button.prop('disabled', false);
+          Vars.core_beginner_button.prop('disabled', false);
+          Vars.core_novice_button.prop('disabled', false);
+          Vars.core_intermediate_button.prop('disabled', false);
+          Vars.core_experienced_button.prop('disabled', false);
+          Vars.shoulders_beginner_button.prop('disabled', false);
+          Vars.shoulders_novice_button.prop('disabled', false);
+          Vars.shoulders_intermediate_button.prop('disabled', false);
+          Vars.shoulders_experienced_button.prop('disabled', false);
+          Vars.arms_beginner_button.prop('disabled', false);
+          Vars.arms_novice_button.prop('disabled', false);
+          Vars.arms_intermediate_button.prop('disabled', false);
+          Vars.arms_experienced_button.prop('disabled', false);
+          Vars.gateway_register_form_container_button.css('opacity', '0.4');
+          Vars.gateway_register_form_container_button.css("pointer-events", "none");
+          Vars.register_form_username_input.val('');
+          Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_email_error_message.hide();
+          Vars.register_form_email_input.val('');
+          Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input.val('');
+          Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.password_hide.hide();
+          Vars.password_show.show();
+          Vars.register_form_password_input.attr("type","password");
+          Vars.register_form_age_input.val('');
+          Vars.register_form_age_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_ft_input.val('');
+          Vars.register_form_height_ft_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_in_input.val('');
+          Vars.register_form_height_in_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.male_button.prop('checked', false);
+          Vars.male_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.female_button.prop('checked', false);
+          Vars.female_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.timezone_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.eastern_time_button.prop('checked', false);
+          Vars.eastern_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.pacific_time_button.prop('checked', false);
+          Vars.pacific_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.alaska_time_button.prop('checked', false);
+          Vars.alaska_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.central_time_button.prop('checked', false);
+          Vars.central_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.mountain_time_button.prop('checked', false);
+          Vars.mountain_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.hawaii_time_button.prop('checked', false);
+          Vars.hawaii_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_beginner_button.prop('checked', false);
+          Vars.cardio_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_novice_button.prop('checked', false);
+          Vars.cardio_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_intermediate_button.prop('checked', false);
+          Vars.cardio_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_experienced_button.prop('checked', false);
+          Vars.cardio_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_beginner_button.prop('checked', false);
+          Vars.chest_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_novice_button.prop('checked', false);
+          Vars.chest_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_intermediate_button.prop('checked', false);
+          Vars.chest_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_experienced_button.prop('checked', false);
+          Vars.chest_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_beginner_button.prop('checked', false);
+          Vars.legs_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_novice_button.prop('checked', false);
+          Vars.legs_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_intermediate_button.prop('checked', false);
+          Vars.legs_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_experienced_button.prop('checked', false);
+          Vars.legs_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_beginner_button.prop('checked', false);
+          Vars.back_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_novice_button.prop('checked', false);
+          Vars.back_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_intermediate_button.prop('checked', false);
+          Vars.back_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_experienced_button.prop('checked', false);
+          Vars.back_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_beginner_button.prop('checked', false);
+          Vars.core_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_novice_button.prop('checked', false);
+          Vars.core_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_intermediate_button.prop('checked', false);
+          Vars.core_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_experienced_button.prop('checked', false);
+          Vars.core_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_beginner_button.prop('checked', false);
+          Vars.shoulders_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_novice_button.prop('checked', false);
+          Vars.shoulders_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_intermediate_button.prop('checked', false);
+          Vars.shoulders_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_experienced_button.prop('checked', false);
+          Vars.shoulders_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_beginner_button.prop('checked', false);
+          Vars.arms_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_novice_button.prop('checked', false);
+          Vars.arms_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_intermediate_button.prop('checked', false);
+          Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_experienced_button.prop('checked', false);
+          Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          alert("sever request failed somehow, try again");
+        } else if(data.error == 'invalid email') {
+          $('.gateway-register-form-container-1-top-outer').scrollTop(0);
+          Vars.gateway_nav_login.css("pointer-events", "auto");
+          Vars.gateway_nav_register.css("pointer-events", "none");
+          Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
+          Vars.register_form_username_input.prop('disabled', false);
+          Vars.register_form_email_input.prop('disabled', false);
+          Vars.register_form_password_input.prop('disabled', false);
+          Vars.password_show.css("pointer-events", "auto");
+          Vars.password_hide.css("pointer-events", "auto");
+          Vars.register_form_age_input.prop('disabled', false);
+          Vars.register_form_height_ft_input.prop('disabled', false);
+          Vars.register_form_height_in_input.prop('disabled', false);
+          Vars.male_button.prop('disabled', false);
+          Vars.female_button.prop('disabled', false);
+          Vars.eastern_time_button.prop('disabled', false);
+          Vars.pacific_time_button.prop('disabled', false);
+          Vars.alaska_time_button.prop('disabled', false);
+          Vars.central_time_button.prop('disabled', false);
+          Vars.mountain_time_button.prop('disabled', false);
+          Vars.hawaii_time_button.prop('disabled', false);
+          Vars.cardio_beginner_button.prop('disabled', false);
+          Vars.cardio_novice_button.prop('disabled', false);
+          Vars.cardio_intermediate_button.prop('disabled', false);
+          Vars.cardio_experienced_button.prop('disabled', false);
+          Vars.chest_beginner_button.prop('disabled', false);
+          Vars.chest_novice_button.prop('disabled', false);
+          Vars.chest_intermediate_button.prop('disabled', false);
+          Vars.chest_experienced_button.prop('disabled', false);
+          Vars.legs_beginner_button.prop('disabled', false);
+          Vars.legs_novice_button.prop('disabled', false);
+          Vars.legs_intermediate_button.prop('disabled', false);
+          Vars.legs_experienced_button.prop('disabled', false);
+          Vars.back_beginner_button.prop('disabled', false);
+          Vars.back_novice_button.prop('disabled', false);
+          Vars.back_intermediate_button.prop('disabled', false);
+          Vars.back_experienced_button.prop('disabled', false);
+          Vars.core_beginner_button.prop('disabled', false);
+          Vars.core_novice_button.prop('disabled', false);
+          Vars.core_intermediate_button.prop('disabled', false);
+          Vars.core_experienced_button.prop('disabled', false);
+          Vars.shoulders_beginner_button.prop('disabled', false);
+          Vars.shoulders_novice_button.prop('disabled', false);
+          Vars.shoulders_intermediate_button.prop('disabled', false);
+          Vars.shoulders_experienced_button.prop('disabled', false);
+          Vars.arms_beginner_button.prop('disabled', false);
+          Vars.arms_novice_button.prop('disabled', false);
+          Vars.arms_intermediate_button.prop('disabled', false);
+          Vars.arms_experienced_button.prop('disabled', false);
+          Vars.gateway_register_form_container_button.css('opacity', '0.4');
+          Vars.gateway_register_form_container_button.css("pointer-events", "none");
+          Vars.register_form_email_input.css('border', '1px solid #FC0D1B');
+          Vars.register_form_email_error_message.show();
+        } else if(data.error == 'none') {
+          $('.gateway-register-form-container-1-top-outer').scrollTop(0);
+          Vars.gateway_nav_login.css("pointer-events", "auto");
+          Vars.gateway_nav_register.css("pointer-events", "none");
+          Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
+          Vars.register_form_username_input.prop('disabled', false);
+          Vars.register_form_email_input.prop('disabled', false);
+          Vars.register_form_password_input.prop('disabled', false);
+          Vars.password_show.css("pointer-events", "auto");
+          Vars.password_hide.css("pointer-events", "auto");
+          Vars.register_form_age_input.prop('disabled', false);
+          Vars.register_form_height_ft_input.prop('disabled', false);
+          Vars.register_form_height_in_input.prop('disabled', false);
+          Vars.male_button.prop('disabled', false);
+          Vars.female_button.prop('disabled', false);
+          Vars.eastern_time_button.prop('disabled', false);
+          Vars.pacific_time_button.prop('disabled', false);
+          Vars.alaska_time_button.prop('disabled', false);
+          Vars.central_time_button.prop('disabled', false);
+          Vars.mountain_time_button.prop('disabled', false);
+          Vars.hawaii_time_button.prop('disabled', false);
+          Vars.cardio_beginner_button.prop('disabled', false);
+          Vars.cardio_novice_button.prop('disabled', false);
+          Vars.cardio_intermediate_button.prop('disabled', false);
+          Vars.cardio_experienced_button.prop('disabled', false);
+          Vars.chest_beginner_button.prop('disabled', false);
+          Vars.chest_novice_button.prop('disabled', false);
+          Vars.chest_intermediate_button.prop('disabled', false);
+          Vars.chest_experienced_button.prop('disabled', false);
+          Vars.legs_beginner_button.prop('disabled', false);
+          Vars.legs_novice_button.prop('disabled', false);
+          Vars.legs_intermediate_button.prop('disabled', false);
+          Vars.legs_experienced_button.prop('disabled', false);
+          Vars.back_beginner_button.prop('disabled', false);
+          Vars.back_novice_button.prop('disabled', false);
+          Vars.back_intermediate_button.prop('disabled', false);
+          Vars.back_experienced_button.prop('disabled', false);
+          Vars.core_beginner_button.prop('disabled', false);
+          Vars.core_novice_button.prop('disabled', false);
+          Vars.core_intermediate_button.prop('disabled', false);
+          Vars.core_experienced_button.prop('disabled', false);
+          Vars.shoulders_beginner_button.prop('disabled', false);
+          Vars.shoulders_novice_button.prop('disabled', false);
+          Vars.shoulders_intermediate_button.prop('disabled', false);
+          Vars.shoulders_experienced_button.prop('disabled', false);
+          Vars.arms_beginner_button.prop('disabled', false);
+          Vars.arms_novice_button.prop('disabled', false);
+          Vars.arms_intermediate_button.prop('disabled', false);
+          Vars.arms_experienced_button.prop('disabled', false);
+          Vars.gateway_register_form_container_button.css('opacity', '0.4');
+          Vars.gateway_register_form_container_button.css("pointer-events", "none");
+          Vars.register_form_username_input.val('');
+          Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_email_error_message.hide();
+          Vars.register_form_email_input.val('');
+          Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input.val('');
+          Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.password_hide.hide();
+          Vars.password_show.show();
+          Vars.register_form_password_input.attr("type","password");
+          Vars.register_form_age_input.val('');
+          Vars.register_form_age_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_ft_input.val('');
+          Vars.register_form_height_ft_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_in_input.val('');
+          Vars.register_form_height_in_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.male_button.prop('checked', false);
+          Vars.male_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.female_button.prop('checked', false);
+          Vars.female_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.timezone_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.eastern_time_button.prop('checked', false);
+          Vars.eastern_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.pacific_time_button.prop('checked', false);
+          Vars.pacific_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.alaska_time_button.prop('checked', false);
+          Vars.alaska_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.central_time_button.prop('checked', false);
+          Vars.central_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.mountain_time_button.prop('checked', false);
+          Vars.mountain_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.hawaii_time_button.prop('checked', false);
+          Vars.hawaii_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_beginner_button.prop('checked', false);
+          Vars.cardio_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_novice_button.prop('checked', false);
+          Vars.cardio_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_intermediate_button.prop('checked', false);
+          Vars.cardio_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_experienced_button.prop('checked', false);
+          Vars.cardio_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_beginner_button.prop('checked', false);
+          Vars.chest_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_novice_button.prop('checked', false);
+          Vars.chest_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_intermediate_button.prop('checked', false);
+          Vars.chest_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_experienced_button.prop('checked', false);
+          Vars.chest_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_beginner_button.prop('checked', false);
+          Vars.legs_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_novice_button.prop('checked', false);
+          Vars.legs_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_intermediate_button.prop('checked', false);
+          Vars.legs_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_experienced_button.prop('checked', false);
+          Vars.legs_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_beginner_button.prop('checked', false);
+          Vars.back_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_novice_button.prop('checked', false);
+          Vars.back_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_intermediate_button.prop('checked', false);
+          Vars.back_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_experienced_button.prop('checked', false);
+          Vars.back_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_beginner_button.prop('checked', false);
+          Vars.core_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_novice_button.prop('checked', false);
+          Vars.core_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_intermediate_button.prop('checked', false);
+          Vars.core_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_experienced_button.prop('checked', false);
+          Vars.core_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_beginner_button.prop('checked', false);
+          Vars.shoulders_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_novice_button.prop('checked', false);
+          Vars.shoulders_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_intermediate_button.prop('checked', false);
+          Vars.shoulders_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_experienced_button.prop('checked', false);
+          Vars.shoulders_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_beginner_button.prop('checked', false);
+          Vars.arms_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_novice_button.prop('checked', false);
+          Vars.arms_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_intermediate_button.prop('checked', false);
+          Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_experienced_button.prop('checked', false);
+          Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.hidden_register_form.submit();
+        } else {
+          $('.gateway-register-form-container-1-top-outer').scrollTop(0);
+          Vars.gateway_nav_login.css("pointer-events", "auto");
+          Vars.gateway_nav_register.css("pointer-events", "none");
+          Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
+          Vars.register_form_username_input.prop('disabled', false);
+          Vars.register_form_email_input.prop('disabled', false);
+          Vars.register_form_password_input.prop('disabled', false);
+          Vars.password_show.css("pointer-events", "auto");
+          Vars.password_hide.css("pointer-events", "auto");
+          Vars.register_form_age_input.prop('disabled', false);
+          Vars.register_form_height_ft_input.prop('disabled', false);
+          Vars.register_form_height_in_input.prop('disabled', false);
+          Vars.male_button.prop('disabled', false);
+          Vars.female_button.prop('disabled', false);
+          Vars.eastern_time_button.prop('disabled', false);
+          Vars.pacific_time_button.prop('disabled', false);
+          Vars.alaska_time_button.prop('disabled', false);
+          Vars.central_time_button.prop('disabled', false);
+          Vars.mountain_time_button.prop('disabled', false);
+          Vars.hawaii_time_button.prop('disabled', false);
+          Vars.cardio_beginner_button.prop('disabled', false);
+          Vars.cardio_novice_button.prop('disabled', false);
+          Vars.cardio_intermediate_button.prop('disabled', false);
+          Vars.cardio_experienced_button.prop('disabled', false);
+          Vars.chest_beginner_button.prop('disabled', false);
+          Vars.chest_novice_button.prop('disabled', false);
+          Vars.chest_intermediate_button.prop('disabled', false);
+          Vars.chest_experienced_button.prop('disabled', false);
+          Vars.legs_beginner_button.prop('disabled', false);
+          Vars.legs_novice_button.prop('disabled', false);
+          Vars.legs_intermediate_button.prop('disabled', false);
+          Vars.legs_experienced_button.prop('disabled', false);
+          Vars.back_beginner_button.prop('disabled', false);
+          Vars.back_novice_button.prop('disabled', false);
+          Vars.back_intermediate_button.prop('disabled', false);
+          Vars.back_experienced_button.prop('disabled', false);
+          Vars.core_beginner_button.prop('disabled', false);
+          Vars.core_novice_button.prop('disabled', false);
+          Vars.core_intermediate_button.prop('disabled', false);
+          Vars.core_experienced_button.prop('disabled', false);
+          Vars.shoulders_beginner_button.prop('disabled', false);
+          Vars.shoulders_novice_button.prop('disabled', false);
+          Vars.shoulders_intermediate_button.prop('disabled', false);
+          Vars.shoulders_experienced_button.prop('disabled', false);
+          Vars.arms_beginner_button.prop('disabled', false);
+          Vars.arms_novice_button.prop('disabled', false);
+          Vars.arms_intermediate_button.prop('disabled', false);
+          Vars.arms_experienced_button.prop('disabled', false);
+          Vars.gateway_register_form_container_button.css('opacity', '0.4');
+          Vars.gateway_register_form_container_button.css("pointer-events", "none");
+          Vars.register_form_username_input.val('');
+          Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_email_error_message.hide();
+          Vars.register_form_email_input.val('');
+          Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input.val('');
+          Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+          Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.password_hide.hide();
+          Vars.password_show.show();
+          Vars.register_form_password_input.attr("type","password");
+          Vars.register_form_age_input.val('');
+          Vars.register_form_age_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_ft_input.val('');
+          Vars.register_form_height_ft_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.register_form_height_in_input.val('');
+          Vars.register_form_height_in_input.css('border-bottom', '1px solid #C3C3C3');
+          Vars.male_button.prop('checked', false);
+          Vars.male_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.female_button.prop('checked', false);
+          Vars.female_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.timezone_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.eastern_time_button.prop('checked', false);
+          Vars.eastern_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.pacific_time_button.prop('checked', false);
+          Vars.pacific_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.alaska_time_button.prop('checked', false);
+          Vars.alaska_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.central_time_button.prop('checked', false);
+          Vars.central_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.mountain_time_button.prop('checked', false);
+          Vars.mountain_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.hawaii_time_button.prop('checked', false);
+          Vars.hawaii_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_beginner_button.prop('checked', false);
+          Vars.cardio_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_novice_button.prop('checked', false);
+          Vars.cardio_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_intermediate_button.prop('checked', false);
+          Vars.cardio_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.cardio_experienced_button.prop('checked', false);
+          Vars.cardio_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_beginner_button.prop('checked', false);
+          Vars.chest_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_novice_button.prop('checked', false);
+          Vars.chest_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_intermediate_button.prop('checked', false);
+          Vars.chest_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.chest_experienced_button.prop('checked', false);
+          Vars.chest_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_beginner_button.prop('checked', false);
+          Vars.legs_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_novice_button.prop('checked', false);
+          Vars.legs_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_intermediate_button.prop('checked', false);
+          Vars.legs_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.legs_experienced_button.prop('checked', false);
+          Vars.legs_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_beginner_button.prop('checked', false);
+          Vars.back_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_novice_button.prop('checked', false);
+          Vars.back_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_intermediate_button.prop('checked', false);
+          Vars.back_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.back_experienced_button.prop('checked', false);
+          Vars.back_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_beginner_button.prop('checked', false);
+          Vars.core_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_novice_button.prop('checked', false);
+          Vars.core_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_intermediate_button.prop('checked', false);
+          Vars.core_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.core_experienced_button.prop('checked', false);
+          Vars.core_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_beginner_button.prop('checked', false);
+          Vars.shoulders_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_novice_button.prop('checked', false);
+          Vars.shoulders_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_intermediate_button.prop('checked', false);
+          Vars.shoulders_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.shoulders_experienced_button.prop('checked', false);
+          Vars.shoulders_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_beginner_button.prop('checked', false);
+          Vars.arms_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_novice_button.prop('checked', false);
+          Vars.arms_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_intermediate_button.prop('checked', false);
+          Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+          Vars.arms_experienced_button.prop('checked', false);
+          Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+          alert("sever request failed somehow, try again");
+        }
+      }).fail(function(jqXHR, textStatus, errorThrown){
+        Vars.gateway_nav_login.css("pointer-events", "auto");
+        Vars.gateway_nav_register.css("pointer-events", "none");
+        Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
+        Vars.register_form_username_input.prop('disabled', false);
+        Vars.register_form_email_input.prop('disabled', false);
+        Vars.register_form_password_input.prop('disabled', false);
+        Vars.password_show.css("pointer-events", "auto");
+        Vars.password_hide.css("pointer-events", "auto");
+        Vars.register_form_age_input.prop('disabled', false);
+        Vars.register_form_height_ft_input.prop('disabled', false);
+        Vars.register_form_height_in_input.prop('disabled', false);
+        Vars.male_button.prop('disabled', false);
+        Vars.female_button.prop('disabled', false);
+        Vars.eastern_time_button.prop('disabled', false);
+        Vars.pacific_time_button.prop('disabled', false);
+        Vars.alaska_time_button.prop('disabled', false);
+        Vars.central_time_button.prop('disabled', false);
+        Vars.mountain_time_button.prop('disabled', false);
+        Vars.hawaii_time_button.prop('disabled', false);
+        Vars.cardio_beginner_button.prop('disabled', false);
+        Vars.cardio_novice_button.prop('disabled', false);
+        Vars.cardio_intermediate_button.prop('disabled', false);
+        Vars.cardio_experienced_button.prop('disabled', false);
+        Vars.chest_beginner_button.prop('disabled', false);
+        Vars.chest_novice_button.prop('disabled', false);
+        Vars.chest_intermediate_button.prop('disabled', false);
+        Vars.chest_experienced_button.prop('disabled', false);
+        Vars.legs_beginner_button.prop('disabled', false);
+        Vars.legs_novice_button.prop('disabled', false);
+        Vars.legs_intermediate_button.prop('disabled', false);
+        Vars.legs_experienced_button.prop('disabled', false);
+        Vars.back_beginner_button.prop('disabled', false);
+        Vars.back_novice_button.prop('disabled', false);
+        Vars.back_intermediate_button.prop('disabled', false);
+        Vars.back_experienced_button.prop('disabled', false);
+        Vars.core_beginner_button.prop('disabled', false);
+        Vars.core_novice_button.prop('disabled', false);
+        Vars.core_intermediate_button.prop('disabled', false);
+        Vars.core_experienced_button.prop('disabled', false);
+        Vars.shoulders_beginner_button.prop('disabled', false);
+        Vars.shoulders_novice_button.prop('disabled', false);
+        Vars.shoulders_intermediate_button.prop('disabled', false);
+        Vars.shoulders_experienced_button.prop('disabled', false);
+        Vars.arms_beginner_button.prop('disabled', false);
+        Vars.arms_novice_button.prop('disabled', false);
+        Vars.arms_intermediate_button.prop('disabled', false);
+        Vars.arms_experienced_button.prop('disabled', false);
+        alert("sever request failed somehow, try again");
+      });
+    }
+  });
 
 
 
@@ -909,7 +3065,7 @@ $(document).ready(function(){
 //   console.log(jQuery._data( $('#password-hide'), "events" ));
 //   console.log("#register-form-age-input");
 //   console.log(jQuery._data( $('#register-form-age-input'), "events" ));
-//   console.log(".gateway-register-form-container-1-button");
+//   console.log(".-button");
 //   console.log(jQuery._data( $('.gateway-register-form-container-1-button').get(0), "events" ));
 // }
 
@@ -946,3 +3102,79 @@ $(document).ready(function(){
 //   console.log(".gateway-register-form-container-1-button");
 //   console.log(jQuery._data( $('.gateway-register-form-container-1-button').get(0), "events" ));
 // }
+
+
+
+
+// Vars.register_form_age_input.on('keydown', function(e){
+//   // e.preventDefault();
+//   // e.stopPropagation();
+//   return false;
+//   // var code = e.key;
+//   var str = '' + e.which;
+//   $(this).val(str);
+//   // console.log(e.key);
+//   return false;
+//   //change password back to hidden state
+//   Vars.password_hide.hide();
+//   Vars.password_show.show();
+//   Vars.register_form_password_input.attr("type","password");
+//   // key codes are digits 0-9 (48 = 0) in asc order
+//   var code;
+//   if (e.which !== undefined) {
+//     code = e.which;
+//   } else if (e.keyCode !== undefined) {
+//     code = e.keyCode;
+//   } else if (e.keyIdentifier !== undefined) {
+//     code = e.keyIdentifier;
+//   } else if (e.key !== undefined){
+//     code = e.key;
+//   }
+//   if (e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which == 54 || e.which == 55 || e.which == 56 || e.which == 57){
+//
+//
+//     if ($(this).val().length >= 2) {
+//       // console.log(">=2");
+//       Vars.age_check();
+//       return false
+//     } else if($(this).val().length == 1) {
+//       // console.log("one");
+//       let temp = parseInt("" + $(this).val() + String.fromCharCode(e.which));
+//       if (temp > 13 && temp < 65) {
+//         $(this).val(temp);
+//         Vars.age_check();
+//         return false;
+//       } else {
+//         Vars.age_check();
+//         return false
+//       }
+//     } else {
+//       // console.log("none");
+//       $(this).val(String.fromCharCode(e.which));
+//       Vars.age_check();
+//       return false
+//     }
+//
+//
+//
+//   } else {
+//     if(e.which == 8){
+//       // console.log("backspace");
+//       if($(this).val().length == 2){
+//          $(this).val($(this).val().slice(0, 1));
+//          Vars.age_check();
+//          return false;
+//       } else if ($(this).val().length == 1) {
+//         $(this).val('');
+//         Vars.age_check();
+//         return false
+//       } else {
+//         Vars.age_check();
+//         return false
+//       }
+//
+//     }
+//     Vars.age_check();
+//     return false
+//   }
+// });

@@ -119,14 +119,16 @@
               <div class="register-form-error-container" id="register-form-height-ft-error">
                 <p class="register-form-error-message" id="register-form-height-ft-error-message">Height: ft must be 3-8</p>
               </div>
-              <input type="number" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+              <!-- <input type="number" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
+              <input type="text" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false">
 
 
               <!-- ***** HEIGHT: IN INPUT FIELDS ***** -->
               <div class="register-form-error-container" id="register-form-height-in-error">
                 <p class="register-form-error-message" id="register-form-height-in-error-message">Height: in must be 0-12</p>
               </div>
-              <input type="number" name="height_in" placeholder="Height:in [0-12]" maxlength="1" id="register-form-height-in-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+              <!-- <input type="number" name="height_in" placeholder="Height:in [0-11]" maxlength="1" id="register-form-height-in-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
+              <input type="text" name="height_in" placeholder="Height:in [0-11]" maxlength="2" id="register-form-height-in-input" onpaste="return false">
               <!-- height: in spacer -->
               <div class="register-form-error-container">
               </div>
@@ -162,19 +164,19 @@
                 <div class="register-form-timezone-input-container-left">
                   <div class="timezone-input-container-left" id="eastern-time-container">
                     <p id="eastern-time-header" class="timzone-header" >Eastern:</p>
-                    <div class="timezone-button-container" class="eastern-time-button-container">
+                    <div class="timezone-button-container" id="eastern-time-button-container">
                       <input type="radio" name="timezone" value="America/New_York" id="eastern-time-button" class="timezone-button">
                     </div>
                   </div>
                   <div class="timezone-input-container-left" id="pacific-time-container">
                     <p id="pacific-time-header" class="timzone-header" >Pacific:</p>
-                    <div class="timezone-button-container" class="pacific-time-button-container">
+                    <div class="timezone-button-container" id="pacific-time-button-container">
                       <input type="radio" name="timezone" value="America/Dawson" id="pacific-time-button" class="timezone-button">
                     </div>
                   </div>
                   <div class="timezone-input-container-left" id="alaska-time-container">
                     <p id="alaska-time-header" class="timzone-header" >Alaska:</p>
-                    <div class="timezone-button-container" class="alaska-time-button-container">
+                    <div class="timezone-button-container" id="alaska-time-button-container">
                       <input type="radio" name="timezone" value="America/Anchorage" id="alaska-time-button" class="timezone-button">
                     </div>
                   </div>
@@ -182,19 +184,19 @@
                 <div class="register-form-timezone-input-container-right">
                   <div class="timezone-input-container-right" id="central-time-container">
                     <p id="central-time-header" class="timzone-header" >Central:</p>
-                    <div class="timezone-button-container" class="central-time-button-container">
+                    <div class="timezone-button-container" id="central-time-button-container">
                       <input type="radio" name="timezone" value="America/Merida" id="central-time-button" class="timezone-button">
                     </div>
                   </div>
                   <div class="timezone-input-container-right" id="mountain-time-container">
                     <p id="mountain-time-header" class="timzone-header" >Mountain:</p>
-                    <div class="timezone-button-container" class="mountain-time-button-container">
+                    <div class="timezone-button-container" id="mountain-time-button-container">
                       <input type="radio" name="timezone" value="America/Boise" id="mountain-time-button" class="timezone-button">
                     </div>
                   </div>
                   <div class="timezone-input-container-right" id="hawaii-time-container">
                     <p id="hawaii-time-header" class="timzone-header" >Hawaii:</p>
-                    <div class="timezone-button-container" class="hawaii-time-button-container">
+                    <div class="timezone-button-container" id="hawaii-time-button-container">
                       <input type="radio" name="timezone" value="Pacific/Honolulu" id="hawaii-time-button" class="timezone-button">
                     </div>
                   </div>
@@ -220,13 +222,13 @@
                 <div class="experience-input-container-left">
                   <div class="experience-input-container-cell-left">
                     <p class="experience-input-header">Beginner:</p>
-                    <div class="experience-input-button-container" id="cario-button-container-beginner">
+                    <div class="experience-input-button-container" id="cardio-button-container-beginner">
                       <input type="radio" name="cardio-experience" value="beginner" class="experience-input-button" id="cardio-button-beginner">
                     </div>
                   </div>
                   <div class="experience-input-container-cell-left">
                     <p class="experience-input-header">Novice:</p>
-                    <div class="experience-input-button-container" id="cario-button-container-novice">
+                    <div class="experience-input-button-container" id="cardio-button-container-novice">
                       <input type="radio" name="cardio-experience" value="novice" class="experience-input-button" id="cardio-button-novice">
                     </div>
                   </div>
@@ -234,13 +236,13 @@
                 <div class="experience-input-container-right">
                   <div class="experience-input-container-cell-right">
                     <p class="experience-input-header">Intermediate:</p>
-                    <div class="experience-input-button-container" id="cario-button-container-intermediate">
+                    <div class="experience-input-button-container" id="cardio-button-container-intermediate">
                       <input type="radio" name="cardio-experience" value="intermediate" class="experience-input-button" id="cardio-button-intermediate">
                     </div>
                   </div>
                   <div class="experience-input-container-cell-right">
                     <p class="experience-input-header">Experienced:</p>
-                    <div class="experience-input-button-container" id="cario-button-container-experienced">
+                    <div class="experience-input-button-container" id="cardio-button-container-experienced">
                       <input type="radio" name="cardio-experience" value="experienced" class="experience-input-button" id="cardio-button-experienced">
                     </div>
                   </div>
