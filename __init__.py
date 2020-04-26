@@ -74,6 +74,7 @@ def gateway():
 @app.route('/homepage')
 def homepage():
     if 'logged_in' in session:
+        print("made it to homepage")
         account_id = session['account_id']
         email = session['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -231,7 +232,7 @@ def registertask():
         # print(mysql.connection)
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         if cursor:
-            print("yea suuuuuun")
+            print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
     # cursor.close()
     # import mysql.connector
 
