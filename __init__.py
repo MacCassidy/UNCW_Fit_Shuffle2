@@ -39,10 +39,10 @@ app.secret_key = 'my_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
 mysql = MySQL(app)
 scheduler = APScheduler()
-print(scheduler)
+# print(scheduler)
 # mysql.connection.commit()
 # cur.close()
-# scheduler.init_app(app)
+scheduler.init_app(app)
 
 #Session config
 # app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
@@ -53,6 +53,10 @@ print(scheduler)
 # SESSION_COOKIE_HTTPONLY
 # Browsers will not allow JavaScript access to cookies marked as “HTTP only” for security.
 # Default: True
+
+@app.before_first_request
+def before_first_request_func():
+    scheduler.start()
 
 @app.before_request
 def before_request():
@@ -84,9 +88,9 @@ def homepage():
         email = account['email']
         username = account['username']
         cursor.close()
-        cur_var = str(datetime.now() + timedelta(seconds=20))[:19]
+        cur_var = str(datetime.now() + timedelta(seconds=5))[:19]
         print("right before add job")
-        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
+        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var, max_runs=1)
         # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
     else:
@@ -234,8 +238,8 @@ def registertask():
         print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         print(cursor)
-        # if cursor:
-        #     print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
+        if cursor:
+            print("yea suun cursor")
         username = "bingoooooooooooo"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
@@ -256,16 +260,10 @@ def registertask():
         exp_arms = 'novice'
         created = str(datetime.now().timestamp())
         last_activity = str(datetime.now().timestamp())
-    # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    # cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and account_id = %(account_id)s", {'email': email, 'account_id': account_id})
-    # mycursor.execute("CREATE DATABASE mydatabase")
         cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
-    # mydb.commit()
-    # mydb.close()
         mysql.connection.commit()
         cursor.close()
-    # {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone':
-    # timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms}
+
 
 if __name__ == "__main__":
     # scheduler = APScheduler()
@@ -273,6 +271,5 @@ if __name__ == "__main__":
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
     # scheduler.init_app(app)
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-    scheduler.init_app(app)
     scheduler.start()
-    app.run()
+    app.run(use_reloader=False)
