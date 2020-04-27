@@ -42,7 +42,7 @@ scheduler = APScheduler()
 print(scheduler)
 # mysql.connection.commit()
 # cur.close()
-scheduler.init_app(app)
+# scheduler.init_app(app)
 
 #Session config
 # app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
@@ -231,10 +231,11 @@ def register():
 
 def registertask():
     with scheduler.app.app_context():
+        print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         print(cursor)
-        if cursor:
-            print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
+        # if cursor:
+        #     print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
         username = "bingoooooooooooo"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
@@ -272,6 +273,6 @@ if __name__ == "__main__":
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
     # scheduler.init_app(app)
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-    # scheduler.init_app(app)
+    scheduler.init_app(app)
     scheduler.start()
     app.run()
