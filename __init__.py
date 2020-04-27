@@ -39,6 +39,7 @@ app.secret_key = 'my_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
 mysql = MySQL(app)
 scheduler = APScheduler()
+print(scheduler)
 # mysql.connection.commit()
 # cur.close()
 scheduler.init_app(app)
@@ -84,6 +85,7 @@ def homepage():
         username = account['username']
         cursor.close()
         cur_var = str(datetime.now() + timedelta(seconds=20))[:19]
+        print("right before add job")
         print(scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var))
         # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
@@ -229,26 +231,10 @@ def register():
 
 def registertask():
     with scheduler.app.app_context():
-        # from app import app
-        # print(mysql.connection)
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        print(cursor)
         if cursor:
             print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
-    # cursor.close()
-    # import mysql.connector
-
-    # mydb = mysql.connector.connect(
-    #   host="localhost",
-    #   user="tempuser1",
-    #   passwd="Meenoo737!",
-    #   database="tempdb1",
-    #   auth_plugin='mysql_native_password'
-    # )
-    # mycursor = mydb.cursor()
-    #
-    #
-    #
-    #
         username = "bingoooooooooooo"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
