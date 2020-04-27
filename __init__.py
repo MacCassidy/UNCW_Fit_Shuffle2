@@ -84,7 +84,7 @@ def homepage():
         username = account['username']
         cursor.close()
         cur_var = str(datetime.now() + timedelta(seconds=20))[:19]
-        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
+        print(scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var))
         # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
     else:
@@ -111,7 +111,7 @@ def login():
                     if (account['logged_in'] == 1 and time_diff > 20) or account['logged_in'] == 0:
                         lasterrr_act = datetime.timestamp(current_time_utc)
                         cursor.execute("UPDATE Accounts SET logged_in = TRUE, last_activity = " + str(lasterrr_act) + " WHERE account_id = " + str(account['account_id']))
-                        print(lasterrr_act)
+                        print('login route worked')
                         mysql.connection.commit()
                         cursor.close()
                         session.permanent = True
