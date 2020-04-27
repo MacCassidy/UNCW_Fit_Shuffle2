@@ -83,8 +83,9 @@ def homepage():
         email = account['email']
         username = account['username']
         cursor.close()
-        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-        scheduler.start()
+        cur_var = str(datetime.now() + timedelta(seconds=20))[:19]
+        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
+        # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
     else:
         return redirect(url_for('gateway'))
@@ -248,7 +249,7 @@ def registertask():
     #
     #
     #
-        username = "WakaWakaaWaka"
+        username = "bingoooooooooooo"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
         # colepassword
@@ -286,5 +287,5 @@ if __name__ == "__main__":
     # scheduler.init_app(app)
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
     # scheduler.init_app(app)
-    # scheduler.start()
+    scheduler.start()
     app.run()
