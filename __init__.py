@@ -86,7 +86,7 @@ def homepage():
         cursor.close()
         cur_var = str(datetime.now() + timedelta(seconds=20))[:19]
         print("right before add job")
-        print(scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var))
+        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
         # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
     else:
