@@ -1,20 +1,87 @@
 {% extends 'layout.html' %}
 {% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/homepage.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}">
 {% endblock %}
-<!-- <h1>{{ email }}</h1>
-<h1>{{ username }}</h1>
-<div class="logout-button">
-  log out
-</div> -->
+
 {% block body %}
-<h1>{{ email }}</h1>
-<h1>{{ username }}</h1>
-<form class="logout-form" action="/logout" method="post">
-  <button type="button" name="button" id="logout-button">log out</button>
-</form>
-<script type="text/javascript">
-  $('#logout-button').on('click', function(){
-    $('.logout-form').submit()
-  });
-</script>
+<div class="homepage-main-container-1">
+  <div class="homepage-nav-container-1">
+    <div class="create-workout-tab-1">
+      <p id="create-workout-1">Create Workout</p>
+    </div>
+    <div class="prev-sessions-tab-1">
+      <p id="prev-sessions-1">Prev. Sessions</p>
+    </div>
+    <div class="profile-tab-1">
+      <p id="profile-1">Profile</p>
+    </div>
+  </div>
+  <div class="homepage-body-container-1">
+    <div class="homepage-body-container-top-1">
+
+
+      <div class="create-workout-top">
+
+        <div class="create-workout-category-title-container">
+          <p id="choose-cat">Choose a Category</p>
+        </div>
+        <div class="create-workout-category-container">
+          <div class="cat-con">
+            <div class="cat-con-left">
+              <div id="legs-con" class="cat-con-left-inner">
+                <p class="cat-con-left-inner-title">Legs: </p>
+                <div class="cat-con-left-inner-button-cont">
+                  <input type="radio" name="category" value="legs" id="legs-button">
+                </div>
+              </div>
+              <div id="back-con" class="cat-con-left-inner">
+                <p class="cat-con-left-inner-title">Back: </p>
+                <div class="cat-con-left-inner-button-cont">
+                  <input type="radio" name="category" value="back" id="back-button">
+                </div>
+              </div>
+              <div id="shoulders-con" class="cat-con-left-inner">
+                <p class="cat-con-left-inner-title">Shoulders: </p>
+                <div class="at-con-left-inner-button-cont">
+                  <input type="radio" name="category" value="shoulders" id="shoulders-button">
+                </div>
+              </div>
+            </div>
+            <div class="cat-con-right">
+              <div id="chest-con" class="cat-con-right-inner">
+                <p class="cat-con-right-inner-title">Chest: </p>
+                <div class="cat-con-right-inner-button-cont">
+                  <input type="radio" name="category" value="chest" id="chest-button">
+                </div>
+              </div>
+              <div id="core-con" class="cat-con-right-inner">
+                <p class="cat-con-right-inner-title">Core: </p>
+                <div class="cat-con-right-inner-button-cont">
+                  <input type="radio" name="category" value="core" id="core-button">
+                </div>
+              </div>
+              <div id="arms-con" class="cat-con-right-inner">
+                <p class="cat-con-right-inner-title">Arms: </p>
+                <div class="cat-con-right-inner-button-cont">
+                  <input type="radio" name="category" value="arms" id="arms-button">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="create-workout-bottom">
+
+      </div>
+
+
+    </div>
+    <div class="homepage-body-conatiner-button-1">
+      <p id="get-started">Get Started!</p>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,340 @@
+
+.homepage-main-container-1{
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.homepage-nav-container-1{
+  box-sizing: border-box;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.homepage-body-container-1{
+  box-sizing: border-box;
+  height: 88%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.create-workout-tab-1{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  border-bottom: 3px solid #1A7E79;
+  /* border-bottom: 3px solid #FFFFFF; */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.prev-sessions-tab-1{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.profile-tab-1{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+#create-workout-1{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #107E79;
+  font-weight: bold;
+  /* color: #B3B8BF; */
+  cursor: default;
+  pointer-events: none;
+  /* background-color: #8D9499; */
+}
+#prev-sessions-1{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  /* color: #107E79; */
+  color: #B3B8BF;
+  cursor: pointer;
+  /* background-color: #8D9499; */
+}
+#profile-1{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  /* color: #107E79; */
+  color: #B3B8BF;
+  cursor: pointer;
+  /* background-color: #8D9499; */
+}
+
+
+.homepage-body-container-top-1{
+  box-sizing: border-box;
+  height: 87%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+.homepage-body-conatiner-button-1{
+  width: 100%;
+  height: 13%;
+  background-color: #107E79;
+  border-top: 1px solid #AFAFAF;
+  opacity: 0.4;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+#get-started{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
+  pointer-events: none;
+}
+
+.create-workout-top{
+  box-sizing: border-box;
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: green; */
+  /* pointer-events: none; */
+}
+.create-workout-category-title-container{
+  box-sizing: border-box;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #1A2956;
+  font-size: 25px;
+  /* background-color: green; */
+}
+.create-workout-category-container{
+  box-sizing: border-box;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+
+.cat-con{
+  box-sizing: border-box;
+  height: 95%;
+  width: 95%;
+  display: flex;
+  border: 1px solid #3D456A;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+.cat-con-right{
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  /* border: 1px solid 1px solid #3D456A; */
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+.cat-con-left{
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  /* border: 1px solid 1px solid #3D456A; */
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: red; */
+}
+
+.cat-con-left-inner{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 33%;
+  /* border: 1px solid #3D456A; */
+  display: flex;
+  /* border: 1px solid 1px solid #3D456A; */
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cat-con-left-inner-title{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #1A2956;
+  font-weight: bold;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
+  pointer-events: none;
+}
+.cat-con-left-inner-button-cont{
+  box-sizing: border-box;
+  padding: 0px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 15px;
+  height: 15px;
+  border-top: 1px solid #AFAFAF;
+  overflow: hidden;
+
+}
+.cat-con-right-inner{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  height: 33%;
+  /* border: 1px solid #3D456A; */
+  display: flex;
+  /* border: 1px solid 1px solid #3D456A; */
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.cat-con-right-inner-title{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #1A2956;
+  font-weight: bold;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
+  pointer-events: none;
+}
+.cat-con-right-inner-button-cont{
+  box-sizing: border-box;
+  padding: 0px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 15px;
+  height: 15px;
+  border-top: 1px solid #AFAFAF;
+  overflow: hidden;
+}
+
+.create-workout-bottom{
+  box-sizing: border-box;
+  height: 35%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: yellow; */
+  /* pointer-events: none; */
+}
+
+.create-workout-experience{
+
+}
+
+/* <div class="create-workout-top">
+
+</div>
+<div class="create-workout-bottom">
+
+</div> */

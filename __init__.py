@@ -90,7 +90,7 @@ def homepage():
         cursor.close()
         cur_var = str(datetime.now() + timedelta(seconds=5))[:19]
         print("right before add job")
-        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var, max_runs=1)
+        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
         # scheduler.start()
         return render_template('homepage.html', email=email, username=username)
     else:
@@ -106,6 +106,8 @@ def login():
             cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
             account = cursor.fetchone()
             if account:
+                print(email)
+                print(password)
                 byte_password = bytes(password, 'utf-8')
                 password_hashed = bytes(account['password'], 'utf-8')
                 if bcrypt.checkpw(byte_password, password_hashed):
@@ -163,6 +165,14 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        print("password hash step")
+        if password:
+            password = password.encode()
+            hashed_pass = bcrypt.hashpw(password, bcrypt.gensalt()).decode()
+            password = hashed_pass
+        else:
+            return jsonify({'error' : 'missing data'})
+        logged_in = "1"
         age = request.form['age']
         height_ft = request.form['height_ft']
         height_in = request.form['height_in']
@@ -175,17 +185,36 @@ def register():
         exp_core = request.form['exp_core']
         exp_shoulders = request.form['exp_shoulders']
         exp_arms = request.form['exp_arms']
-        if username and email and password and age and height_ft and height_in and gender and timezone and exp_cardio and exp_chest and exp_legs and exp_back and exp_core and exp_shoulders and exp_arms:
+        created = str(datetime.now().timestamp())
+        last_activity = str(datetime.now().timestamp())
+        if username and email and hashed_pass and age and height_ft and height_in and gender and timezone and exp_cardio and exp_chest and exp_legs and exp_back and exp_core and exp_shoulders and exp_arms:
+            print("beinging insert step ")
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and account_id = %(account_id)s", {'email': email, 'account_id': account_id})
-
-            # mysql.connection.commit()
-            # cursor.close()
-            # session.permanent = True
-            # session['logged_in'] = True
-            # session['email'] = account['email']
-            # session['account_id'] = account['account_id']
+            cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
+            existing_account = cursor.fetchone()
+            if existing_account:
+                print("account exists")
+                cursor.close()
+                return jsonify({'error' : 'invalid email'})
+            else:
+                cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
+                mysql.connection.commit()
+                cursor.execute("SELECT *  from Accounts WHERE email = %(email)s", {'email': email})
+                account = cursor.fetchone()
+                print('see if it actually got inserted')
+                if not account:
+                    cursor.close()
+                    return jsonify({'error' : 'missing data'})
+                else:
+                    print("last stepppppp")
+                    cursor.close()
+                    session.permanent = True
+                    session['logged_in'] = True
+                    session['email'] = account['email']
+                    session['account_id'] = account['account_id']
+                    return jsonify({'error' : 'none'})
         else:
+
             return jsonify({'error' : 'missing data'})
     else:
         return jsonify({'error' : 'missing data'})
@@ -240,7 +269,7 @@ def registertask():
         print(cursor)
         if cursor:
             print("yea suun cursor")
-        username = "bingoooooooooooo"
+        username = "truuuuu"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
         # colepassword
@@ -271,5 +300,6 @@ if __name__ == "__main__":
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
     # scheduler.init_app(app)
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-    scheduler.start()
-    app.run(use_reloader=False)
+    # scheduler.start()
+    # app.run(use_reloader=False)
+    app.run(debug = True)
