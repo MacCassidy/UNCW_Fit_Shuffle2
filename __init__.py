@@ -262,4 +262,4 @@ if __name__ == "__main__":
     # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
     # scheduler.start()
     # app.run(use_reloader=False)
-    app.run(debug = True)
+    app.run()
