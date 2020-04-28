@@ -9,6 +9,24 @@ $(document).ready(function(){
     e.stopPropagation();
     $('#layout-logout-button-form').submit()
   });
+  $('#apcheck-button').click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $.ajax({
+      data : {
+          // Vars.login_form
+          // email : Vars.login_form_email_input.val(),
+          // password : Vars.login_form_password_input.val()
+        },
+        type : 'POST',
+        url : '/apcheck'
+    }).done(function(data){
+        console.log(data.task0);
+        $('#apcheck-output').text(data.task0);
+    }).fail(function(jqXHR, textStatus, errorThrown){
+      console.log("failed");
+    });
+  });
 
 // console.log("homepage******************************");
 

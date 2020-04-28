@@ -79,7 +79,6 @@ def gateway():
 @app.route('/homepage')
 def homepage():
     if 'logged_in' in session:
-        print("made it to homepage")
         account_id = session['account_id']
         email = session['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -88,10 +87,10 @@ def homepage():
         email = account['email']
         username = account['username']
         cursor.close()
-        cur_var = str(datetime.now() + timedelta(seconds=5))[:19]
-        print("right before add job")
-        scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='date', run_date=cur_var)
-        # scheduler.start()
+        cur_var = str(datetime.now() + timedelta(seconds=100))[:19]
+        r1 = random.randint(0, 10000)
+        sched_id = 'Scheduledtask' + str(r1)
+        scheduler.add_job(name="ScheduledTask", id=sched_id, func = registertask,  trigger='date', run_date=cur_var)
         return render_template('homepage.html', email=email, username=username)
     else:
         return redirect(url_for('gateway'))
@@ -106,8 +105,6 @@ def login():
             cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
             account = cursor.fetchone()
             if account:
-                print(email)
-                print(password)
                 byte_password = bytes(password, 'utf-8')
                 password_hashed = bytes(account['password'], 'utf-8')
                 if bcrypt.checkpw(byte_password, password_hashed):
@@ -119,7 +116,6 @@ def login():
                     if (account['logged_in'] == 1 and time_diff > 20) or account['logged_in'] == 0:
                         lasterrr_act = datetime.timestamp(current_time_utc)
                         cursor.execute("UPDATE Accounts SET logged_in = TRUE, last_activity = " + str(lasterrr_act) + " WHERE account_id = " + str(account['account_id']))
-                        print('login route worked')
                         mysql.connection.commit()
                         cursor.close()
                         session.permanent = True
@@ -165,7 +161,6 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
-        print("password hash step")
         if password:
             password = password.encode()
             hashed_pass = bcrypt.hashpw(password, bcrypt.gensalt()).decode()
@@ -188,12 +183,10 @@ def register():
         created = str(datetime.now().timestamp())
         last_activity = str(datetime.now().timestamp())
         if username and email and hashed_pass and age and height_ft and height_in and gender and timezone and exp_cardio and exp_chest and exp_legs and exp_back and exp_core and exp_shoulders and exp_arms:
-            print("beinging insert step ")
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
             existing_account = cursor.fetchone()
             if existing_account:
-                print("account exists")
                 cursor.close()
                 return jsonify({'error' : 'invalid email'})
             else:
@@ -201,12 +194,10 @@ def register():
                 mysql.connection.commit()
                 cursor.execute("SELECT *  from Accounts WHERE email = %(email)s", {'email': email})
                 account = cursor.fetchone()
-                print('see if it actually got inserted')
                 if not account:
                     cursor.close()
                     return jsonify({'error' : 'missing data'})
                 else:
-                    print("last stepppppp")
                     cursor.close()
                     session.permanent = True
                     session['logged_in'] = True
@@ -225,51 +216,20 @@ def register():
 
 
 
-
-
-
-# @app.after_request
-# def add_header(r):
-#     """
-#     Add headers to both force latest IE rendering engine or Chrome Frame,
-#     and also to cache the rendered page for 10 minutes.
-#     """
-#     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-#     r.headers["Pragma"] = "no-cache"
-#     r.headers["Expires"] = "0"
-#     r.headers['Cache-Control'] = 'public, max-age=0'
-#     return r
-
-# username VARCHAR(25) NOT NULL,
-# email VARCHAR(50) NOT NULL UNIQUE,
-# password VARCHAR(60) NOT NULL,
-# logged_in BOOLEAN NOT NULL,
-# age TINYINT NOT NULL check(age > 13 and age < 65),
-# height_in TINYINT NOT NULL CHECK(height_in >= 0 and height_in < 12),
-# height_ft TINYINT NOT NULL CHECK(height_ft >= 3 and height_ft <= 8),
-# gender  NOT NULL CHECK(gender IN ('male', 'female')),
-# timezone  NOT NULL CHECK(timezone IN ('America/New_York', 'America/Merida', 'America/Boise', 'America/Dawson', 'America/Anchorage', 'Pacific/Honolulu', 'America/Phoenix')),
-# exp_cardio  NOT NULL CHECK(exp_cardio IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_chest  NOT NULL CHECK(exp_chest IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_legs  NOT NULL CHECK(exp_legs IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_back VARCHAR(12) NOT NULL CHECK(exp_back IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_core VARCHAR(12) NOT NULL CHECK(exp_core IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_shoulders VARCHAR(12) NOT NULL CHECK(exp_shoulders IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# exp_arms VARCHAR(12) NOT NULL CHECK(exp_arms IN ('beginner', 'novice', 'intermediate', 'experienced')),
-# password_change_code INT UNIQUE CHECK(password_change_code <= 10000000 and password_change_code >= 99999999),
-# created DECIMAL(16,6) NOT NULL,
-# last_activity DECIMAL(16,6) NOT NULL,
-
-
+@app.route('/apcheck', methods=['POST'])
+def apcheck():
+    if 'logged_in' in session:
+        # with scheduler.app.app_context():
+        # scheduler.print_jobs()
+        x = scheduler.get_jobs()
+        print(x)
+    return jsonify({'task0' : str(x)})
 
 def registertask():
     with scheduler.app.app_context():
-        print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        print(cursor)
-        if cursor:
-            print("yea suun cursor")
-        username = "truuuuu"
+        print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
+        username = "registertask"
         r1 = random.randint(0, 10000)
         email = "task" + str(r1) + "@mail.com"
         # colepassword
