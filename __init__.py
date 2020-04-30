@@ -252,6 +252,7 @@ def registercheck(u_id, email, created, register_code):
                 print("email: " + email)
                 print("created: " + str(created))
                 print("register_code: " + str(register_code))
+                print(str(exc))
 
 
 
