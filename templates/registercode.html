@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/registercode.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registercode.css') }}">
+{% endblock %}
+{% block body %}
+<div class="registercode-main">
+  <div class="registercode-top">
+    <p id="registercode-top-quote">Welcome to Fit Shuffle, <span id="registercode-top-quote-span">{{username}}</span>!</p>
+    <!-- Retrieve -->
+  </div>
+  <div class="registercode-bottom">
+    <div class="registercode-bottom-body">
+      <div class="registercode-bottom-body-info-container">
+        <div class="registercode-bottom-body-info-1-container">
+          <p id="registercode-bottom-body-info-1">Retrieve and enter the four digit registration code that has been sent to:</p>
+          <p id="their-email">{{email}}</p>
+        </div>
+        <div class="registercode-bottom-body-info-2-container">
+          <p id="registercode-bottom-body-info-2">If you did not receive a confirmation code from uncwfitshuffle@gmail.com, then your email address is invalid for registration with out system.</p>
+        </div>
+        <div class="registercode-bottom-body-info-3-container">
+          <p id="registercode-bottom-body-info-3">Click to <span id="cancel-span">Cancel</span> registration.</p>
+        </div>
+      </div>
+      <div class="registercode-bottom-body-input-container">
+        <div class="registercode-bottom-body-input-container-inner">
+          <div id="invalid-code-quote">Invalid Code</div>
+          <input type="text" name="register_code" value="" placeholder="" maxlength="4" id="registercode-input">
+        </div>
+      </div>
+    </div>
+    <div class="registercode-bottom-button">
+      <p id="confirm-quote">Confirm</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

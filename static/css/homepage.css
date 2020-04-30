@@ -329,36 +329,3 @@
   /* background-color: yellow; */
   /* pointer-events: none; */
 }
-#apcheck-button{
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
-  width:  20px;
-  height: 20px;
-}
-
-#apcheck-output{
-  text-align: center;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0px;
-  margin: 0px;
-  font-size: 5px;
-}
-/* #apcheck-input{
-  box-sizing: border-box;
-  margin: 0px;
-  outline: none;
-  padding: 0px;
-  height: 70%;
-  width: 100%;
-  font-size: 5px;
-  pointer-events: none;
-} */
-
-/* <div class="create-workout-top">
-
-</div>
-<div class="create-workout-bottom">
-
-</div> */

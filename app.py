@@ -11,20 +11,10 @@ import smtplib, ssl, certifi
 from validate_email import validate_email
 from flask_apscheduler import APScheduler
 import random
-# import mysql.connector
-# from apscheduler.schedulers.background import BackgroundScheduler
-
-
-# scheduler = BackgroundScheduler()
-# job = scheduler.add_job(test_job, 'interval', minutes=1)
-# scheduler.start()
 
 
 app = Flask(__name__)
-# scheduler = APScheduler()
-# scheduler.init_app(app)
-# scheduler.add_job(id='Scheduled task', func = registertask, trigger='interval', seconds=7)
-# scheduler.start()
+
 
 # Browser Caching turned off
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -35,25 +25,14 @@ app.config['MYSQL_USER'] = 'tempuser1'
 app.config['MYSQL_PASSWORD'] = 'Meenoo737!'
 app.config['MYSQL_DB'] = 'tempdb1'
 app.config['MYSQL_PORT'] = 3306
-app.secret_key = 'my_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
+# session encyption key
+app.secret_key = 'my_key'
 mysql = MySQL(app)
 scheduler = APScheduler()
-# print(scheduler)
-# mysql.connection.commit()
-# cur.close()
 scheduler.init_app(app)
 
-#Session config
-# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
-# mysql = MySQL(app)
-# app.config['SESSION_COOKIE_SECURE'] = True
-# flask.session.modified = True
-# flask.session.permanent = True
-# SESSION_COOKIE_HTTPONLY
-# Browsers will not allow JavaScript access to cookies marked as “HTTP only” for security.
-# Default: True
-
+# Request Pre/Post processors*********************************************************************************************
 @app.before_first_request
 def before_first_request_func():
     scheduler.start()
@@ -62,21 +41,22 @@ def before_first_request_func():
 def before_request():
     session.modified = True
 
-@app.route('/')
+# Routes for WebPage Requests*********************************************************************************************
+@app.route('/', methods=['GET'])
 def index():
     if 'logged_in' in session:
         return redirect(url_for('homepage'))
     else:
         return redirect(url_for('gateway'))
 
-@app.route('/gateway')
+@app.route('/gateway', methods=['GET'])
 def gateway():
     if 'logged_in' in session:
         return redirect(url_for('homepage'))
     else:
         return render_template('gateway.html')
 
-@app.route('/homepage')
+@app.route('/homepage', methods=['GET'])
 def homepage():
     if 'logged_in' in session:
         account_id = session['account_id']
@@ -86,15 +66,23 @@ def homepage():
         account = cursor.fetchone()
         email = account['email']
         username = account['username']
+        unix_timestamp = str(datetime.utcnow().timestamp())
+        cursor.execute("UPDATE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + account['account_id'])
+        mysql.connection.commit()
         cursor.close()
-        cur_var = str(datetime.now() + timedelta(seconds=100))[:19]
-        r1 = random.randint(0, 10000)
-        sched_id = 'Scheduledtask' + str(r1)
-        scheduler.add_job(name="ScheduledTask", id=sched_id, func = registertask,  trigger='date', run_date=cur_var)
         return render_template('homepage.html', email=email, username=username)
     else:
         return redirect(url_for('gateway'))
 
+
+@app.route('/registercode', methods=['POST','GET'])
+def registercode():
+    username = 'joeuueueu'
+    email = 'example@example.com'
+    return render_template('registercode.html', email=email, username=username)
+
+
+# Routes to handle our Ajax calls*********************************************************************************************
 @app.route('/login', methods=['POST'])
 def login():
     if 'email' in request.form and 'password' in request.form:
@@ -104,7 +92,7 @@ def login():
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
             account = cursor.fetchone()
-            if account:
+            if account and (not account['register_code']):
                 byte_password = bytes(password, 'utf-8')
                 password_hashed = bytes(account['password'], 'utf-8')
                 if bcrypt.checkpw(byte_password, password_hashed):
@@ -137,7 +125,9 @@ def login():
     else:
         return jsonify({'error' : 'missing data'})
 
-@app.route('/logout', methods=['POST'])
+
+# @app.route('/logout')
+@app.route('/logout', methods=['POST', 'GET'])
 def logout():
     if 'logged_in' in session:
         account_id = session['account_id']
@@ -154,7 +144,6 @@ def logout():
         return redirect(url_for('gateway'))
 
 
-
 @app.route('/register', methods=['POST'])
 def register():
     if 'username' in request.form and 'email' in request.form and 'password' in request.form and 'age' in request.form and 'height_ft' in request.form and 'height_in' in request.form and 'gender' in request.form and 'timezone' in request.form and 'exp_cardio' in request.form and 'exp_chest' in request.form and 'exp_legs' in request.form and 'exp_back' in request.form and 'exp_core' in request.form and 'exp_shoulders' in request.form and 'exp_arms' in request.form:
@@ -167,7 +156,7 @@ def register():
             password = hashed_pass
         else:
             return jsonify({'error' : 'missing data'})
-        logged_in = "1"
+        logged_in = False
         age = request.form['age']
         height_ft = request.form['height_ft']
         height_in = request.form['height_in']
@@ -180,8 +169,9 @@ def register():
         exp_core = request.form['exp_core']
         exp_shoulders = request.form['exp_shoulders']
         exp_arms = request.form['exp_arms']
-        created = str(datetime.now().timestamp())
-        last_activity = str(datetime.now().timestamp())
+        register_code = random.randint(1000, 9999)
+        created = str(datetime.utcnow().timestamp())
+        last_activity = str(datetime.utcnow().timestamp())
         if username and email and hashed_pass and age and height_ft and height_in and gender and timezone and exp_cardio and exp_chest and exp_legs and exp_back and exp_core and exp_shoulders and exp_arms:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
@@ -190,7 +180,7 @@ def register():
                 cursor.close()
                 return jsonify({'error' : 'invalid email'})
             else:
-                cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
+                cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, register_code, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(register_code)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'register_code': register_code, 'last_activity': last_activity})
                 mysql.connection.commit()
                 cursor.execute("SELECT *  from Accounts WHERE email = %(email)s", {'email': email})
                 account = cursor.fetchone()
@@ -200,9 +190,15 @@ def register():
                 else:
                     cursor.close()
                     session.permanent = True
-                    session['logged_in'] = True
+                    session['logged_in'] = False
                     session['email'] = account['email']
                     session['account_id'] = account['account_id']
+                    session['register_code'] = account['register_code']
+                    created_stamp = account['created']
+                    # harambe
+                    cur_var = str(datetime.now() + timedelta(seconds=100))[:19]
+                    sched_id = 'Registertask-' + account['email']
+                    scheduler.add_job(name="RegisterTask", id=sched_id, func = registertask,  trigger='date', run_date=cur_var, args=[account['account_id'], account['email'], created_stamp, account['register_code']])
                     return jsonify({'error' : 'none'})
         else:
 
@@ -210,56 +206,81 @@ def register():
     else:
         return jsonify({'error' : 'missing data'})
 
+# harambe
+@app.route('/registerconfirm', methods=['POST'])
+def registerconfirm():
+    if 'register_code' in request.form and 'register_code' in session and 'status' in request.form and 'logged_in' in session and 'email' in session and 'account_id' in session:
+        if request.form['status'] == 'cancel':
+            try:
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                # cursor.execute("DELETE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + account['account_id'])
+                cursor.execute("DELETE FROM Accounts WHERE register_code = %(register_code)s and account_id = %(account_id)s", {'register_code': register_code, 'account_id': account_id})
+                mysql.connection.commit()
+                cursor.close()
+                return jsonify({'error' : 'canceled'})
+            except:
+                return jsonify({'error' : 'missing data'})
+        elif request.form['status'] == 'confirm':
+            try:
+                pass
+            except:
+                pass
+        else:
+            return jsonify({'error': 'missing data'})
+    else:
+        return jsonify({'error': 'missing data'})
 
 
-
-
-
-
-@app.route('/apcheck', methods=['POST'])
-def apcheck():
-    if 'logged_in' in session:
-        # with scheduler.app.app_context():
-        # scheduler.print_jobs()
-        x = scheduler.get_jobs()
-        print(x)
-    return jsonify({'task0' : str(x)})
-
-def registertask():
+# harambe
+# function for register email
+def registercheck(u_id, email, created, register_code):
     with scheduler.app.app_context():
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        print("yea suuuuuuuuuuuuuuuuuuuuuuuuuuun")
-        username = "registertask"
-        r1 = random.randint(0, 10000)
-        email = "task" + str(r1) + "@mail.com"
-        # colepassword
-        password = '$2b$12$LaczxaUdSOiyRbC/jyRfkufezVXhoCllWfGVYRB4xyKOBQoC/jCMS'
-        logged_in = '0'
-        age = "15"
-        height_ft = "5"
-        height_in = "5"
-        gender = "male"
-        timezone = 'America/New_York'
-        exp_cardio = 'novice'
-        exp_chest = 'novice'
-        exp_legs = 'novice'
-        exp_back = 'novice'
-        exp_core = 'novice'
-        exp_shoulders = 'novice'
-        exp_arms = 'novice'
-        created = str(datetime.now().timestamp())
-        last_activity = str(datetime.now().timestamp())
-        cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
-        mysql.connection.commit()
-        cursor.close()
+        if u_id and email and created and register_code:
+            try:
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute("SELECT * FROM Accounts WHERE account_id = " + str(u_id) + " and email = " + email + " and created = " + str(created) + " and register_code = " + str(register_code));
+                account = cursor.fetchone()
+                if account['register_code']:
+                    cursor.execute("DELETE FROM Acounts WHERE account_id = " + str(account['account_id']) + " and email = " + account['email'] + " and register_code = " + str(account['register_code']) )
+                    mysql.connection.commit()
+                    cursor.close()
+                else:
+                    cursor.close()
+            except Exception as exc:
+                print("**************RegisterCheck Task Error**************")
+                print("account_id: " + str(account_id))
+                print("email: " + email)
+                print("created: " + str(created))
+                print("register_code: " + str(register_code))
+
+
+
+# def registertask():
+#     with scheduler.app.app_context():
+#         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#         username = "registertask"
+#         r1 = random.randint(0, 100000)
+#         email = "task" + str(r1) + "@mail.com"
+#         password = '$2b$12$LaczxaUdSOiyRbC/jyRfkufezVXhoCllWfGVYRB4xyKOBQoC/jCMS' # colepassword
+#         logged_in = '0'
+#         age = "15"
+#         height_ft = "5"
+#         height_in = "5"
+#         gender = "male"
+#         timezone = 'America/New_York'
+#         exp_cardio = 'novice'
+#         exp_chest = 'novice'
+#         exp_legs = 'novice'
+#         exp_back = 'novice'
+#         exp_core = 'novice'
+#         exp_shoulders = 'novice'
+#         exp_arms = 'novice'
+#         created = str(datetime.now().timestamp())
+#         last_activity = str(datetime.now().timestamp())
+#         cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
+#         mysql.connection.commit()
+#         cursor.close()
 
 
 if __name__ == "__main__":
-    # scheduler = APScheduler()
-    # scheduler.init_app(app)
-    # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-    # scheduler.init_app(app)
-    # scheduler.add_job(id='Scheduledtask', func = registertask,  trigger='interval', seconds=7)
-    # scheduler.start()
-    # app.run(use_reloader=False)
-    app.run()
+    app.run(debug=True)

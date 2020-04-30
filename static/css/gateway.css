@@ -1,3 +1,4 @@
+/* Main Container for Gateway */
 .gateway-main{
   box-sizing: border-box;
   height: 90%;
@@ -8,9 +9,7 @@
 
 
 
-
-
-/************ gateway nav bar elements *************/
+/* Gateway Nav Elements ******************************************************/
 .gateway-nav{
   box-sizing: border-box;
   width: 100%;
@@ -22,6 +21,9 @@
   box-sizing: border-box;
   width: 2%;
 }
+
+
+/* Gateway Nav Login Elements */
 .gateway-nav-login{
   box-sizing: border-box;
   height: 100%;
@@ -34,9 +36,6 @@
   align-items: center;
   pointer-events: none;
 }
-.gateway-nav-login:hover{
-  cursor:pointer;
-}
 #gateway-login{
   box-sizing: border-box;
   text-align: center;
@@ -44,7 +43,10 @@
   font-size: 15px;
   color: #107E79;
   /* color: #B3B8BF; */
+  /* cursor: default; */
 }
+
+/* Gateway Nav Register Elements */
 .gateway-nav-register{
   box-sizing: border-box;
   height: 100%;
@@ -57,9 +59,6 @@
   align-items: center;
   pointer-events: auto;
 }
-.gateway-nav-register:hover{
-  cursor: pointer;
-}
 #gateway-register{
   box-sizing: border-box;
   text-align: center;
@@ -67,8 +66,10 @@
   font-size: 15px;
   /* color: #107E79; */
   color: #B3B8BF;
+  /* cursor: default; */
 }
 
+/* Gateway Nav Forgot Password Elements */
 .gateway-nav-forgot-password{
   box-sizing: border-box;
   height: 100%;
@@ -81,9 +82,6 @@
   align-items: center;
   pointer-events: auto;
 }
-.gateway-nav-forgot-password:hover{
-  cursor: pointer;
-}
 #gateway-forgot-password{
   box-sizing: border-box;
   text-align: center;
@@ -91,6 +89,7 @@
   font-size: 15px;
   /* color: #107E79; */
   color: #B3B8BF;
+  /* cursor: default; */
 }
 
 
@@ -99,12 +98,7 @@
 
 
 
-
-
-
-
-
-/************ gateway form elements *************/
+/* Gateway Form Elements ************************************************/
 .gateway-form{
   box-sizing: border-box;
   width: 100%;
@@ -115,8 +109,7 @@
 
 
 
-
-/************ gateway login form elements *************/
+/* Gateway Form Login Elements */
 .gateway-login-form-container{
   box-sizing: border-box;
   width: 100%;
@@ -126,7 +119,7 @@
 .gateway-login-form-top{
   box-sizing: border-box;
   width: 100%;
-  height: 84%;
+  height: 87%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -158,6 +151,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   color: #3C446B;
+  cursor: default;
 }
 #login-quote-span{
   font-size: 18px;
@@ -230,32 +224,35 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  outline: none;
 }
 #login-form-email-input{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
   padding-left: 7px;
-  /* color: #B3B8BF; */
-  /* pointer-events: none; */
 }
 #login-form-email-input::placeholder{
   color: #B3B8BF;
 }
-#login-form-email-input:focus{
-  outline-style: groove;
-  outline-width: 6px;
-  outline-color: #F5B649;
-}
+
 .login-form-password-container{
   box-sizing: border-box;
   height: 50%;
   width: 100%;
   display: block;
   overflow: hidden;
+  outline: none;
 }
 .login-form-password-error-container{
   box-sizing: border-box;
@@ -284,11 +281,19 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  outline: none;
 }
 #login-form-password-input{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -298,15 +303,10 @@
 #login-form-password-input::placeholder{
   color: #B3B8BF;
 }
-#login-form-password-input:focus{
-  outline-style: groove;
-  outline-width: 6px;
-  outline-color: #F5B649;
-}
 .gateway-login-form-button{
   box-sizing: border-box;
   width: 100%;
-  height: 16%;
+  height: 13%;
   background-color: #107E79;
   border-top: 1px solid #AFAFAF;
   opacity: 0.4;
@@ -314,6 +314,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 #sign-in{
   box-sizing: border-box;
@@ -325,6 +326,7 @@
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10+ and Edge */
   user-select: none; /* Standard syntax */
+  pointer-events: none;
 }
 .hidden_loggin_form{
   box-sizing: border-box;
@@ -337,7 +339,8 @@
 
 
 
-/************ gateway Register form elements *************/
+
+/* Gateway Form Register Elements */
 .gateway-register-form-container{
   box-sizing: border-box;
   width: 100%;
@@ -345,7 +348,6 @@
   display: none;
   overflow: hidden;
 }
-
 .gateway-register-form-container-1{
   box-sizing: border-box;
   width: 100%;
@@ -356,20 +358,15 @@
 .gateway-register-form-container-1-top{
   box-sizing: border-box;
   width: 100%;
-  height: 84%;
+  height: 87%;
   overflow: visible;
   display: block;
-  /* display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center; */
   padding-left: 15px;
   padding-right: 15px;
   background-color: #ffffff;
 }
 .gateway-register-form-container-1-top-outer{
   box-sizing: content-box;
-  /* padding-bottom: 13px; */
   padding-right: 15px;
   width: 100%;
   height: 100%;
@@ -420,6 +417,13 @@
   box-sizing: border-box;
   height: 50px;
   width: 100%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -429,22 +433,17 @@
 #register-form-username-input::placeholder{
   color: #B3B8BF;
 }
-#register-form-username-input:focus{
-  outline-style: groove;
-  outline-width: 2px;
-  outline-color: #F5B649;
-}
-#register-form-email-error{
-
-}
-#register-form-email-error-message{
-
-}
-
 #register-form-email-input{
   box-sizing: border-box;
   height: 50px;
   width: 100%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -453,11 +452,6 @@
 }
 #register-form-email-input::placeholder{
   color: #B3B8BF;
-}
-#register-form-email-input:focus{
-  outline-style: groove;
-  outline-width: 3px;
-  outline-color: #F5B649;
 }
 .register-form-password-input-container{
   box-sizing: border-box;
@@ -470,6 +464,13 @@
   box-sizing: border-box;
   height: 100%;
   width: 80%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -478,11 +479,6 @@
 }
 #register-form-password-input::placeholder{
   color: #B3B8BF;
-}
-#register-form-password-input:focus{
-  outline-style: groove;
-  outline-width: 3px;
-  outline-color: #F5B649;
 }
 .register-form-password-input-eye-container{
   box-sizing: border-box;
@@ -500,6 +496,7 @@
   padding-left: 10px;
   padding-right: 10px;
   opacity: 0.4;
+  pointer-events: auto;
 }
 #password-hide{
   box-sizing: border-box;
@@ -509,14 +506,19 @@
   padding-left: 10px;
   padding-right: 10px;
   opacity: 0.4;
-}
-#register-form-age-error-message{
-
+  pointer-events: auto;
 }
 #register-form-age-input{
   box-sizing: border-box;
   height: 50px;
   width: 150px;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -526,15 +528,17 @@
 #register-form-age-input::placeholder{
   color: #B3B8BF;
 }
-#register-form-age-input:focus{
-  outline-style: groove;
-  outline-width: 3px;
-  outline-color: #F5B649;
-}
 #register-form-height-ft-input{
   box-sizing: border-box;
   height: 50px;
   width: 150px;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -544,18 +548,17 @@
 #register-form-height-ft-input::placeholder{
   color: #B3B8BF;
 }
-#register-form-height-ft-input:focus{
-  outline-style: groove;
-  outline-width: 3px;
-  outline-color: #F5B649;
-}
-#register-form-height-in-error-message{
-
-}
 #register-form-height-in-input{
   box-sizing: border-box;
   height: 50px;
   width: 150px;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 18px;
@@ -564,11 +567,6 @@
 }
 #register-form-height-in-input::placeholder{
   color: #B3B8BF;
-}
-#register-form-height-in-input:focus{
-  outline-style: groove;
-  outline-width: 3px;
-  outline-color: #F5B649;
 }
 .register-form-gender-input-container{
   box-sizing: border-box;
@@ -604,7 +602,6 @@
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 20px;
   color: #9A9FA6;
-  /* font-weight: bold; */
 }
 .register-form-gender-input-male-button-container{
   box-sizing: border-box;
@@ -781,16 +778,11 @@
   text-align: center;
   color: #9A9FA6;
 }
-
 .register-form-experience-timezone-spacer{
   box-sizing: border-box;
   width: 100%;
   height: 25px;
 }
-
-/* Experience stuff ***************************************/
-
-/* all experience stuff */
 .experience-header-container{
   box-sizing: border-box;
   width: 100%;
@@ -881,54 +873,17 @@
   width: 20px;
   height: 20px;
 }
-/* cardio */
-#experience-header-container-cardio{
-
-}
-#experience-header-cardio{
-
-}
-#experience-input-container-cardio{
-
-}
-#cario-button-container-beginner{
-
-}
-#cardio-button-beginner{
-
-}
-#cario-button-container-novice{
-
-}
-#cardio-button-novice{
-
-}
-#cario-button-container-intermediate{
-
-}
-#cardio-button-intermediate{
-
-}
-#cario-button-container-experienced{
-
-}
-#cardio-button-experienced{
-
-}
-/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Experience stuff */
-
 
 .register-form-bottom-spacer{
   box-sizing: border-box;
   width: 100%;
   height: 13px;
-  /* background-color: red; */
 }
 
 .gateway-register-form-container-1-button{
   box-sizing: border-box;
   width: 100%;
-  height: 16%;
+  height: 13%;
   background-color: #107E79;
   border-top: 1px solid #AFAFAF;
   opacity: 0.4;
@@ -936,6 +891,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 #sign-up{
   box-sizing: border-box;
@@ -947,16 +903,57 @@
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10+ and Edge */
   user-select: none; /* Standard syntax */
+  pointer-events: none;
+}
+.hidden_register_form{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  height: 0px;
+  width: 0px;
+  display: none;
 }
 
 
 
-/************ gateway forgot password form elements *************/
+/* Gateway Form Forgot Password Elements */
 .gateway-forgot-password-form-container{
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
+#forgot-pass-note{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /* height: 100%; */
+  /* width: 100%; */
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  color: #3C446B;
+  cursor: default;
+}
+
+
+
+
+
+/* figure out the user select stuff and all the mobile front end stuff */
+/* -webkit-touch-callout:none; */
+/* -webkit-user-select:none; */
+/* -khtml-user-select:none; */
+/* -moz-user-select:none; */
+/* -ms-user-select:none; */
+/* user-select:none; */
+/* -webkit-tap-highlight-color:rgba(0,0,0,0); */
+
+
+/* Also figure out the best way to do cursor hovering */
