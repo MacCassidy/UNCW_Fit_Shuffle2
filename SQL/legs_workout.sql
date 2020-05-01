@@ -1,3 +1,14 @@
+-- Squat
+-- Dumbbell_Sumo_Squat
+-- Bulgarian_Split_Squat
+-- Step_Ups
+-- Leg_Press
+-- Calve_Raises
+-- Lunge.jpg
+-- Romanian_Dead_Lift
+-- Glute_Machine
+-- Hamstring_Machine
+-- Quad_Machine
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -27,39 +38,104 @@ INSERT INTO Workouts(workout_name,
                      info,
                      video_file_name,
                      created) VALUES
-                     ('Squats',
+                     ('Squat',
                       'legs',
                       5,
                       3,
-                      45,
+                      '45 Lbs',
                       Null,
-                      720,
+                      600,
                       180,
 
-                      7,
+                      8,
                       3,
-                      65,
+                      '65 Lbs',
                       Null,
                       600,
                       120,
 
                       10,
                       3,
-                      95,
+                      '85 Lbs',
                       Null,
-                      420,
+                      600,
                       90,
 
-                      12,
+                      10,
                       3,
-                      135,
+                      '100 Lbs',
                       Null,
-                      420,
+                      600,
                       60,
-                      'Squats info value',
-                      'static/video/squats.png'
+                      'Squat info value',
+                      'static/images/workouts/Squat.png'
 );
 
+
+-- Dumbbell_Sumo_Squat
+INSERT INTO Workouts(workout_name,
+                     category,
+                     beginner_reps,
+                     beginner_sets,
+                     beginner_weight,
+                     beginner_pace,
+                     beginner_time_limit,
+                     beginner_rest_period,
+                     novice_reps,
+                     novice_sets,
+                     novice_weight,
+                     novice_pace,
+                     novice_time_limit,
+                     novice_rest_period,
+                     intermediate_reps,
+                     intermediate_sets,
+                     intermediate_weight,
+                     intermediate_pace,
+                     intermediate_time_limit,
+                     intermediate_rest_period,
+                     experienced_reps,
+                     experienced_sets,
+                     experienced_weight,
+                     experienced_pace,
+                     experienced_time_limit,
+                     experienced_rest_period,
+                     info,
+                     video_file_name,
+                     created) VALUES
+                     ('Dumbbell_Sumo_Squat',
+                      'legs',
+                      8,
+                      3,
+                      '25 Lbs (1 Dumbbell)',
+                      Null,
+                      600,
+                      180,
+
+                      8,
+                      3,
+                      '30 Lbs (1 Dumbbell)',
+                      Null,
+                      600,
+                      120,
+
+                      10,
+                      3,
+                      '35 Lbs (1 Dumbbell)',
+                      Null,
+                      600,
+                      90,
+
+                      10,
+                      3,
+                      '45 Lbs (1 Dumbbell)',
+                      Null,
+                      600,
+                      60,
+                      'Dumbbell_Sumo_Squat info value',
+                      'static/images/workouts/Dumbbell_Sumo_Squat.png'
+);
+-- Bulgarian_Split_Squat
+-- harambe
 
 
 INSERT INTO Workouts(workout_name,
@@ -315,3 +391,14 @@ INSERT INTO Workouts(workout_name,
                       'static/video/dumbbell-lunges.png'
 );
 
+-- Squat
+-- Sumo_Squat.jpg
+-- Bulgarian_Split_Squat
+-- Step_Ups
+-- Leg_Press
+-- Calve_Raises
+-- Lunge.jpg
+-- Romanian_Dead_Lift
+-- Glute_Machine
+-- Hamstring_Machine
+-- Quad_Machine

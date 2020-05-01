@@ -244,8 +244,8 @@
   -moz-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
-  border: 1px solid #4E5577;
-  /* border: 1px solid #C3C3C3; */
+  /* border: 1px solid #4E5577; */
+  border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 26px;
   padding-left: 7px;

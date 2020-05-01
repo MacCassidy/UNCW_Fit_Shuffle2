@@ -1,6 +1,6 @@
 -- workout: back
 
-
+-- Pull Ups
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -63,7 +63,7 @@ INSERT INTO Workouts(workout_name,
                       'static/video/pull-ups.png'
 );
 
-
+-- -Barbell Row
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -127,7 +127,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
-
+-- Seated Cable Row
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -190,7 +190,7 @@ INSERT INTO Workouts(workout_name,
                       'static/video/seated-cable-row.png'
 );
 
-
+-- Lat Pulldown
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -254,7 +254,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
-
+-- Deadlift
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -320,7 +320,7 @@ INSERT INTO Workouts(workout_name,
 
 
 
-
+-- Chin UPs
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -383,7 +383,7 @@ INSERT INTO Workouts(workout_name,
                       'static/video/pull-ups.png'
 );
 
-
+-- Pull Ups
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -447,7 +447,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
-
+-- Dumbbell Single Arm Row
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -509,5 +509,3 @@ INSERT INTO Workouts(workout_name,
                       'Dumbbell Single Arm Row info value',
                       'static/video/dumbbell-single-arm-row.png'
 );
-
-

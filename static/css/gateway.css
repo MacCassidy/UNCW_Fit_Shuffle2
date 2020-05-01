@@ -933,18 +933,12 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  /* height: 100%; */
-  /* width: 100%; */
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   color: #3C446B;
   cursor: default;
 }
-
-
-
-
 
 /* figure out the user select stuff and all the mobile front end stuff */
 /* -webkit-touch-callout:none; */

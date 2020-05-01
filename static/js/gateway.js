@@ -2873,7 +2873,7 @@ $(document).ready(function(){
           Vars.gateway_login_form_container.show();
           Vars.hidden_register_form.submit();
         } else {
-          harambe
+          // harambe
           $('.gateway-register-form-container-1-top-outer').scrollTop(0);
           Vars.gateway_nav_login.css("pointer-events", "auto");
           Vars.gateway_nav_register.css("pointer-events", "none");
@@ -3078,6 +3078,26 @@ $(document).ready(function(){
     }
   });
 
+  Vars.fillForm = function(email){
+    Vars.register_form_username_input.val("boy wizard")
+    Vars.register_form_email_input.val("maccassidyboywizard@gmail.com")
+    Vars.register_form_password_input.val("pass")
+    Vars.register_form_age_input.val(55)
+    Vars.register_form_height_ft_input.val(5)
+    Vars.register_form_height_in_input.val(5)
+    Vars.male_button.prop("checked", true);
+    Vars.eastern_time_button.prop("checked", true);
+    Vars.cardio_novice_button.prop("checked", true);
+    Vars.chest_novice_button.prop("checked", true);
+    Vars.legs_novice_button.prop("checked", true);
+    Vars.back_novice_button.prop("checked", true);
+    Vars.core_novice_button.prop("checked", true);
+    Vars.shoulders_novice_button.prop("checked", true);
+    Vars.arms_novice_button.prop("checked", true);
+    Vars.gateway_register_form_container_button.css('opacity', '1');
+    Vars.gateway_register_form_container_button.css("pointer-events", "auto");
+    Vars.gateway_register_form_container_button.click();
+  }
 
 
 

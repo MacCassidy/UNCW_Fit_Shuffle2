@@ -74,14 +74,51 @@
 
 
       <div class="create-workout-bottom">
-        <!-- harambe -->
-      </div>
+        <div class="create-workout-experience-title-container">
+          <p id="choose-cat">Choose Experience Level:</p>
+        </div>
+        <div class="create-workout-experience-container">
 
+
+          <div class="exp-con">
+            <div class="cexp-con-left">
+              <div id="beginner-con" class="exp-con-left-inner">
+                <p class="exp-con-left-inner-title">Beginner: </p>
+                <div class="exp-con-left-inner-button-cont">
+                  <input type="radio" name="exp" value="beginner" id="beginner-button">
+                </div>
+              </div>
+              <div id="novice-con" class="exp-con-left-inner">
+                <p class="exp-con-left-inner-title">Novice: </p>
+                <div class="exp-con-left-inner-button-cont">
+                  <input type="radio" name="exp" value="novice" id="novice-button">
+                </div>
+              </div>
+            </div>
+
+            <div class="exp-con-right">
+              <div id="chest-con" class="exp-con-right-inner">
+                <p class="exp-con-right-inner-title">Intermediate: </p>
+                <div class="exp-con-right-inner-button-cont">
+                  <input type="radio" name="exp" value="intermediate" id="intermediate-button">
+                </div>
+              </div>
+              <div id="core-con" class="exp-con-right-inner">
+                <p class="exp-con-right-inner-title">Experience: </p>
+                <div class="exp-con-right-inner-button-cont">
+                  <input type="radio" name="exp" value="experienced" id="experience-button">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <div class="homepage-body-conatiner-button-1">
       <p id="get-started">Get Started!</p>
     </div>
+    <form class="sesh_form" action="/session" method="post"></form>
   </div>
 </div>
 {% endblock %}
