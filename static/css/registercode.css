@@ -170,7 +170,7 @@
   /* font-weight: bold; */
 }
 #cancel-span{
-  color: #18344A;
+  color: #0645AD;
   font-size: 17px;
   font-weight: bold;
   text-decoration: underline;
@@ -202,7 +202,8 @@
   outline: none;
   /* background-color: green; */
 }
-#invalid-code-quote{
+/* invalid-code-quote-cont */
+#invalid-code-quote-cont{
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
@@ -215,8 +216,15 @@
   align-items: center;
   font-family: Arial, 'Montserrat', sans-serif;
   font-size: 14px;
-  display: none;
+  /* display: none; */
   color: #FC0D1B;
+}
+#invalid-code-quote{
+  box-sizing: border-box;
+  outline: 0px;
+  padding: 0px;
+  margin: 0px;
+  display: none;
 }
 #registercode-input{
   box-sizing: border-box;
@@ -236,14 +244,16 @@
   -moz-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
-  border: 1px solid #C3C3C3;
+  border: 1px solid #4E5577;
+  /* border: 1px solid #C3C3C3; */
   font-family: Arial, 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 26px;
   padding-left: 7px;
   text-align: center;
 }
 #registercode-input::placeholder{
   color: #B3B8BF;
+  font-size: 26px;
 }
 .registercode-bottom-button{
   box-sizing: border-box;

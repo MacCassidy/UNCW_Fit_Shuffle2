@@ -67,7 +67,7 @@ def homepage():
         email = account['email']
         username = account['username']
         unix_timestamp = str(datetime.utcnow().timestamp())
-        cursor.execute("UPDATE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + account['account_id'])
+        cursor.execute("UPDATE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + str(account['account_id']))
         mysql.connection.commit()
         cursor.close()
         return render_template('homepage.html', email=email, username=username)
@@ -198,7 +198,7 @@ def register():
                     # harambe
                     cur_var = str(datetime.now() + timedelta(seconds=100))[:19]
                     sched_id = 'Registertask-' + account['email']
-                    scheduler.add_job(name="RegisterTask", id=sched_id, func = registertask,  trigger='date', run_date=cur_var, args=[account['account_id'], account['email'], created_stamp, account['register_code']])
+                    # scheduler.add_job(name="RegisterTask", id=sched_id, func = registertask,  trigger='date', run_date=cur_var, args=[account['account_id'], account['email'], created_stamp, account['register_code']])
                     return jsonify({'error' : 'none'})
         else:
 
@@ -209,6 +209,13 @@ def register():
 # harambe
 @app.route('/registerconfirm', methods=['POST'])
 def registerconfirm():
+    if 'register_code' in request.form:
+        print("****WORKED#$%#$%$#%#%$%%#$%#$%$#%$#%#$%$#%$#%")
+        if 'status' in request.form and request.form['status'] == 'canel':
+            return jsonify({'error' : 'missing data'})
+    else:
+        print("*****DIDNT WORK @#$#@$@#$@#$@#@$$#@$@#")
+        return jsonify({'error' : 'missing data'})
     if 'register_code' in request.form and 'register_code' in session and 'status' in request.form and 'logged_in' in session and 'email' in session and 'account_id' in session:
         if request.form['status'] == 'cancel':
             try:
