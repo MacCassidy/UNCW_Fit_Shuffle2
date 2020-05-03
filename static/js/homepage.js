@@ -1,14 +1,14 @@
 $(document).ready(function(){
-  // $('#layout-logout-button-form').css('display', 'flex');
-  // $('#layout-logout-button-form').css('pointer-events', 'auto');
-  // $('#layout-logout-button').css('display', 'block');
-  // $('#layout-logout-button').css('pointer-events', 'auto');
-  // $('#layout-logout-button').on('click', function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $('#layout-logout-button-form').submit()
-  // });
-  //
+  $('#layout-logout-button-form').css('display', 'flex');
+  $('#layout-logout-button-form').css('pointer-events', 'auto');
+  $('#layout-logout-button').css('display', 'block');
+  $('#layout-logout-button').css('pointer-events', 'auto');
+  $('#layout-logout-button').on('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $('#layout-logout-button-form').submit()
+  });
+  
   // $(input).click(function(){
   //   if($("input[name='category']").is(":checked") && $("input[name='experience-button']").is(":checked")){
   //     $('.homepage-body-conatiner-button-1').css('opacity', '1.0');

@@ -40,7 +40,7 @@ $(document).ready(function(){
     e.stopPropagation();
     Vars.invalid_code.hide();
     Vars.registercode_input.css('border', '1px solid #C3C3C3');
-    Vars.registercode_input.prop('disabled', 'true');
+    Vars.registercode_input.prop('disabled', true);
     // Ajax
     $.ajax({
       data : {
@@ -56,31 +56,29 @@ $(document).ready(function(){
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
-          Vars.registercode_input.prop('disabled', 'false');
+          Vars.registercode_input.prop('disabled', false);
         } else if (data.error == 'invalid code'){
           Vars.invalid_code.show();
           Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
-          Vars.registercode_input.css('border', '1px solid #FC0D1B;');
-          Vars.registercode_input.prop('disabled', 'false');
+          Vars.registercode_input.css('border', '1px solid #FC0D1B');
+          Vars.registercode_input.prop('disabled', false);
         } else if (data.error == 'canceled'){
           $('.registercode-form').submit();
-        // console.log(data.error);
-        // console.log(".done()  data.error = " + data.error);
       } else {
         Vars.cancel_span.css('pointer-events', 'auto');
         Vars.registercode_bottom_button.css('opacity', '0.4');
         Vars.registercode_bottom_button.css('pointer-events', 'none');
         Vars.registercode_input.val('');
-        Vars.registercode_input.prop('disabled', 'false');
+        Vars.registercode_input.prop('disabled', false);
       }
     }).fail(function(jqXHR, textStatus, errorThrown){
       Vars.cancel_span.css('pointer-events', 'auto');
       Vars.registercode_bottom_button.css('opacity', '0.4');
       Vars.registercode_bottom_button.css('pointer-events', 'none');
       Vars.registercode_input.val('');
-      Vars.registercode_input.prop('disabled', 'false');
+      Vars.registercode_input.prop('disabled', false);
     });
   });
 
@@ -93,8 +91,7 @@ $(document).ready(function(){
     e.stopPropagation();
     Vars.invalid_code.hide();
     Vars.registercode_input.css('border', '1px solid #C3C3C3');
-    Vars.registercode_input.prop('disabled', 'true');
-    // Vars.registercode_input.prop('disabled', 'false');
+    Vars.registercode_input.prop('disabled', true);
     if (Vars.registercode_input.val()){
       $.ajax({
         data : {
@@ -110,14 +107,15 @@ $(document).ready(function(){
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
-          Vars.registercode_input.prop('disabled', 'false');
+          Vars.registercode_input.prop('disabled', false);
         } else if (data.error == 'invalid code'){
           Vars.invalid_code.show();
           Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
-          Vars.registercode_input.css('border', '1px solid #FC0D1B;');
-          Vars.registercode_input.prop('disabled', 'false');
+          Vars.registercode_input.css('border', '1px solid #FC0D1B');
+          Vars.registercode_input.prop('disabled', false);
+          Vars.registercode_input.focus();
         } else if (data.error == 'confirmed'){
           $('.registercode-form').submit();
         } else {
@@ -125,14 +123,14 @@ $(document).ready(function(){
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
-          Vars.registercode_input.prop('disabled', 'false');
+          Vars.registercode_input.prop('disabled', false);
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
         Vars.cancel_span.css('pointer-events', 'auto');
         Vars.registercode_bottom_button.css('opacity', '0.4');
         Vars.registercode_bottom_button.css('pointer-events', 'none');
         Vars.registercode_input.val('');
-        Vars.registercode_input.prop('disabled', 'false');
+        Vars.registercode_input.prop('disabled', false);
       });
     }
   });

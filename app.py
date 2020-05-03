@@ -46,7 +46,7 @@ def before_request():
 def index():
     if 'logged_in' in session and not ('register_code' in session):
         return redirect(url_for('homepage'))
-    elif not ('register_code' in session):
+    elif 'register_code' in session:
         return redirect(url_for('registercode'))
     else:
         key_list = list(session.keys())
@@ -85,6 +85,9 @@ def homepage():
         mysql.connection.commit()
         cursor.close()
         return render_template('homepage.html', email=email, username=username)
+        # elif 'register_code' in session:
+    elif 'register_code' in session:
+        return redirect(url_for('registercode'))
     else:
         key_list = list(session.keys())
         for key in key_list:
@@ -155,7 +158,7 @@ def logout():
         account_id = session['account_id']
         email = session['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("UPDATE Accounts SET logged_in = False, last_activity = " + str(datetime.timestamp(datetime.utcnow())) + " WHERE account_id = " + str(account_id))
+        cursor.execute("UPDATE Accounts SET logged_in = 0, last_activity = %(last_activity)s WHERE email = %(email)s", {'email': email, 'last_activity': datetime.timestamp(datetime.utcnow())})
         mysql.connection.commit()
         cursor.close()
         key_list = list(session.keys())
@@ -278,7 +281,7 @@ def registerconfirm():
                 account = cursor.fetchone()
                 if account:
                     print('if account block')
-                    cursor.execute("UPDATE Accounts Set register_code = Null,  logged_in = 1, last_activity = %(now)s", {'now': now})
+                    cursor.execute("UPDATE Accounts Set register_code = Null,  logged_in = 1, last_activity = %(now)s Where account_id = %(u_id)s and email = %(email)s and register_code = %(code)s", {'now': now, 'u_id': account_id, 'email': email, 'code': code})
                     mysql.connection.commit()
                     cursor.close()
                     session['logged_in'] = True
