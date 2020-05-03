@@ -45,21 +45,21 @@ $(document).ready(function(){
     $.ajax({
       data : {
           // registerconfirm
-          register_code : Vars.registercode_input.val(),
-          status : 'canel'
+          register_code : ' ',
+          status : 'cancel'
         },
         type : 'POST',
         url : '/registerconfirm'
     }).done(function(data){
       if (data.error == 'missing data') {
-          Vars.cancel_span.css('pointer-events' : 'auto');
+          Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
-          Vars.registercode_bottom_button.css('pointer-events', 'auto');
+          Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
           Vars.registercode_input.prop('disabled', 'false');
         } else if (data.error == 'invalid code'){
           Vars.invalid_code.show();
-          Vars.cancel_span.css('pointer-events' : 'auto');
+          Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.css('border', '1px solid #FC0D1B;');
@@ -69,16 +69,16 @@ $(document).ready(function(){
         // console.log(data.error);
         // console.log(".done()  data.error = " + data.error);
       } else {
-        Vars.cancel_span.css('pointer-events' : 'auto');
+        Vars.cancel_span.css('pointer-events', 'auto');
         Vars.registercode_bottom_button.css('opacity', '0.4');
         Vars.registercode_bottom_button.css('pointer-events', 'none');
         Vars.registercode_input.val('');
         Vars.registercode_input.prop('disabled', 'false');
       }
     }).fail(function(jqXHR, textStatus, errorThrown){
-      Vars.cancel_span.css('pointer-events' : 'auto');
+      Vars.cancel_span.css('pointer-events', 'auto');
       Vars.registercode_bottom_button.css('opacity', '0.4');
-      Vars.registercode_bottom_button.css('pointer-events', 'auto');
+      Vars.registercode_bottom_button.css('pointer-events', 'none');
       Vars.registercode_input.val('');
       Vars.registercode_input.prop('disabled', 'false');
     });
@@ -106,14 +106,14 @@ $(document).ready(function(){
           url : '/registerconfirm'
       }).done(function(data){
         if(data.error == 'missing data'){
-          Vars.cancel_span.css('pointer-events' : 'auto');
+          Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
           Vars.registercode_input.prop('disabled', 'false');
         } else if (data.error == 'invalid code'){
           Vars.invalid_code.show();
-          Vars.cancel_span.css('pointer-events' : 'auto');
+          Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.css('border', '1px solid #FC0D1B;');
@@ -121,14 +121,14 @@ $(document).ready(function(){
         } else if (data.error == 'confirmed'){
           $('.registercode-form').submit();
         } else {
-          Vars.cancel_span.css('pointer-events' : 'auto');
+          Vars.cancel_span.css('pointer-events', 'auto');
           Vars.registercode_bottom_button.css('opacity', '0.4');
           Vars.registercode_bottom_button.css('pointer-events', 'none');
           Vars.registercode_input.val('');
           Vars.registercode_input.prop('disabled', 'false');
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
-        Vars.cancel_span.css('pointer-events' : 'auto');
+        Vars.cancel_span.css('pointer-events', 'auto');
         Vars.registercode_bottom_button.css('opacity', '0.4');
         Vars.registercode_bottom_button.css('pointer-events', 'none');
         Vars.registercode_input.val('');

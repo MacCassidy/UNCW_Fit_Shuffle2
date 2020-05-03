@@ -86,20 +86,15 @@ def homepage():
         cursor.close()
         return render_template('homepage.html', email=email, username=username)
     else:
+        key_list = list(session.keys())
+        for key in key_list:
+            session.pop(key)
         return redirect(url_for('gateway'))
 
 
 @app.route('/registercode', methods=['POST','GET'])
 def registercode():
-    # if 'username' in request.form and 'email' in request.form and 'password' in request.form and 'age' in request.form and 'height_ft' in request.form and 'height_in' in request.form and 'gender' in request.form and 'timezone' in request.form and 'exp_cardio' in request.form and 'exp_chest' in request.form and 'exp_legs' in request.form and 'exp_back' in request.form and 'exp_core' in request.form and 'exp_shoulders' in request.form and 'exp_arms' in request.form:
     if 'register_code' in session and 'email' in session and 'username' in session and session['logged_in'] == False:
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
-        # session['username'] = request.form['username']
 
         return render_template('registercode.html', email=session['email'], username=session['username'])
     else:
@@ -153,9 +148,7 @@ def login():
     else:
         return jsonify({'error' : 'missing data'})
 
-# @app.route('')
 
-# @app.route('/logout')
 @app.route('/logout', methods=['POST', 'GET'])
 def logout():
     if 'logged_in' in session:
@@ -218,7 +211,6 @@ def register():
                     return jsonify({'error' : 'missing data'})
                 else:
                     cursor.close()
-                    # print("made it here")
                     session.permanent = True
                     session['logged_in'] = False
                     session['email'] = account['email']
@@ -228,36 +220,15 @@ def register():
                     session['username'] = account['username']
                     rec_email = account['email']
                     created_stamp = account['created']
-                    # password = "maccassidyboywizard$$1"
-                    # server = smtplib.SMTP(smtp.gmail.com)
-                    # SERVER.starttls()
-                    # server.sendmail(our_email, TO[0], message)
-                    # server.quit()
-                    # print "Message sent!"
                     our_email = "uncwfitshuffle@gmail.com"
                     password = "Uncwgoseahawks737"
-                    # message = "\n Subject: Fit Shuffle Account Register Code  Thanks for Registering with UNCW Fit Shuffle %s!, here if your 4-digit code: %d " % (session['username'], session['register_code'])
                     message = """\
                     Subject: Fit Shuffle Account Register Code \n
                         code: %s
                     """ % (reg_code)
-                    # try:
-                    #     HOST = "smtp.gmail.com"
-                    #     PORT = "587"
-                    #     SERVER = smtplib.SMTP()
-                    #     SERVER.connect(HOST, PORT)
-                    #     SERVER.starttls()
-                    #     SERVER.login(our_email,password)
-                    #     SERVER.sendmail(our_email, rec_email, message)
-                    #     SERVER.quit()
-                    #     print("Email sent")
-                    # except Exception as e:
-                    #     print(e)
-                    #     return jsonify({'error' : 'missing data'})
                     context = ssl.create_default_context()
                     try:
                         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
-                            print("didntmess up")
                             server.login(our_email, password)
                             server.sendmail(our_email, rec_email, message)
 
@@ -279,46 +250,44 @@ def register():
 # harambe
 @app.route('/registerconfirm', methods=['POST'])
 def registerconfirm():
-    # if 'register_code' in request.form and 'email' in request.form:
-    #     print("****WORKED#$%#$%$#%#%$%%#$%#$%$#%$#%#$%$#%$#%")
-    #     if 'status' in request.form and request.form['status'] == 'canel':
-    #         return jsonify({'error' : 'confirmed'})
-    # else:
-    #     print("*****DIDNT WORK @#$#@$@#$@#$@#@$$#@$@#")
-    #     return jsonify({'error' : 'invalid'})
     if 'register_code' in request.form and 'register_code' in session and 'status' in request.form and 'email' in session and 'account_id' in session:
         if request.form['status'] == 'cancel':
             try:
+                email = session['email']
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                # cursor.execute("DELETE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + account['account_id'])
-                cursor.execute("DELETE FROM Accounts WHERE register_code = %(register_code)s and account_id = %(account_id)s", {'register_code': register_code, 'account_id': account_id})
+                cursor.execute("DELETE From Accounts WHERE email = %(email)s", {'email': email})
                 mysql.connection.commit()
                 cursor.close()
+                key_list = list(session.keys())
                 for key in key_list:
-                    print(str(key))
                     session.pop(key)
                 return jsonify({'error' : 'canceled'})
-            except:
+            except Exception as e:
+                print(e)
                 return jsonify({'error' : 'missing data'})
         elif request.form['status'] == 'confirm':
+            print('confirmedddddddd')
             try:
                 now = str(datetime.timestamp(datetime.utcnow()))
                 email = session['email']
                 account_id = session['account_id']
                 code = request.form['register_code']
+                print('try block made')
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute("SELECT * FROM Accounts WHERE account_id = %(u_id)s and email = %(email)s and register_code = %(code)s", {'u_id': account_id, 'email': email, 'code': code})
                 account = cursor.fetchone()
                 if account:
+                    print('if account block')
                     cursor.execute("UPDATE Accounts Set register_code = Null,  logged_in = 1, last_activity = %(now)s", {'now': now})
                     mysql.connection.commit()
                     cursor.close()
                     session['logged_in'] = True
-                    session['register_code'] = ""
+                    session.pop('register_code')
                     return jsonify({'error' : 'confirmed'})
                 else:
                     return jsonify({'error' : 'invalid code'})
-            except:
+            except Exception as e:
+                print(e)
                 return jsonify({'error': 'missing data'})
         else:
             return jsonify({'error': 'missing data'})
@@ -326,16 +295,9 @@ def registerconfirm():
         return jsonify({'error': 'missing data'})
 
 
-# harambe
-
 def registercheck(**kwargs):
     with scheduler.app.app_context():
         print(type(kwargs['u_id']))
-        #     print(kwargs['u_id'])
-        #     print(kwargs['email'])
-        #     print(kwargs['created'])
-        #     print(kwargs['code'])
-        #     print("u_id in kwargs")
         if kwargs['u_id'] and kwargs['u_id'] and kwargs['created'] and kwargs['code']:
             try:
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -343,7 +305,6 @@ def registercheck(**kwargs):
                 b = kwargs['email']
                 c = kwargs['code']
                 d = kwargs['created']
-                # kwargs['u_id']
                 cursor.execute("SELECT * FROM Accounts WHERE account_id = %(u_id)s and email = %(email)s and created = %(created)s and register_code = %(code)s", {'u_id': a, 'email': b, 'created': d, 'code': c})
                 account = cursor.fetchone()
                 if account['register_code']:
@@ -354,39 +315,7 @@ def registercheck(**kwargs):
                     cursor.close()
             except Exception as exc:
                 print("**************RegisterCheck Task Error**************")
-                # print("account_id: " + str(account_id))
-                # print("email: " + email)
-                # print("created: " + str(created))
-                # print("register_code: " + str(code))
                 print(str(exc))
-
-
-
-# def registertask():
-#     with scheduler.app.app_context():
-#         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#         username = "registertask"
-#         r1 = random.randint(0, 100000)
-#         email = "task" + str(r1) + "@mail.com"
-#         password = '$2b$12$LaczxaUdSOiyRbC/jyRfkufezVXhoCllWfGVYRB4xyKOBQoC/jCMS' # colepassword
-#         logged_in = '0'
-#         age = "15"
-#         height_ft = "5"
-#         height_in = "5"
-#         gender = "male"
-#         timezone = 'America/New_York'
-#         exp_cardio = 'novice'
-#         exp_chest = 'novice'
-#         exp_legs = 'novice'
-#         exp_back = 'novice'
-#         exp_core = 'novice'
-#         exp_shoulders = 'novice'
-#         exp_arms = 'novice'
-#         created = str(datetime.now().timestamp())
-#         last_activity =
-#         cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'last_activity': last_activity})
-#         mysql.connection.commit()
-#         cursor.close()
 
 
 if __name__ == "__main__":
