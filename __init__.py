@@ -244,8 +244,10 @@ def register():
                     cur_var = str(datetime.now() + timedelta(seconds=30))[:19]
                     sched_id = 'Registertask-' + account['email']
                     print("scheduler job #$%#%#$%#$%#$%#$%#%")
-                    scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
-
+                    try:
+                        scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
+                    except Exception as e:
+                        print(e)
                     return jsonify({'error' : 'none'})
         else:
 
