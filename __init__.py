@@ -242,12 +242,14 @@ def register():
                         return jsonify({'error' : 'missing data'})
                     # harambe
                     cur_var = str(datetime.now() + timedelta(seconds=30))[:19]
-                    sched_id = 'Registertask-' + account['email']
+                    seed = random.randint(1000, 9999)
+                    sched_id = 'Registertask-' + account['email'] + "-" + str(seed)
                     print("scheduler job #$%#%#$%#$%#$%#$%#%")
                     try:
                         scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
                     except Exception as e:
                         print(e)
+                    print("return none$#$$$$$$$$")
                     return jsonify({'error' : 'none'})
         else:
 
