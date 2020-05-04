@@ -209,7 +209,7 @@ def register():
                 mysql.connection.commit()
                 cursor.execute("SELECT * from Accounts WHERE email = %(email)s", {'email': email})
                 account = cursor.fetchone()
-                print(account)
+                # print(account)
                 if not account:
                     cursor.close()
                     return jsonify({'error' : 'missing data'})
@@ -230,8 +230,9 @@ def register():
                     Subject: Fit Shuffle Account Register Code \n
                         code: %s
                     """ % (reg_code)
-                    context = ssl.create_default_context()
+                    # context = ssl.create_default_context()
                     try:
+                        context = ssl.create_default_context()
                         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
                             server.login(our_email, password)
                             server.sendmail(our_email, rec_email, message)
