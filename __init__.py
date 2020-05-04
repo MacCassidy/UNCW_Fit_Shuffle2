@@ -207,8 +207,9 @@ def register():
             else:
                 cursor.execute("INSERT INTO Accounts (username,email,password,logged_in,age,height_ft,height_in,gender,timezone, exp_cardio, exp_chest, exp_legs, exp_back, exp_core, exp_shoulders, exp_arms, register_code, created, last_activity  ) VALUES (  %(username)s, %(email)s, %(password)s, %(logged_in)s, %(age)s, %(height_ft)s, %(height_in)s, %(gender)s, %(timezone)s, %(exp_cardio)s, %(exp_chest)s, %(exp_legs)s, %(exp_back)s, %(exp_core)s, %(exp_shoulders)s, %(exp_arms)s, %(register_code)s, %(created)s, %(last_activity)s )", {'username': username, 'email': email,  'password': password, 'logged_in': logged_in, 'age': age, 'height_ft': height_ft, 'height_in': height_in, 'gender': gender, 'timezone': timezone, 'exp_cardio':exp_cardio, 'exp_chest': exp_chest, 'exp_legs': exp_legs, 'exp_back': exp_back, 'exp_core': exp_core, 'exp_shoulders': exp_shoulders, 'exp_arms': exp_arms, 'created': created, 'register_code': register_code, 'last_activity': last_activity})
                 mysql.connection.commit()
-                cursor.execute("SELECT *  from Accounts WHERE email = %(email)s", {'email': email})
+                cursor.execute("SELECT * from Accounts WHERE email = %(email)s", {'email': email})
                 account = cursor.fetchone()
+                print(account)
                 if not account:
                     cursor.close()
                     return jsonify({'error' : 'missing data'})
@@ -231,6 +232,7 @@ def register():
                     """ % (reg_code)
                     context = ssl.create_default_context()
                     try:
+                        print('SMTP try block #$%$#%$%%#%#$%$#%#%#$%#$%$#')
                         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
                             server.login(our_email, password)
                             server.sendmail(our_email, rec_email, message)
@@ -241,6 +243,7 @@ def register():
                     # harambe
                     cur_var = str(datetime.now() + timedelta(seconds=30))[:19]
                     sched_id = 'Registertask-' + account['email']
+                    print("scheduler job #$%#%#$%#$%#$%#$%#%")
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
 
                     return jsonify({'error' : 'none'})
