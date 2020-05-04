@@ -5,117 +5,25 @@
 {% endblock %}
 
 {% block body %}
-<div class="homepage-main-container-1">
-  <div class="homepage-nav-container-1">
-    <div class="create-workout-tab-1">
-      <p id="create-workout-1">Create Workout</p>
+<div class="homepage-main-container">
+  <div class="homepage-nav-container">
+    <div class="create-workout-tab">
+      <p id="create-workout">Create Workout</p>
     </div>
-    <div class="prev-sessions-tab-1">
-      <p id="prev-sessions-1">Prev. Sessions</p>
+    <div class="prev-sessions-tab">
+      <p id="prev-sessions">Prev. Sessions</p>
     </div>
-    <div class="profile-tab-1">
-      <p id="profile-1">Profile</p>
+    <div class="profile-tab">
+      <p id="profile">Profile</p>
     </div>
   </div>
-  <div class="homepage-body-container-1">
-    <div class="homepage-body-container-top-1">
+  <div class="homepage-body-container">
+    <div class="homepage-body-container-top">
 
 
-      <div class="create-workout-top">
-
-        <div class="create-workout-category-title-container">
-          <p id="choose-cat">Choose a Category</p>
-        </div>
-        <div class="create-workout-category-container">
-          <div class="cat-con">
-            <div class="cat-con-left">
-              <div id="legs-con" class="cat-con-left-inner">
-                <p class="cat-con-left-inner-title">Legs: </p>
-                <div class="cat-con-left-inner-button-cont">
-                  <input type="radio" name="category" value="legs" id="legs-button">
-                </div>
-              </div>
-              <div id="back-con" class="cat-con-left-inner">
-                <p class="cat-con-left-inner-title">Back: </p>
-                <div class="cat-con-left-inner-button-cont">
-                  <input type="radio" name="category" value="back" id="back-button">
-                </div>
-              </div>
-              <div id="shoulders-con" class="cat-con-left-inner">
-                <p class="cat-con-left-inner-title">Shoulders: </p>
-                <div class="at-con-left-inner-button-cont">
-                  <input type="radio" name="category" value="shoulders" id="shoulders-button">
-                </div>
-              </div>
-            </div>
-            <div class="cat-con-right">
-              <div id="chest-con" class="cat-con-right-inner">
-                <p class="cat-con-right-inner-title">Chest: </p>
-                <div class="cat-con-right-inner-button-cont">
-                  <input type="radio" name="category" value="chest" id="chest-button">
-                </div>
-              </div>
-              <div id="core-con" class="cat-con-right-inner">
-                <p class="cat-con-right-inner-title">Core: </p>
-                <div class="cat-con-right-inner-button-cont">
-                  <input type="radio" name="category" value="core" id="core-button">
-                </div>
-              </div>
-              <div id="arms-con" class="cat-con-right-inner">
-                <p class="cat-con-right-inner-title">Arms: </p>
-                <div class="cat-con-right-inner-button-cont">
-                  <input type="radio" name="category" value="arms" id="arms-button">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="create-workout-bottom">
-        <div class="create-workout-experience-title-container">
-          <p id="choose-cat">Choose Experience Level:</p>
-        </div>
-        <div class="create-workout-experience-container">
-
-
-          <div class="exp-con">
-            <div class="cexp-con-left">
-              <div id="beginner-con" class="exp-con-left-inner">
-                <p class="exp-con-left-inner-title">Beginner: </p>
-                <div class="exp-con-left-inner-button-cont">
-                  <input type="radio" name="exp" value="beginner" id="beginner-button">
-                </div>
-              </div>
-              <div id="novice-con" class="exp-con-left-inner">
-                <p class="exp-con-left-inner-title">Novice: </p>
-                <div class="exp-con-left-inner-button-cont">
-                  <input type="radio" name="exp" value="novice" id="novice-button">
-                </div>
-              </div>
-            </div>
-
-            <div class="exp-con-right">
-              <div id="chest-con" class="exp-con-right-inner">
-                <p class="exp-con-right-inner-title">Intermediate: </p>
-                <div class="exp-con-right-inner-button-cont">
-                  <input type="radio" name="exp" value="intermediate" id="intermediate-button">
-                </div>
-              </div>
-              <div id="core-con" class="exp-con-right-inner">
-                <p class="exp-con-right-inner-title">Experience: </p>
-                <div class="exp-con-right-inner-button-cont">
-                  <input type="radio" name="exp" value="experienced" id="experience-button">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
-    <div class="homepage-body-conatiner-button-1">
+    <div class="homepage-body-conatiner-button">
       <p id="get-started">Get Started!</p>
     </div>
     <form class="sesh_form" action="/session" method="post"></form>
