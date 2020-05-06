@@ -47,7 +47,11 @@ def index():
     if 'logged_in' in session and not ('register_code' in session):
         return redirect(url_for('homepage'))
     elif 'register_code' in session:
+        # key_list = list(session.keys())
+        # for key in key_list:
+        #     session.pop(key)
         return redirect(url_for('registercode'))
+        # return redirect(url_for('gateway'))
     else:
         key_list = list(session.keys())
         for key in key_list:
@@ -98,8 +102,13 @@ def homepage():
 @app.route('/registercode', methods=['POST','GET'])
 def registercode():
     if 'register_code' in session and 'email' in session and 'username' in session and session['logged_in'] == False:
-
+        # key_list = list(session.keys())
+        # for key in key_list:
+        #     session.pop(key)
+        # email = 'blahh'
+        # username = 'blahh'
         return render_template('registercode.html', email=session['email'], username=session['username'])
+        # return render_template('registercode.html', email=email, username=username)
     else:
         session['logged_in'] = False
         key_list = list(session.keys())
@@ -239,7 +248,7 @@ def register():
                     except Exception as e:
                         print(e)
                     # harambe
-                    cur_var = str(datetime.now() + timedelta(seconds=25))[:19]
+                    cur_var = str(datetime.now() + timedelta(seconds=15))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
                     return jsonify({'error' : 'none'})
@@ -249,7 +258,6 @@ def register():
     else:
         return jsonify({'error' : 'missing data'})
 
-# harambe
 @app.route('/registerconfirm', methods=['POST'])
 def registerconfirm():
     if 'register_code' in request.form and 'register_code' in session and 'status' in request.form and 'email' in session and 'account_id' in session:
@@ -313,6 +321,9 @@ def registercheck(**kwargs):
                     cursor.execute("DELETE FROM Accounts WHERE account_id = %(u_id)s and email = %(email)s and register_code = %(code)s", {'u_id': a, 'email': b, 'code': c})
                     mysql.connection.commit()
                     cursor.close()
+                    # key_list = list(session.keys())
+                    # for key in key_list:
+                    #     session.pop(key)
                 else:
                     cursor.close()
             except Exception as exc:
