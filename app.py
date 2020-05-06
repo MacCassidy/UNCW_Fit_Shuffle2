@@ -45,7 +45,7 @@ def before_request():
 @app.route('/', methods=['GET'])
 def index():
     if 'logged_in' in session and not ('register_code' in session):
-        return redirect(url_for('homepage'))
+        return redirect(url_for('profile'))
     elif 'register_code' in session:
         # key_list = list(session.keys())
         # for key in key_list:
@@ -61,7 +61,7 @@ def index():
 @app.route('/gateway', methods=['GET'])
 def gateway():
     if 'logged_in' in session and not ('register_code' in session):
-        return redirect(url_for('homepage'))
+        return redirect(url_for('profile'))
     elif 'register_code' in session:
         return redirect(url_for('registercode'))
     else:
@@ -70,8 +70,8 @@ def gateway():
             session.pop(key)
         return render_template('gateway.html')
 
-@app.route('/homepage', methods=['GET'])
-def homepage():
+@app.route('/profile', methods=['GET'])
+def profile():
     if 'logged_in' in session and not ('register_code' in session):
         account_id = session['account_id']
         email = session['email']
@@ -80,6 +80,31 @@ def homepage():
         account = cursor.fetchone()
         email = account['email']
         username = account['username']
+        age = account['age']
+        height_ft = account['height_ft']
+        height_in = account['height_in']
+        gender = account['gender']
+        timezone = account['timezone']
+        # 'America/New_York', 'America/Merida', 'America/Boise', 'America/Dawson', 'America/Anchorage', 'Pacific/Honolulu'
+        if timezone == 'America/New_York':
+            timezone = 'Eastern'
+        elif timezone == 'America/Dawson':
+            timezone = 'Pacific'
+        elif timezone == 'America/Anchorage':
+            timezone = 'Alaska'
+        elif timezone == 'America/Merida':
+            timezone = 'Central'
+        elif timezone == 'America/Boise':
+            timezone = 'Mountain'
+        elif timezone == 'Pacific/Honolulu':
+            timezone = 'Hawaii'
+        cardio_exp = account['exp_cardio']
+        chest_exp = account['exp_chest']
+        legs_exp = account['exp_legs']
+        back_exp = account['exp_back']
+        core_exp = account['exp_core']
+        shoulders_exp = account['exp_shoulders']
+        arms_exp = account['exp_arms']
         unix_timestamp = str(datetime.utcnow().timestamp())
         try:
             cursor.execute("UPDATE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + str(account['account_id']))
@@ -88,7 +113,7 @@ def homepage():
             print(e)
         mysql.connection.commit()
         cursor.close()
-        return render_template('homepage.html', email=email, username=username)
+        return render_template('profile.html', email=email, username=username, age=age, height_ft=height_ft, height_in=height_in, gender=gender, timezone=timezone, cardio_exp=cardio_exp, chest_exp=chest_exp, legs_exp=legs_exp, back_exp=back_exp, core_exp=core_exp, shoulders_exp=shoulders_exp, arms_exp=arms_exp)
         # elif 'register_code' in session:
     elif 'register_code' in session:
         return redirect(url_for('registercode'))
@@ -98,6 +123,58 @@ def homepage():
             session.pop(key)
         return redirect(url_for('gateway'))
 
+
+@app.route('/editprofile', methods=['GET'])
+def editprofile():
+    if 'logged_in' in session and not ('register_code' in session):
+        account_id = session['account_id']
+        email = session['email']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and account_id = %(account_id)s", {'email': email, 'account_id': account_id})
+        account = cursor.fetchone()
+        email = account['email']
+        username = account['username']
+        age = account['age']
+        height_ft = account['height_ft']
+        height_in = account['height_in']
+        gender = account['gender']
+        timezone = account['timezone']
+        # 'America/New_York', 'America/Merida', 'America/Boise', 'America/Dawson', 'America/Anchorage', 'Pacific/Honolulu'
+        if timezone == 'America/New_York':
+            timezone = 'Eastern'
+        elif timezone == 'America/Dawson':
+            timezone = 'Pacific'
+        elif timezone == 'America/Anchorage':
+            timezone = 'Alaska'
+        elif timezone == 'America/Merida':
+            timezone = 'Central'
+        elif timezone == 'America/Boise':
+            timezone = 'Mountain'
+        elif timezone == 'Pacific/Honolulu':
+            timezone = 'Hawaii'
+        cardio_exp = account['exp_cardio']
+        chest_exp = account['exp_chest']
+        legs_exp = account['exp_legs']
+        back_exp = account['exp_back']
+        core_exp = account['exp_core']
+        shoulders_exp = account['exp_shoulders']
+        arms_exp = account['exp_arms']
+        unix_timestamp = str(datetime.utcnow().timestamp())
+        try:
+            cursor.execute("UPDATE Accounts SET logged_in = True, last_activity = " + unix_timestamp + " WHERE account_id = " + str(account['account_id']))
+        except Exception as e:
+            print("Update exception:")
+            print(e)
+        mysql.connection.commit()
+        cursor.close()
+        return render_template('editprofile.html', email=email, username=username, age=age, height_ft=height_ft, height_in=height_in, gender=gender, timezone=timezone, cardio_exp=cardio_exp, chest_exp=chest_exp, legs_exp=legs_exp, back_exp=back_exp, core_exp=core_exp, shoulders_exp=shoulders_exp, arms_exp=arms_exp)
+    elif 'register_code' in session:
+        return redirect(url_for('registercode'))
+    else:
+        key_list = list(session.keys())
+        for key in key_list:
+            session.pop(key)
+        return redirect(url_for('gateway'))
 
 @app.route('/registercode', methods=['POST','GET'])
 def registercode():
@@ -248,7 +325,7 @@ def register():
                     except Exception as e:
                         print(e)
                     # harambe
-                    cur_var = str(datetime.now() + timedelta(seconds=15))[:19]
+                    cur_var = str(datetime.now() + timedelta(seconds=1200))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
                     return jsonify({'error' : 'none'})

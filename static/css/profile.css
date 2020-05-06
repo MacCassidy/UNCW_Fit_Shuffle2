@@ -1,0 +1,219 @@
+
+.profile-main-container{
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.profile-nav-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.profile-body-container{
+  box-sizing: border-box;
+  height: 88%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.create-workout-tab{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.prev-sessions-tab{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.profile-tab{
+  box-sizing: border-box;
+  height: 100%;
+  width: 30%;
+  border-bottom: 3px solid #1A7E79;
+  /* border-bottom: 3px solid #FFFFFF; */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  cursor: default;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+#create-workout{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  /* color: #107E79; */
+  font-weight: bold;
+  color: #B3B8BF;
+  cursor: pointer;
+  /* pointer-events: auto; */
+  /* background-color: #8D9499; */
+}
+#prev-sessions{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  /* color: #107E79; */
+  color: #B3B8BF;
+  cursor: pointer;
+  /* background-color: #8D9499; */
+}
+#profile{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #107E79;
+  /* color: #B3B8BF; */
+  cursor: default;
+
+  /* background-color: #8D9499; */
+}
+
+
+.profile-body-container-top{
+  box-sizing: border-box;
+  height: 87%;
+  width: 100%;
+  display: block;
+  /* box-sizing: content-box; */
+  /* padding-right: 15px; */
+  /* flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  overflow-x: visible;
+  overflow-y: scroll;
+  /* background-color: blue; */
+}
+
+.profile-section{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #B3B8BF;
+  padding-left: 10px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: blue; */
+}
+.profile-p{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #3C446B;
+
+}
+#password-change-section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#change-pass-button{
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  width: 40%;
+  height: 60%;
+  border: none;
+  border: 1px solid #ABABAB;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  color: #3C446B;
+  cursor: pointer;
+  pointer-events: none;
+  /* display: none; */
+}
+.profile-body-conatiner-button{
+  width: 100%;
+  height: 13%;
+  background-color: #107E79;
+  border-top: 1px solid #AFAFAF;
+  /* opacity: 0.4; */
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+#edit-profile{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
+  pointer-events: none;
+}
+
+#hidden_edit_profile_form{
+  display: none;
+}
+#hidden_change_password_form{
+  display: none;
+}
+/* #3C446B */

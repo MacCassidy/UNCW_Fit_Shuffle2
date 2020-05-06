@@ -1,12 +1,11 @@
-
-.homepage-main-container{
+.profile-main-container{
   box-sizing: border-box;
   height: 90%;
   width: 100%;
   display: block;
   overflow: hidden;
 }
-.homepage-nav-container{
+.profile-nav-container{
   box-sizing: border-box;
   width: 100%;
   height: 12%;
@@ -18,7 +17,7 @@
   overflow: hidden;
   background-color: #FFFFFF;
 }
-.homepage-body-container{
+.profile-body-container{
   box-sizing: border-box;
   height: 88%;
   width: 100%;
@@ -35,14 +34,14 @@
   box-sizing: border-box;
   height: 100%;
   width: 30%;
-  border-bottom: 3px solid #1A7E79;
-  /* border-bottom: 3px solid #FFFFFF; */
+  /* border-bottom: 3px solid #1A7E79; */
+  border-bottom: 3px solid #FFFFFF;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  cursor: default;
-  pointer-events: none;
+  cursor: pointer;
+  pointer-events: auto;
   overflow: hidden;
   background-color: #FFFFFF;
 }
@@ -65,14 +64,14 @@
   box-sizing: border-box;
   height: 100%;
   width: 30%;
-  /* border-bottom: 3px solid #1A7E79; */
-  border-bottom: 3px solid #FFFFFF;
+  border-bottom: 3px solid #1A7E79;
+  /* border-bottom: 3px solid #FFFFFF; */
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  pointer-events: auto;
-  cursor: pointer;
+  pointer-events: none;
+  cursor: default;
   overflow: hidden;
   background-color: #FFFFFF;
 }
@@ -83,11 +82,11 @@
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  color: #107E79;
+  /* color: #107E79; */
   font-weight: bold;
-  /* color: #B3B8BF; */
-  cursor: default;
-  pointer-events: none;
+  color: #B3B8BF;
+  cursor: pointer;
+  /* pointer-events: auto; */
   /* background-color: #8D9499; */
 }
 #prev-sessions{
@@ -111,25 +110,114 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: bold;
-  /* color: #107E79; */
-  color: #B3B8BF;
-  cursor: pointer;
+  color: #107E79;
+  /* color: #B3B8BF; */
+  cursor: default;
+
   /* background-color: #8D9499; */
 }
-
-
-.homepage-body-container-top{
+.profile-body-container-top{
   box-sizing: border-box;
   height: 87%;
   width: 100%;
+  padding-left: 10px;
+  padding-right: 15px;
+  display: block;
+  /* box-sizing: content-box; */
+  /* padding-right: 15px; */
+  /* flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  overflow-x: visible;
+  overflow-y: scroll;
+  /* background-color: blue; */
+}
+.cancel-section{
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  /* background-color: blue; */
 }
-.homepage-body-conatiner-button{
+#cancel{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  color: #0645AD;
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.edit-profile-header-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.edit-profile-header{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #9A9FA6;
+}
+.edit-profile-input-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  display: block;
+  overflow: hidden;
+}
+#username-input{
+  box-sizing: border-box;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #C3C3C3;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding-left: 7px;
+  overflow: hidden;
+}
+#age-input{
+  box-sizing: border-box;
+  height: 50px;
+  width: 30%;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #C3C3C3;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding-left: 7px;
+  overflow: hidden;
+}
+
+
+.profile-body-conatiner-button{
   width: 100%;
   height: 13%;
   background-color: #107E79;
@@ -141,7 +229,7 @@
   align-items: center;
   pointer-events: none;
 }
-#get-started{
+#save-changes{
   box-sizing: border-box;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -152,4 +240,7 @@
   -ms-user-select: none; /* IE 10+ and Edge */
   user-select: none; /* Standard syntax */
   pointer-events: none;
+}
+#hidden_profile_form{
+  display: none;
 }

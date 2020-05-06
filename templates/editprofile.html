@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/editprofile.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/editprofile.css') }}">
+<meta name="twitter:" content="">
+<meta id="user-data" data-username="{{username}}" data-age="{{age}}" data-height-ft="{{height_ft}}" data-height-in="{{height_in}}" data-gender="{{gender}}" data-timezone="{{timezone}}" data-cardio-exp="{{cardio_exp}}" data-chest-exp="{{chest_exp}}" data-legs-exp="{{legs_exp}}" data-back-exp="{{back_exp}}" data-core-exp="{{core_exp}}" data-shoulders-exp="{{shoulders_exp}}" data-arms-exp="{{arms_exp}}">
+{% endblock %}
+
+{% block body %}
+<div class="profile-main-container">
+  <div class="profile-nav-container">
+    <div class="create-workout-tab">
+      <p id="create-workout">Create Workout</p>
+    </div>
+    <div class="prev-sessions-tab">
+      <p id="prev-sessions">Prev. Sessions</p>
+    </div>
+    <div class="profile-tab">
+      <p id="profile">Profile</p>
+    </div>
+  </div>
+  <div class="profile-body-container">
+    <div class="profile-body-container-top">
+
+      <div class="cancel-section">
+        <p id="cancel">Cancel</p>
+      </div>
+
+      <div class="edit-profile-header-container">
+        <p class="edit-profile-header">Name:</p>
+      </div>
+      <div class="edit-profile-input-container">
+        <input type="text" name="username" id="username-input" maxlength="25" onpaste="return false">
+      </div>
+
+      <div class="edit-profile-header-container">
+        <p class="edit-profile-header">Age:</p>
+      </div>
+      <div class="edit-profile-input-container">
+        <input type="text" name="age" id="age-input" maxlength="2" onpaste="return false">
+      </div>
+
+      <div class="edit-profile-header-container">
+        <p class="edit-profile-header">Age:</p>
+      </div>
+
+    </div>
+    <div class="profile-body-conatiner-button">
+      <p id="save-changes">Save Changes</p>
+    </div>
+    <form id="hidden_profile_form" action="/profile" method="get"></form>
+    <!-- <form id="hidden_save_change_form" action="/profile" method="get"></form> -->
+  </div>
+</div>
+<!-- <script type="text/javascript">
+  Vars.current_username = {{username}}
+  Vars.current_age = {{age}}
+  Vars.current_height_ft = {{height_ft}}
+  Vars.current_height_ft = {{height_ft}}
+</script> -->
+{% endblock %}

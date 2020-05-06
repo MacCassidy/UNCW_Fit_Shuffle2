@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/profile.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="profile-main-container">
+  <div class="profile-nav-container">
+    <div class="create-workout-tab">
+      <p id="create-workout">Create Workout</p>
+    </div>
+    <div class="prev-sessions-tab">
+      <p id="prev-sessions">Prev. Sessions</p>
+    </div>
+    <div class="profile-tab">
+      <p id="profile">Profile</p>
+    </div>
+  </div>
+  <div class="profile-body-container">
+    <div class="profile-body-container-top">
+
+      <div class="profile-section" id="username-section">
+        <p class="profile-p">Name:</p>
+        <p id="username-p" class="profile-p">{{username}}</p>
+      </div>
+      <div class="profile-section" id="email-section">
+        <p class="profile-p">Email:</p>
+        <p id="email-p" class="profile-p">{{email}}</p>
+      </div>
+      <div class="profile-section" id="age-section">
+        <p class="profile-p">Age:</p>
+        <p id="age-p" class="profile-p">{{age}}</p>
+      </div>
+      <div class="profile-section" id="height-ft-section">
+        <p class="profile-p">Height ft:</p>
+        <p id="height-ft-p" class="profile-p">{{height_ft}}</p>
+      </div>
+      <div class="profile-section" id="height-in-section">
+        <p class="profile-p">Height in:</p>
+        <p id="height-in-p" class="profile-p">{{height_in}}</p>
+      </div>
+      <div class="profile-section" id="gender-section">
+        <p class="profile-p">Gender:</p>
+        <p id="gender-p" class="profile-p">{{gender}}</p>
+      </div>
+      <div class="profile-section" id="timezone-section">
+        <p class="profile-p">Timezone:</p>
+        <p id="timezone-p" class="profile-p">{{timezone}}</p>
+      </div>
+      <div class="profile-section" id="cardio-exp-section">
+        <p class="profile-p">Cardio Exp:</p>
+        <p id="cardio-exp-p" class="profile-p">{{cardio_exp}}</p>
+      </div>
+      <div class="profile-section" id="chest-exp-section">
+        <p class="profile-p">Chest Exp:</p>
+        <p id="chest-exp-p" class="profile-p">{{chest_exp}}</p>
+      </div>
+      <div class="profile-section" id="legs-exp-section">
+        <p class="profile-p">Legs Exp:</p>
+        <p id="legs-exp-p" class="profile-p">{{legs_exp}}</p>
+      </div>
+      <div class="profile-section" id="back-exp-section">
+        <p class="profile-p">Back Exp:</p>
+        <p id="back-exp-p" class="profile-p">{{back_exp}}</p>
+      </div>
+      <div class="profile-section" id="core-exp-section">
+        <p class="profile-p">Core Exp:</p>
+        <p id="core-exp-p" class="profile-p">{{core_exp}}</p>
+      </div>
+      <div class="profile-section" id="shoulders-exp-section">
+        <p class="profile-p">Shoulders Exp:</p>
+        <p id="shoulders-exp-p" class="profile-p">{{shoulders_exp}}</p>
+      </div>
+      <div class="profile-section" id="arms-exp-section">
+        <p class="profile-p">Arms Exp:</p>
+        <p id="arms-exp-p" class="profile-p">{{arms_exp}}</p>
+      </div>
+      <div class="profile-section" id="password-change-section">
+        <button type="button" name="button" id="change-pass-button">Change Password</button>
+      </div>
+
+    </div>
+    <div class="profile-body-conatiner-button">
+      <p id="edit-profile">Edit Profile</p>
+    </div>
+    <form id="hidden_edit_profile_form" action="/editprofile" method="get"></form>
+    <form id="hidden_change_password_form" action="/changepassword" method="get"></form>
+  </div>
+</div>
+{% endblock %}
