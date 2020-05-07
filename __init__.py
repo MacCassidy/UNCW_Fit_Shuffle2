@@ -323,6 +323,9 @@ def register():
                     cur_var = str(datetime.now() + timedelta(seconds=1200))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
+                    jobs = scheduler.get_jobs()
+                    print('right after the scheduling happens')
+                    print(jobs)
                     return jsonify({'error' : 'none'})
         else:
 
