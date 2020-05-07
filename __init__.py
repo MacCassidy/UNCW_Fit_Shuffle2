@@ -187,10 +187,24 @@ def editprofile():
 @app.route('/registercode', methods=['POST','GET'])
 def registercode():
     if 'register_code' in session and 'email' in session and 'username' in session and session['logged_in'] == False:
-
+        try:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': session['email']})
+            # cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s and account_id = %(account_id)s", {'email': email, 'account_id': account_id})
+            account = cursor.fetchone()
+            if not account:
+                key_list = list(session.keys())
+                for key in key_list:
+                    session.pop(key)
+                cursor.close()
+                return redirect(url_for('gateway'))
+            else:
+                cursor.close()
+                return render_template('registercode.html', email=session['email'], username=session['username'])
+        except:
+            pass
         return render_template('registercode.html', email=session['email'], username=session['username'])
     else:
-        session['logged_in'] = False
         key_list = list(session.keys())
         for key in key_list:
             session.pop(key)
@@ -312,20 +326,17 @@ def register():
                     session['username'] = account['username']
                     rec_email = account['email']
                     created_stamp = account['created']
-                    print('before email send')
-                    # harambe
-                    draft = nylas.drafts.create()
-                    draft.subject = "UNCW fit shuffle app"
-                    draft.body = "Thanks for signing up {name}! Here is your 4-digit registeration code: {code}".format( name = username, code= reg_code)
-                    draft.to = [{'name': username, 'email': email}]
-                    draft.send()
-                    print('after email send')
+                    try:
+                        draft = nylas.drafts.create()
+                        draft.subject = "UNCW fit shuffle app"
+                        draft.body = "Thanks for signing up {name}! Here is your 4-digit registeration code: {code}".format( name = username, code= reg_code)
+                        draft.to = [{'name': username, 'email': email}]
+                        draft.send()
+                    except:
+                        pass
                     cur_var = str(datetime.now() + timedelta(seconds=15))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
-                    jobs = scheduler.get_jobs()
-                    print('right after the scheduling happens')
-                    print(jobs)
                     return jsonify({'error' : 'none'})
         else:
 
