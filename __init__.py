@@ -353,6 +353,9 @@ def registerconfirm():
                 return jsonify({'error' : 'canceled'})
             except Exception as e:
                 print(e)
+                key_list = list(session.keys())
+                for key in key_list:
+                    session.pop(key)
                 return jsonify({'error' : 'missing data'})
         elif request.form['status'] == 'confirm':
             # print('confirmedddddddd')
