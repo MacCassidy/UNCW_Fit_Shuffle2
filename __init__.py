@@ -320,7 +320,7 @@ def register():
                     draft.to = [{'name': username, 'email': email}]
                     draft.send()
                     print('after email send')
-                    cur_var = str(datetime.now() + timedelta(seconds=1200))[:19]
+                    cur_var = str(datetime.now() + timedelta(seconds=15))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
                     jobs = scheduler.get_jobs()
@@ -343,13 +343,7 @@ def registerconfirm():
                 cursor.execute("DELETE From Accounts WHERE email = %(email)s", {'email': email})
                 mysql.connection.commit()
                 cursor.close()
-                print('Before removal@@@@@@@@')
-                jobs = scheduler.get_jobs()
-                print(jobs)
-                scheduler.remove_job("Registertask-" + email)
-                print('After removal@@@@@@@@')
-                jobs = scheduler.get_jobs()
-                print(jobs)
+                # scheduler.remove_job("Registertask-" + email)
                 key_list = list(session.keys())
                 for key in key_list:
                     session.pop(key)
