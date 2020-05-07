@@ -20,6 +20,21 @@ $(document).ready(function(){
   Vars.profile_form = $('#hidden_profile_form');
   Vars.username_input = $('#username-input');
   Vars.age_input = $('#age-input');
+  Vars.male_button = $('#male-button');
+  Vars.female_button = $('#female-button');
+  Vars.male_button_container = $('#gender-input-male-button-container');
+  Vars.female_button_container = $('#gender-input-female-button-container');
+  Vars.gender_field = $("input[name='gender']");
+  Vars.temp = $("input[name='gender']:checked");
+  // #gender-input-male-button-container
+  // #gender-input-female-button-container
+  // .attr('checked', true);
+  // Vars.gender_field = $("input[name='gender']");
+  // Vars.gender_field.is(":checked")
+  // $('input[name='gender']:checked').val();
+  // console.log($("input[name='gender']:checked").val());
+
+
 
   Vars.logout_button_form.css('display', 'flex');
   Vars.logout_button_form.css('pointer-events', 'auto');
@@ -33,6 +48,12 @@ $(document).ready(function(){
 
   Vars.username_input.val(Vars.current_username);
   Vars.age_input.val(Vars.current_age);
+  if(Vars.current_gender == 'male'){
+    Vars.male_button.attr('checked', true);
+  } else if (Vars.current_gender == 'female'){
+    Vars.female_button.attr('checked', true);
+  }
+  // console.log($("input[name='gender']:checked").val());
   // console.log(Vars.current_username);
   // console.log(Vars.current_age);
   // console.log(Vars.current_height_ft);

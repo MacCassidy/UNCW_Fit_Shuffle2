@@ -80,7 +80,8 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   /* color: #107E79; */
   font-weight: bold;
@@ -94,7 +95,8 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   font-weight: bold;
   /* color: #107E79; */
@@ -107,7 +109,8 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #107E79;
@@ -149,7 +152,8 @@
   padding: 0px;
   color: #0645AD;
   font-size: 17px;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
@@ -157,7 +161,7 @@
 .edit-profile-header-container{
   box-sizing: border-box;
   width: 100%;
-  height: 50px;
+  height: 40px;
   padding-top: 10px;
   display: flex;
   flex-wrap: nowrap;
@@ -170,20 +174,23 @@
   padding: 0px;
   margin: 0px;
   font-family: Arial, 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', Arial, sans-serif; */
   font-size: 20px;
   text-align: center;
+  /* color: #9A9FA6; */
   color: #9A9FA6;
+  /* color: #B3B8BF; */
 }
 .edit-profile-input-container{
   box-sizing: border-box;
   width: 100%;
-  height: 50px;
+  height: 35px;
   display: block;
   overflow: hidden;
 }
 #username-input{
   box-sizing: border-box;
-  height: 50px;
+  height: 35px;
   width: 100%;
   outline: none;
   border: none;
@@ -194,13 +201,13 @@
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   padding-left: 7px;
   overflow: hidden;
 }
 #age-input{
   box-sizing: border-box;
-  height: 50px;
+  height: 35px;
   width: 30%;
   outline: none;
   border: none;
@@ -211,11 +218,107 @@
   border-radius: 0;
   border: 1px solid #C3C3C3;
   font-family: Arial, 'Montserrat', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   padding-left: 7px;
   overflow: hidden;
 }
 
+#gender-input-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.gender-input-container-inner{
+  box-sizing: border-box;
+  height: 100%;
+  width: 40%;
+  /* background-color: red; */
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 3px; */
+}
+#gender-input-container-left{
+
+}
+#gender-input-container-right{
+
+}
+.gender-button-header{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  /* color: #B3B8BF; */
+  color: #B1B4BA;
+  padding-right: 8px;
+}
+.gender-input-button-container{
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #C3C3C3;
+}
+#male-button{
+  box-sizing: border-box;
+  height: 60%;
+  width: 60%;
+}
+#female-button{
+  box-sizing: border-box;
+  height: 60%;
+  width: 60%;
+}
+
+.timezone-input-container{
+  box-sizing: border-box;
+  height: 130px;
+  width: 100%;
+  border: 1px solid #C3C3C3;
+  display: flex;
+  flex-flow: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.timezone-input-container-left{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: red; */
+}
+.timezone-input-container-right{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: blue; */
+}
+.timezone-input-container-inner{
+  box-sizing: border-box;
+  height: 35px;
+  width: 80%;
+  /* background-color: blue; */
+}
 
 .profile-body-conatiner-button{
   width: 100%;
@@ -232,7 +335,8 @@
 #save-changes{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   font-weight: bold;

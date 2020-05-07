@@ -39,7 +39,8 @@
 #gateway-login{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   color: #107E79;
   /* color: #B3B8BF; */
@@ -62,7 +63,8 @@
 #gateway-register{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   /* color: #107E79; */
   color: #B3B8BF;
@@ -85,7 +87,8 @@
 #gateway-forgot-password{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   /* color: #107E79; */
   color: #B3B8BF;
@@ -148,7 +151,8 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   color: #3C446B;
   cursor: default;
@@ -319,7 +323,8 @@
 #sign-in{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   font-weight: bold;
@@ -392,7 +397,8 @@
   margin: 0px;
   font-size: 18px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   color: #3C446B;
 }
 .register-form-error-container{
@@ -899,7 +905,8 @@
 #sign-up{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   font-weight: bold;
@@ -937,7 +944,8 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 30px;
   color: #3C446B;
   cursor: default;

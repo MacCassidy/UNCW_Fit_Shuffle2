@@ -31,7 +31,8 @@
   padding-left: 6px;
   padding-right: 6px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 22px;
   color: #3C446B;
   cursor: default;
@@ -99,7 +100,8 @@
   align-items: center;
   overflow: hidden;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 16px;
   /* color: #727893; */
   color: #656B87;
@@ -121,7 +123,8 @@
   overflow: hidden;
   text-align: center;
   color: #18344A;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
   cursor: default;
@@ -142,7 +145,8 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 14px;
   color: #656B87;
   cursor: default;
@@ -163,7 +167,8 @@
   margin: 0px;
   padding: 0px;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 15px;
   color: #3C446B;
   cursor: default;
@@ -271,7 +276,8 @@
 #confirm-quote{
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 18px;
   color: #FFFFFF;
   font-weight: bold;

@@ -11,10 +11,15 @@ import smtplib, ssl, certifi
 from validate_email import validate_email
 from flask_apscheduler import APScheduler
 import random
-
+from nylas import APIClient
 
 app = Flask(__name__)
-
+# mac = 'mac mayneneee'
+nylas = APIClient(
+    '1yrhj5hcf36bptmveg1fugcdc',
+    'mi8jyca4jz1s4jj0dx66zc0s',
+    'kuJWN5GdP30THr9cBKzU8aPtKMc8Ar'
+)
 
 # Browser Caching turned off
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -44,6 +49,9 @@ def before_request():
 # Routes for WebPage Requests*********************************************************************************************
 @app.route('/', methods=['GET'])
 def index():
+    # key_list = list(session.keys())
+    # for key in key_list:
+    #     session.pop(key)
     if 'logged_in' in session and not ('register_code' in session):
         return redirect(url_for('profile'))
     elif 'register_code' in session:
@@ -87,17 +95,17 @@ def profile():
         timezone = account['timezone']
         # 'America/New_York', 'America/Merida', 'America/Boise', 'America/Dawson', 'America/Anchorage', 'Pacific/Honolulu'
         if timezone == 'America/New_York':
-            timezone = 'Eastern'
+            timezone = 'eastern'
         elif timezone == 'America/Dawson':
-            timezone = 'Pacific'
+            timezone = 'pacific'
         elif timezone == 'America/Anchorage':
-            timezone = 'Alaska'
+            timezone = 'alaska'
         elif timezone == 'America/Merida':
-            timezone = 'Central'
+            timezone = 'central'
         elif timezone == 'America/Boise':
-            timezone = 'Mountain'
+            timezone = 'mountain'
         elif timezone == 'Pacific/Honolulu':
-            timezone = 'Hawaii'
+            timezone = 'hawaii'
         cardio_exp = account['exp_cardio']
         chest_exp = account['exp_chest']
         legs_exp = account['exp_legs']
@@ -141,17 +149,17 @@ def editprofile():
         timezone = account['timezone']
         # 'America/New_York', 'America/Merida', 'America/Boise', 'America/Dawson', 'America/Anchorage', 'Pacific/Honolulu'
         if timezone == 'America/New_York':
-            timezone = 'Eastern'
+            timezone = 'eastern'
         elif timezone == 'America/Dawson':
-            timezone = 'Pacific'
+            timezone = 'pacific'
         elif timezone == 'America/Anchorage':
-            timezone = 'Alaska'
+            timezone = 'alaska'
         elif timezone == 'America/Merida':
-            timezone = 'Central'
+            timezone = 'central'
         elif timezone == 'America/Boise':
-            timezone = 'Mountain'
+            timezone = 'mountain'
         elif timezone == 'Pacific/Honolulu':
-            timezone = 'Hawaii'
+            timezone = 'hawaii'
         cardio_exp = account['exp_cardio']
         chest_exp = account['exp_chest']
         legs_exp = account['exp_legs']
@@ -179,13 +187,8 @@ def editprofile():
 @app.route('/registercode', methods=['POST','GET'])
 def registercode():
     if 'register_code' in session and 'email' in session and 'username' in session and session['logged_in'] == False:
-        # key_list = list(session.keys())
-        # for key in key_list:
-        #     session.pop(key)
-        # email = 'blahh'
-        # username = 'blahh'
+
         return render_template('registercode.html', email=session['email'], username=session['username'])
-        # return render_template('registercode.html', email=email, username=username)
     else:
         session['logged_in'] = False
         key_list = list(session.keys())
@@ -295,7 +298,6 @@ def register():
                 mysql.connection.commit()
                 cursor.execute("SELECT * from Accounts WHERE email = %(email)s", {'email': email})
                 account = cursor.fetchone()
-                # print(account)
                 if not account:
                     cursor.close()
                     return jsonify({'error' : 'missing data'})
@@ -310,21 +312,14 @@ def register():
                     session['username'] = account['username']
                     rec_email = account['email']
                     created_stamp = account['created']
-                    our_email = "uncwfitshuffle@gmail.com"
-                    password = "Uncwgoseahawks737"
-                    message = """\
-                    Subject: Fit Shuffle Account Register Code \n
-                        code: %s
-                    """ % (reg_code)
-                    # context = ssl.create_default_context()
-                    try:
-                        context = ssl.create_default_context()
-                        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
-                            server.login(our_email, password)
-                            server.sendmail(our_email, rec_email, message)
-                    except Exception as e:
-                        print(e)
+                    print('before email send')
                     # harambe
+                    draft = nylas.drafts.create()
+                    draft.subject = "UNCW fit shuffle app"
+                    draft.body = "Thanks for signing up {name}! Here is your 4-digit registeration code: {code}".format( name = username, code= reg_code)
+                    draft.to = [{'name': username, 'email': email}]
+                    draft.send()
+                    print('after email send')
                     cur_var = str(datetime.now() + timedelta(seconds=1200))[:19]
                     sched_id = 'Registertask-' + account['email']
                     scheduler.add_job(name="RegisterTask", id=sched_id, func = registercheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'created': str(created_stamp), 'code': str(account['register_code'])} )
@@ -345,6 +340,13 @@ def registerconfirm():
                 cursor.execute("DELETE From Accounts WHERE email = %(email)s", {'email': email})
                 mysql.connection.commit()
                 cursor.close()
+                print('Before removal@@@@@@@@')
+                jobs = scheduler.get_jobs()
+                print(jobs)
+                scheduler.remove_job("Registertask-" + email)
+                print('After removal@@@@@@@@')
+                jobs = scheduler.get_jobs()
+                print(jobs)
                 key_list = list(session.keys())
                 for key in key_list:
                     session.pop(key)
@@ -353,7 +355,7 @@ def registerconfirm():
                 print(e)
                 return jsonify({'error' : 'missing data'})
         elif request.form['status'] == 'confirm':
-            print('confirmedddddddd')
+            # print('confirmedddddddd')
             try:
                 now = str(datetime.timestamp(datetime.utcnow()))
                 email = session['email']
@@ -398,9 +400,6 @@ def registercheck(**kwargs):
                     cursor.execute("DELETE FROM Accounts WHERE account_id = %(u_id)s and email = %(email)s and register_code = %(code)s", {'u_id': a, 'email': b, 'code': c})
                     mysql.connection.commit()
                     cursor.close()
-                    # key_list = list(session.keys())
-                    # for key in key_list:
-                    #     session.pop(key)
                 else:
                     cursor.close()
             except Exception as exc:
@@ -409,4 +408,4 @@ def registercheck(**kwargs):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
