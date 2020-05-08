@@ -20,6 +20,7 @@ body{
   border: 1px solid #AFAFAF;
   display: block;
   background-color: #FFFFFF;
+  overflow: hidden;
 }
 #main-header{
   box-sizing: border-box;
@@ -62,14 +63,13 @@ body{
   height: 100%;
   width: 100%;
   background-color: #F1F3F4;
-  display: none;
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   pointer-events: none;
-  /* background-color: red; */
+  display: none;
 }
 #layout-logout-button{
   box-sizing: border-box;
@@ -80,7 +80,7 @@ body{
   height: 35%;
   border: none;
   border: 1px solid #ABABAB;
-  /* font-family: 'Montserrat', sans-serif; */
+  display: none;
   font-family: 'Montserrat', Arial, sans-serif;
   border-radius: 5px;
   background-color: #FFFFFF;
@@ -89,7 +89,6 @@ body{
   color: #3C446B;
   cursor: pointer;
   pointer-events: none;
-  display: none;
 }
 #logo{
   height: 100%;

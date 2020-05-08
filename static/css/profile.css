@@ -35,7 +35,6 @@
   box-sizing: border-box;
   height: 100%;
   width: 30%;
-  /* border-bottom: 3px solid #1A7E79; */
   border-bottom: 3px solid #FFFFFF;
   display: flex;
   flex-wrap: nowrap;
@@ -50,7 +49,6 @@
   box-sizing: border-box;
   height: 100%;
   width: 30%;
-  /* border-bottom: 3px solid #1A7E79; */
   border-bottom: 3px solid #FFFFFF;
   display: flex;
   flex-wrap: nowrap;

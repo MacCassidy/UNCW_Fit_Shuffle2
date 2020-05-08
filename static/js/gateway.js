@@ -26,7 +26,9 @@ $(document).ready(function(){
   // button stuff
   Vars.gateway_login_form_button = $('.gateway-login-form-button');
   Vars.logged_in_error = $('#logged_in_error');
+  Vars.login_code_error = $('#login-code-error');
   Vars.hidden_loggin_form = $('.hidden_loggin_form'); //this is for the login submit page
+  // Vars.login_code_error.hide();
 
 
 // *************Gateway Register Form Variables
@@ -266,6 +268,7 @@ $(document).ready(function(){
     Vars.gateway_forgot_password_form_container.hide();
     // Reset Login form
     Vars.logged_in_error.hide();
+    Vars.login_code_error.hide();
     Vars.login_form_email_error_message.hide();
     Vars.login_form_email_input.prop('disabled', false);
     Vars.login_form_email_input.val('');
@@ -454,58 +457,6 @@ $(document).ready(function(){
     Vars.gateway_login_form_container.hide();
     Vars.gateway_forgot_password_form_container.hide();
     // Reset Register Form
-    // Vars.register_form_username_input.prop('disabled', false);
-    // Vars.register_form_username_input.val('');
-    // Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
-    // Vars.register_form_email_error_message.hide();
-    // Vars.register_form_email_input.prop('disabled', false);
-    // Vars.register_form_email_input.val('');
-    // Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
-    // Vars.register_form_password_input.prop('disabled', false);
-    // Vars.register_form_password_input.val('');
-    // Vars.register_form_password_input.attr("type","password");
-    // Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
-    // Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
-    // Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
-    // Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
-    // Vars.password_show.show();
-    // Vars.password_hide.hide();
-    // Vars.register_form_age_input.prop('disabled', false);
-    // Vars.register_form_age_input.val('');
-    // Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
-    // Vars.register_form_height_ft_input.prop('disabled', false);
-    // Vars.register_form_height_ft_input.val('');
-    // Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
-    // Vars.register_form_height_in_input.prop('disabled', false);
-    // Vars.register_form_height_in_input.val('');
-    // Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
-    // Vars.male_button.prop('disabled', false);
-    // Vars.male_button.prop('checked', false);
-    // Vars.male_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.female_button.prop('disabled', false);
-    // Vars.female_button.prop('checked', false);
-    // Vars.female_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
-    // Vars.eastern_time_button.prop('disabled', false);
-    // Vars.eastern_time_button.prop('checked', false);
-    // Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.pacific_time_button.prop('disabled', false);
-    // Vars.pacific_time_button.prop('checked', false);
-    // Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.alaska_time_button.prop('disabled', false);
-    // Vars.alaska_time_button.prop('checked', false);
-    // Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.central_time_button.prop('disabled', false);
-    // Vars.central_time_button.prop('checked', false);
-    // Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.mountain_time_button.prop('disabled', false);
-    // Vars.mountain_time_button.prop('checked', false);
-    // Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.hawaii_time_button.prop('disabled', false);
-    // Vars.hawaii_time_button.prop('checked', false);
-    // Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
-    // Vars.gateway_register_form_container_button.css('opacity', '0.4');
-    // Vars.gateway_register_form_container_button.css("pointer-events", "none");
     $('.gateway-register-form-container-1-top-outer').scrollTop(0);
     Vars.register_form_username_input.prop('disabled', false);
     Vars.register_form_email_input.prop('disabled', false);
@@ -656,6 +607,7 @@ $(document).ready(function(){
     Vars.gateway_register_form_container.show();
     // Reset Login Form
     Vars.logged_in_error.hide();
+    Vars.login_code_error.hide();
     Vars.login_form_email_error_message.hide();
     Vars.login_form_email_input.prop('disabled', false);
     Vars.login_form_email_input.val('');
@@ -853,6 +805,7 @@ $(document).ready(function(){
     Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
     // Reset Login Form
     Vars.logged_in_error.hide();
+    Vars.login_code_error.hide();
     Vars.login_form_email_error_message.hide();
     Vars.login_form_email_input.prop('disabled', false);
     Vars.login_form_email_input.val('');
@@ -874,6 +827,7 @@ $(document).ready(function(){
     e.stopPropagation();
     Vars.login_form_email_input.css('border', '1px solid #3D456A');
     Vars.logged_in_error.hide();
+    Vars.login_code_error.hide();
     Vars.login_form_email_error_message.hide();
     if (Vars.login_form_password_input.val() && Vars.login_form_email_input.val()) {
       Vars.gateway_login_form_button.css('opacity', '1');
@@ -893,6 +847,7 @@ $(document).ready(function(){
     e.stopPropagation();
     Vars.login_form_password_input.css('border', '1px solid #3D456A');
     Vars.logged_in_error.hide();
+    Vars.login_code_error.hide();
     Vars.login_form_password_error_message.hide();
     if (Vars.login_form_password_input.val() && Vars.login_form_email_input.val()) {
       Vars.gateway_login_form_button.css('opacity', '1');
@@ -919,6 +874,10 @@ $(document).ready(function(){
       Vars.login_form_email_input.prop('disabled', true);
       Vars.login_form_password_input.prop('disabled', true);
       Vars.gateway_login_form_button.css("pointer-events", "none");
+      Vars.login_code_error.hide();
+      Vars.logged_in_error.hide();
+      Vars.login_form_email_error_message.hide();
+      Vars.login_form_password_error_message.hide();
       // make ajax call
       $.ajax({
         data : {
@@ -933,27 +892,22 @@ $(document).ready(function(){
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-          Vars.logged_in_error.hide();
-          Vars.login_form_email_error_message.hide();
           Vars.login_form_email_input.prop('disabled', false);
           Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_email_input.val('');
-          Vars.login_form_password_error_message.hide();
           Vars.login_form_password_input.prop('disabled', false);
           Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_password_input.val('');
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
-          alert("sever request failed somehow, try again");
+          alert('Server request failed for some reason, refresh the page or try again later.');
         } else if (data.error == 'invalid email') {
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-          Vars.logged_in_error.hide();
           Vars.login_form_email_error_message.show();
           Vars.login_form_email_input.prop('disabled', false);
           Vars.login_form_email_input.css('border', '1px solid #FC0D1B');
-          Vars.login_form_password_error_message.hide();
           Vars.login_form_password_input.prop('disabled', false);
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
@@ -961,8 +915,6 @@ $(document).ready(function(){
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-          Vars.logged_in_error.hide();
-          Vars.login_form_email_error_message.hide();
           Vars.login_form_email_input.prop('disabled', false);
           Vars.login_form_password_error_message.show();
           Vars.login_form_password_input.prop('disabled', false);
@@ -974,43 +926,47 @@ $(document).ready(function(){
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
           Vars.logged_in_error.show();
-          Vars.login_form_email_error_message.hide();
+          Vars.login_form_email_input.css('border', '1px solid #FC0D1B');
           Vars.login_form_email_input.prop('disabled', false);
-          Vars.login_form_password_error_message.hide();
           Vars.login_form_password_input.prop('disabled', false);
-          Vars.gateway_login_form_button.css("pointer-events", "auto");
-        } else if (data.error == 'none') {
+          Vars.gateway_login_form_button.css("pointer-events", "none");
+          Vars.gateway_login_form_button.css('opacity', '0.4');
+        } else if (data.error == 'current code') {
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-          Vars.logged_in_error.hide();
-          Vars.login_form_email_error_message.hide();
+          Vars.login_code_error.show();
+          Vars.login_form_email_input.css('border', '1px solid #FC0D1B');
+          Vars.login_form_email_input.prop('disabled', false);
+          Vars.login_form_password_input.prop('disabled', false);
+          Vars.gateway_login_form_button.css("pointer-events", "none");
+          Vars.gateway_login_form_button.css('opacity', '0.4');
+        } else if (data.error == 'none') {
+          Vars.hidden_loggin_form.submit();
+          Vars.gateway_nav_login.css("pointer-events", "none");
+          Vars.gateway_nav_register.css("pointer-events", "auto");
+          Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
           Vars.login_form_email_input.prop('disabled', false);
           Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_email_input.val('');
-          Vars.login_form_password_error_message.hide();
           Vars.login_form_password_input.prop('disabled', false);
           Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_password_input.val('');
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
-          Vars.hidden_loggin_form.submit();
         } else {
           Vars.gateway_nav_login.css("pointer-events", "none");
           Vars.gateway_nav_register.css("pointer-events", "auto");
           Vars.gateway_nav_forgot_password.css("pointer-events", "auto");
-          Vars.logged_in_error.hide();
-          Vars.login_form_email_error_message.hide();
           Vars.login_form_email_input.prop('disabled', false);
           Vars.login_form_email_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_email_input.val('');
-          Vars.login_form_password_error_message.hide();
           Vars.login_form_password_input.prop('disabled', false);
           Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
           Vars.login_form_password_input.val('');
           Vars.gateway_login_form_button.css("pointer-events", "none");
           Vars.gateway_login_form_button.css('opacity', '0.4');
-          alert("sever request failed somehow, try again");
+          alert('Server request failed for some reason, refresh the page or try again later.');
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
         Vars.gateway_nav_login.css("pointer-events", "none");
@@ -1022,7 +978,7 @@ $(document).ready(function(){
         Vars.login_form_password_error_message.hide();
         Vars.login_form_password_input.prop('disabled', false);
         Vars.gateway_login_form_button.css("pointer-events", "auto");
-        alert("sever request failed somehow, try again");
+        alert('Server request failed for some reason, refresh the page or try again later.');
       });
     }
   });
@@ -2813,7 +2769,7 @@ $(document).ready(function(){
           Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
           Vars.arms_experienced_button.prop('checked', false);
           Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-          alert("sever request failed somehow, try again");
+          alert('Server request failed for some reason, refresh the page or try again later.');
         } else if(data.error == 'invalid email') {
           $('.gateway-register-form-container-1-top-outer').scrollTop(0);
           Vars.gateway_nav_login.css("pointer-events", "auto");
@@ -3192,7 +3148,7 @@ $(document).ready(function(){
           Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
           Vars.arms_experienced_button.prop('checked', false);
           Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-          alert("sever request failed somehow, try again");
+          alert('Server request failed for some reason, refresh the page or try again later.');
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
         Vars.gateway_nav_login.css("pointer-events", "auto");
@@ -3242,7 +3198,7 @@ $(document).ready(function(){
         Vars.arms_novice_button.prop('disabled', false);
         Vars.arms_intermediate_button.prop('disabled', false);
         Vars.arms_experienced_button.prop('disabled', false);
-        alert("sever request failed somehow, try again");
+        alert('Server request failed for some reason, refresh the page or try again later.');
       });
     }
   });
@@ -3298,7 +3254,7 @@ $(document).ready(function(){
           Vars.reset_password_email_input.prop('disabled', false);
           Vars.reset_password_email_input.val('');
           Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
-          alert('Server Request Failed for some reason, refresh the page or try again later');
+          alert('Server request failed for some reason, refresh the page or try again later.');
         } else if (data.error == 'current code') {
           Vars.gateway_nav_login.css('pointer-events', 'auto');
           Vars.gateway_nav_register.css('pointer-events', 'auto');
@@ -3342,7 +3298,7 @@ $(document).ready(function(){
           Vars.reset_password_email_input.prop('disabled', false);
           Vars.reset_password_email_input.val('');
           Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
-          alert('Server Request Failed for some reason, refresh the page or try again later');
+          alert('Server request failed for some reason, refresh the page or try again later.');
         }
       }).fail(function(jqXHR, textStatus, errorThrown){
         Vars.gateway_nav_login.css('pointer-events', 'auto');
@@ -3353,7 +3309,7 @@ $(document).ready(function(){
         Vars.reset_password_email_input.prop('disabled', false);
         Vars.reset_password_email_input.val('');
         Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
-        alert('Server Request Failed for some reason, refresh the page or try again later');
+        alert('Server request failed for some reason, refresh the page or try again later.');
       });
 
     }
@@ -3386,8 +3342,8 @@ $(document).ready(function(){
 
 
 
-
-
+  // ***********************************************************************************THESE BLOW ARE TEMPORARY FOR TESTING PURPOSES***********************************************************************************
+  // harambeyeet
   Vars.fillForm = function(email){
     Vars.register_form_username_input.val("boy wizard")
     Vars.register_form_email_input.val("maccassidyboywizard@gmail.com")

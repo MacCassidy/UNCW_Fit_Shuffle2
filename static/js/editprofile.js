@@ -35,16 +35,10 @@ $(document).ready(function(){
   // console.log($("input[name='gender']:checked").val());
 
 
-
   Vars.logout_button_form.css('display', 'flex');
   Vars.logout_button_form.css('pointer-events', 'auto');
   Vars.logout_button.css('display', 'block');
   Vars.logout_button.css('pointer-events', 'auto');
-  Vars.logout_button.on('click', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    Vars.logout_button_form.submit()
-  });
 
   Vars.username_input.val(Vars.current_username);
   Vars.age_input.val(Vars.current_age);

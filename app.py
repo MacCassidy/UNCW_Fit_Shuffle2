@@ -14,11 +14,10 @@ import random
 from nylas import APIClient
 
 app = Flask(__name__)
-# mac = 'mac mayneneee'
 nylas = APIClient(
-    '1yrhj5hcf36bptmveg1fugcdc',
-    'mi8jyca4jz1s4jj0dx66zc0s',
-    'kuJWN5GdP30THr9cBKzU8aPtKMc8Ar'
+    (my nylas client id goes here),
+    (my nylas secret key goes here),
+    (my nylas api auth token goes here)
 )
 
 # Browser Caching turned off
@@ -27,15 +26,16 @@ app.config['SCHEDULER_API_ENABLED'] = True
 # MySql config
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'tempuser1'
-app.config['MYSQL_PASSWORD'] = 'Meenoo737!'
+app.config['MYSQL_PASSWORD'] = (my mysql password would go here)
 app.config['MYSQL_DB'] = 'tempdb1'
 app.config['MYSQL_PORT'] = 3306
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes = 20)
 # session encyption key
-app.secret_key = 'my_key'
+app.secret_key = (my secret key goes here)
 mysql = MySQL(app)
 scheduler = APScheduler()
 scheduler.init_app(app)
+
 
 # Request Pre/Post processors*********************************************************************************************
 @app.before_first_request
@@ -271,56 +271,73 @@ def login():
         email = request.form['email']
         password = request.form['password']
         if password and email:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
-            account = cursor.fetchone()
-            if account and (not account['register_code']):
-                byte_password = bytes(password, 'utf-8')
-                password_hashed = bytes(account['password'], 'utf-8')
-                if bcrypt.checkpw(byte_password, password_hashed):
-                    last_act = account['last_activity']
-                    logged_in = account['logged_in']
-                    current_time = datetime.now()
-                    last_act_datetime = datetime.fromtimestamp(last_act)
-                    time_diff = ((current_time - last_act_datetime).total_seconds() / 60)
-                    if (account['logged_in'] == 1 and time_diff > 20) or account['logged_in'] == 0:
-                        current_timestamp = current_time.timestamp()
-                        cursor.execute("UPDATE Accounts SET logged_in = TRUE, last_activity = " + str(current_timestamp) + " WHERE account_id = " + str(account['account_id']))
-                        mysql.connection.commit()
+            try:
+                email = email.lower()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute("SELECT * FROM Accounts WHERE email = %(email)s", {'email': email})
+                account = cursor.fetchone()
+                if account:
+                    byte_password = bytes(password, 'utf-8')
+                    password_hashed = bytes(account['password'], 'utf-8')
+                    if bcrypt.checkpw(byte_password, password_hashed):
+                        pass
+                        if account['register_code'] or account['password_change_code']:
+                            return jsonify({'error' : 'current code'})
+                        else:
+                            last_act = account['last_activity']
+                            logged_in = account['logged_in']
+                            current_time = datetime.now()
+                            last_act_datetime = datetime.fromtimestamp(last_act)
+                            time_diff = ((current_time - last_act_datetime).total_seconds() / 60)
+                            if (account['logged_in'] == 1 and time_diff > 20) or account['logged_in'] == 0:
+                                current_timestamp = current_time.timestamp()
+                                cursor.execute("UPDATE Accounts SET logged_in = 1, last_activity = " + str(current_timestamp) + " WHERE account_id = " + str(account['account_id']))
+                                mysql.connection.commit()
+                                cursor.close()
+                                session.permanent = True
+                                session['logged_in'] = 1
+                                session['email'] = account['email']
+                                session['account_id'] = account['account_id']
+                                return jsonify({'error' : 'none'})
+                            elif (account['logged_in'] == 1 and time_diff <= 20):
+                                cursor.close()
+                                return jsonify({'error' : 'logged in'})
+                            else:
+                                return jsonify({'error' : 'missing data'})
+                    else:
                         cursor.close()
-                        session.permanent = True
-                        session['logged_in'] = 1
-                        session['email'] = account['email']
-                        session['account_id'] = account['account_id']
-                        return jsonify({'error' : 'none'})
-                    elif (account['logged_in'] == 1 and time_diff <= 20):
-                        cursor.close()
-                        return jsonify({'error' : 'logged in'})
+                        return jsonify({'error' : 'invalid password'})
                 else:
                     cursor.close()
-                    return jsonify({'error' : 'invalid password'})
-            else:
-                cursor.close()
-                return jsonify({'error' : 'invalid email'})
+                    return jsonify({'error' : 'invalid email'})
+            except Exception as e:
+                print("****************/login exception (layer1)****************")
+                print(e)
+                return jsonify({'error' : 'missing data'})
         else:
             return jsonify({'error' : 'missing data'})
     else:
         return jsonify({'error' : 'missing data'})
 
 
-@app.route('/logout', methods=['POST', 'GET'])
+
+@app.route('/logout', methods=['GET'])
 def logout():
     if 'logged_in' in session:
-        account_id = session['account_id']
-        email = session['email']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("UPDATE Accounts SET logged_in = 0, last_activity = %(last_activity)s WHERE email = %(email)s", {'email': email, 'last_activity': datetime.now().timestamp()})
-        mysql.connection.commit()
-        cursor.close()
-        key_list = list(session.keys())
-        for key in key_list:
-            session.pop(key)
-        return redirect(url_for('gateway'))
+        if session['logged_in']:
+        # harambeyeet
+            account_id = session['account_id']
+            email = session['email']
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute("UPDATE Accounts SET logged_in = 0, last_activity = %(last_activity)s WHERE email = %(email)s", {'email': email, 'last_activity': datetime.now().timestamp()})
+            mysql.connection.commit()
+            cursor.close()
+            key_list = list(session.keys())
+            for key in key_list:
+                session.pop(key)
+            return redirect(url_for('gateway'))
+        else:
+            return redirect(url_for('gateway'))
     else:
         key_list = list(session.keys())
         for key in key_list:
@@ -331,6 +348,7 @@ def logout():
 @app.route('/register', methods=['POST'])
 def register():
     if 'username' in request.form and 'email' in request.form and 'password' in request.form and 'age' in request.form and 'height_ft' in request.form and 'height_in' in request.form and 'gender' in request.form and 'timezone' in request.form and 'exp_cardio' in request.form and 'exp_chest' in request.form and 'exp_legs' in request.form and 'exp_back' in request.form and 'exp_core' in request.form and 'exp_shoulders' in request.form and 'exp_arms' in request.form:
+        print(type(request.form['age']))
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
@@ -410,7 +428,6 @@ def registerconfirm():
                 cursor.execute("DELETE From Accounts WHERE email = %(email)s", {'email': email})
                 mysql.connection.commit()
                 cursor.close()
-                # scheduler.remove_job("Registertask-" + email)
                 key_list = list(session.keys())
                 for key in key_list:
                     session.pop(key)
@@ -494,7 +511,7 @@ def resetpassword():
                         scheduler.add_job(name="PasswordResetTask", id=sched_id, func = passwordresetcheck,  trigger='date', run_date=cur_var, kwargs = { 'u_id': str(account['account_id']), 'email': str(account['email']), 'code': str(account['password_change_code'])} )
                         return jsonify({'error' : 'none'})
                     except Exception as e:
-                        print('Reset Password Exception (layer2):')
+                        print('****************/resetpassword Exception (layer2)****************')
                         print(e)
                         cursor.close()
                         return jsonify({'error': 'missing data'})
@@ -511,7 +528,7 @@ def resetpassword():
                 cursor.close()
                 return jsonify({'error': 'invalid email'})
         except Exception as e:
-            print('Reset Password Exception (layer1):')
+            print('****************/resetpassword Exception (layer1)****************')
             print(e)
             return jsonify({'error': 'missing data'})
     else:

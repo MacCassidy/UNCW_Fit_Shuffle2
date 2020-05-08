@@ -8,7 +8,10 @@
 {% block body %}
 <div class="gateway-main">
 
-  <!-- NAV bar stuff -->
+
+
+
+  <!-- NAV Bar Elements -->
   <div class="gateway-nav">
     <div class="gateway-nav-space-filler"></div>
     <div class="gateway-nav-login">
@@ -26,11 +29,16 @@
   </div>
 
 
-  <!-- Submission form stuff -->
+
+
+
+
+  <!-- Gateway Froms Elements -->
   <div class="gateway-form">
 
 
-    <!-- Login Form Stuff -->
+
+    <!-- Login Form Elements -->
     <div class="gateway-login-form-container">
       <div class="gateway-login-form-top">
         <div class="gateway-login-form-top-outer">
@@ -38,7 +46,8 @@
             <p id="login-quote"><span id="login-quote-span">Welcome to Fit Shuffle:</span> A personalized training app that creates intuitive workout routines based on your experience and progress. <br><br> Login below, or click Register to sign up.</p>
           </div>
           <div class="gateway-login-form-top-outer-top-spacer">
-            <p id="logged_in_error">This account currently signed in, or it's previous session has not expired. <br> Try again in a few minutes.</p>
+            <p id="logged_in_error">This account is currently signed in, or it's previous session has not expired. <br> Try again in a few minutes.</p>
+            <p id="login-code-error">This account is either waiting for a registeration code or a password reset code.<br> Try again later or retry registration later.</p>
           </div>
           <div class="gateway-login-form-top-outer-bottom">
             <form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -61,19 +70,18 @@
             </form>
           </div>
 
-
         </div>
       </div>
       <div class="gateway-login-form-button">
         <p id="sign-in">Sign In</p>
       </div>
-      <!-- harambe -->
       <form class="hidden_loggin_form" action="/profile" method="get"></form>
     </div>
 
 
 
-    <!-- Register Form Stuff -->
+
+    <!-- Register Form Elements -->
     <div class="gateway-register-form-container">
       <div class="gateway-register-form-container-1">
         <div class="gateway-register-form-container-1-top">
@@ -88,16 +96,13 @@
               <!-- ***** USERNAME INPUT FIELDS ***** -->
               <input type="text" name="username" placeholder="Name" id="register-form-username-input" maxlength="25" onpaste="return false">
 
-
               <!-- ***** EMAIL INPUT FIELDS ***** -->
               <div class="register-form-error-container" id="register-form-email-error">
-                <p class="register-form-error-message" id="register-form-email-error-message">Email invalid or already in use</p>
+                <p class="register-form-error-message" id="register-form-email-error-message">Email is registered or awaiting registeration code</p>
               </div>
               <input type="text" name="email" placeholder="Email" id="register-form-email-input" maxlength="50" onpaste="return false">
 
-
               <!-- ***** PASSWORD INPUT FIELDS ***** -->
-              <!-- password spacer -->
               <div class="register-form-error-container" id="register-form-password-error"></div>
               <div class="register-form-password-input-container">
                 <input type="password" name="password" placeholder="Password" id="register-form-password-input" maxlength="60" onpaste="return false">
@@ -107,30 +112,20 @@
                 </div>
               </div>
 
-
               <!-- ***** AGE INPUT FIELDS ***** -->
               <div class="register-form-error-container" id="register-form-age-error">
-                <p class="register-form-error-message" id="register-form-age-error-message">Age must be 14-64</p>
               </div>
-              <!-- <input type="number" name="age" placeholder="Age -   [14-64]" maxlength="2" id="register-form-age-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
               <input type="text" name="age" placeholder="Age -   [14-64]" maxlength="2" id="register-form-age-input" onpaste="return false">
-              <!-- yeet -->
 
               <!-- ***** HEIGHT: FT INPUT FIELDS ***** -->
               <div class="register-form-error-container" id="register-form-height-ft-error">
-                <p class="register-form-error-message" id="register-form-height-ft-error-message">Height: ft must be 3-8</p>
               </div>
-              <!-- <input type="number" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
               <input type="text" name="height_ft" placeholder="Height:ft  [3-8]" maxlength="1" id="register-form-height-ft-input" onpaste="return false">
-
 
               <!-- ***** HEIGHT: IN INPUT FIELDS ***** -->
               <div class="register-form-error-container" id="register-form-height-in-error">
-                <p class="register-form-error-message" id="register-form-height-in-error-message">Height: in must be 0-12</p>
               </div>
-              <!-- <input type="number" name="height_in" placeholder="Height:in [0-11]" maxlength="1" id="register-form-height-in-input" onpaste="return false" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> -->
               <input type="text" name="height_in" placeholder="Height:in [0-11]" maxlength="2" id="register-form-height-in-input" onpaste="return false">
-              <!-- height: in spacer -->
               <div class="register-form-error-container">
               </div>
 
@@ -155,7 +150,6 @@
                 </div>
               </div>
               <div class="register-form-timezone-gender-spacer"></div>
-
 
               <!-- ***** TIMEZONE INPUT FIELDS ***** -->
               <div class="register-form-timezone-header-container">
@@ -203,13 +197,10 @@
                   </div>
                 </div>
               </div>
-              <!-- eexperience-timezone spacer -->
+
               <div class="register-form-experience-timezone-spacer"></div>
 
-
-
               <!-- ***** EXPERIENCE INPUT FIELDS ***** -->
-
               <!-- experience input header -->
               <div class="register-form-experience-header-container">
                 <p id="register-form-experience-header">Experience in categories</p>
@@ -460,7 +451,6 @@
                 </div>
               </div>
 
-              <!-- registration form bottom spacer -->
               <div class="register-form-bottom-spacer"></div>
 
             </form>
@@ -474,6 +464,8 @@
     </div>
 
 
+
+    <!-- Reset Password Stuff -->
     <div class="gateway-forgot-password-form-container">
       <div class="gateway-forgot-password-body">
         <div class="gateway-forgot-password-body-top">
@@ -490,7 +482,6 @@
             </div>
             <input type="text" name="email" placeholder="Email" id="reset-password-email-input" maxlength="50" onpaste="return false">
           </div>
-          <!-- <input type="text" name="email" placeholder="Email" id="reset-password-email-input" maxlength="50" onpaste="return false"> -->
         </div>
       </div>
       <div class="reset-password-button">

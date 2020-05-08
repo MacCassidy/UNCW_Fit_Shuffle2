@@ -1,4 +1,4 @@
--- password: mypassword
+
 INSERT INTO Accounts (username,
                       email,
                       password,
@@ -38,7 +38,7 @@ INSERT INTO Accounts (username,
                       1585211987.176413,
                       1585411905.674891
 );
--- password: password
+
 INSERT INTO Accounts (username,
                       email,
                       password,
@@ -76,7 +76,7 @@ INSERT INTO Accounts (username,
                        1585311977.176413,
                        1585419905.674891
 );
--- password: colepassword
+
 INSERT INTO Accounts (username,
                       email,
                       password,
@@ -114,7 +114,7 @@ INSERT INTO Accounts (username,
                         1585743137.280153,
                         1585743147.283449
 );
--- password: maithempassword
+
 INSERT INTO Accounts (username,
                       email,
                       password,

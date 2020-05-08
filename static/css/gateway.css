@@ -182,6 +182,17 @@
   font-family: Arial, 'Montserrat', sans-serif;
   font-weight: bold;
 }
+#login-code-error{
+  box-sizing: border-box;
+  display: none;
+  margin: 0;
+  padding-top: 2px;
+  text-align: center;
+  color: #FC0D1B;
+  font-size: 11px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-weight: bold;
+}
 .gateway-login-form-top-outer-bottom{
   box-sizing: border-box;
   width: 100%;

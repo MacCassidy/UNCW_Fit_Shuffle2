@@ -1,8 +1,13 @@
 $(document).ready(function(){
+  // This set's the width/height to the window of a phone screen, so nothing is hidden under peripheral mobile browser toolbars
   var window_height = window.innerHeight;
-  // console.log(window_height);
   var window_width = window.innerWidth;
-  // console.log(window_width);
   $('body').css('height', (parseInt(window_height) + 'px'));
   $('body').css('width', (parseInt(window_width) + 'px'));
+  // Log out event hanlder
+  $('#layout-logout-button').click(function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $('#layout-logout-button-form').submit();
+  });
 });

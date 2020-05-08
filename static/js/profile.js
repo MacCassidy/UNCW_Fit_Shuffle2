@@ -11,11 +11,11 @@ $(document).ready(function(){
   Vars.logout_button_form.css('pointer-events', 'auto');
   Vars.logout_button.css('display', 'block');
   Vars.logout_button.css('pointer-events', 'auto');
-  Vars.logout_button.on('click', function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    Vars.logout_button_form.submit()
-  });
+  // Vars.logout_button.on('click', function(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   Vars.logout_button_form.submit()
+  // });
 
   Vars.edit_profile_button.click(function(e){
     e.stopPropagation();
