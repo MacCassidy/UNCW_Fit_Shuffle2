@@ -147,11 +147,21 @@ $(document).ready(function(){
   Vars.gateway_register_form_container_button = $('.gateway-register-form-container-1-button');
   Vars.hidden_register_form = $('.hidden_register_form');
 
-
-
+// *************Gateway Reset Password Form Variables
+  // Vars.gateway_forgot_password
+  // Vars.gateway_forgot_password_form_container
+  Vars.reset_password_email_input = $('#reset-password-email-input');
+  Vars.reset_password_invalid_email = $('#reset-invalid-email');
+  Vars.reset_password_button = $('.reset-password-button');
+  Vars.hidden_passwordchange_form = $('.hidden_passwordchange_form');
+  Vars.reset_password_logged_in_error = $('#reset-password-logged-in-error');
+  Vars.reset_password_current_code_error = $('#reset-password-current-code-error');
+  // Vars.reset_password_logged_in_error.hide();
+  // Vars.reset_password_current_code_error.hide();
+  // harambe
 
 // *********************************************************************************** Initial Hover/Focus Events
-  // 1. .gateway-nav-login:hover
+
   Vars.gateway_nav_login.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -162,7 +172,6 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 2. .gateway-nav-register:hover
   Vars.gateway_nav_register.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -173,7 +182,6 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 3. .gateway-nav-forgot-password:hover
   Vars.gateway_nav_forgot_password.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -184,35 +192,6 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 4. #login-form-email-input:focusin and focusout
-  // Vars.login_form_email_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '6px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.login_form_email_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-  // 5 #login-form-password-input:focus
-  // Vars.login_form_password_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '6px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.login_form_password_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-  // 6 .gateway-login-form-button:hover
   Vars.gateway_login_form_button.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -223,49 +202,6 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 7 #register-form-username-input:focus
-  // Vars.register_form_username_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_username_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-  // 8 #register-form-email-input:focus
-  // Vars.register_form_email_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_email_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-  // 9 #register-form-password-input:focus
-  // Vars.register_form_password_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_password_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-  // 10 #password-show:hover
   Vars.password_show.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -276,7 +212,7 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 11 #password-hide:hover
+
   Vars.password_hide.hover(function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -287,52 +223,27 @@ $(document).ready(function(){
     $(this).css('cursor', 'auto');
   });
 
-  // 12 #register-form-age-input:focus
-  // Vars.register_form_age_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_age_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
+  Vars.gateway_register_form_container_button.hover(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).css('cursor', 'pointer');
+  }, function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).css('cursor', 'auto');
+  });
 
-  // 13 #register-form-height-ft-input:focus
-  // Vars.register_form_height_ft_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_height_ft_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
+  Vars.reset_password_button.hover(function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('cursor', 'pointer');
+  }, function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $(this).css('cursor', 'auto');
+  });
 
-  // 14 #register-form-height-in-input:focus
-  // Vars.register_form_height_in_input.focusin(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'groove');
-  //   $(this).css('outline-width', '3px');
-  //   $(this).css('outline-color', '#F5B649');
-  // });
-  // Vars.register_form_height_in_input.focusout(function(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   $(this).css('outline-style', 'none');
-  // });
-
-
-
-  // ******************************************Add Main Event Listerns BELOW  SFSKFSJFKEVDLFNVFLDKNV*******************************************************************
-  // ******************************************Add Main Event Listerns BELOW  SFSKFSJFKEVDLFNVFLDKNV*******************************************************************
+  // ******************************************Add Event Listerns BELOW *******************************************************************
 
 // *********************************************************************************** Nav Event Listeners
   // Login Tab
@@ -429,93 +340,99 @@ $(document).ready(function(){
     Vars.password_show.show();
     Vars.register_form_password_input.attr("type","password");
     Vars.register_form_age_input.val('');
-    Vars.register_form_age_input.css('border-bottom', '1px solid #C3C3C3');
+    Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_height_ft_input.val('');
-    Vars.register_form_height_ft_input.css('border-bottom', '1px solid #C3C3C3');
+    Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_height_in_input.val('');
-    Vars.register_form_height_in_input.css('border-bottom', '1px solid #C3C3C3');
+    Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
     Vars.male_button.prop('checked', false);
-    Vars.male_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.male_button_container.css('border', '1px solid #C3C3C3');
     Vars.female_button.prop('checked', false);
-    Vars.female_button_container.css('border-bottom', '1px solid #C3C3C3');
-    Vars.timezone_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.female_button_container.css('border', '1px solid #C3C3C3');
+    Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.eastern_time_button.prop('checked', false);
-    Vars.eastern_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
     Vars.pacific_time_button.prop('checked', false);
-    Vars.pacific_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
     Vars.alaska_time_button.prop('checked', false);
-    Vars.alaska_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
     Vars.central_time_button.prop('checked', false);
-    Vars.central_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
     Vars.mountain_time_button.prop('checked', false);
-    Vars.mountain_time_button_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
     Vars.hawaii_time_button.prop('checked', false);
-    Vars.hawaii_time_button_container.css('border-bottom', '1px solid #C3C3C3');
-    Vars.cardio_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.cardio_beginner_button.prop('checked', false);
-    Vars.cardio_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.cardio_novice_button.prop('checked', false);
-    Vars.cardio_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.cardio_intermediate_button.prop('checked', false);
-    Vars.cardio_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.cardio_experienced_button.prop('checked', false);
-    Vars.cardio_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.chest_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.chest_beginner_button.prop('checked', false);
-    Vars.chest_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.chest_novice_button.prop('checked', false);
-    Vars.chest_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.chest_intermediate_button.prop('checked', false);
-    Vars.chest_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.chest_experienced_button.prop('checked', false);
-    Vars.chest_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.legs_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.legs_beginner_button.prop('checked', false);
-    Vars.legs_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.legs_novice_button.prop('checked', false);
-    Vars.legs_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.legs_intermediate_button.prop('checked', false);
-    Vars.legs_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.legs_experienced_button.prop('checked', false);
-    Vars.legs_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.back_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.back_beginner_button.prop('checked', false);
-    Vars.back_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.back_novice_button.prop('checked', false);
-    Vars.back_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.back_intermediate_button.prop('checked', false);
-    Vars.back_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.back_experienced_button.prop('checked', false);
-    Vars.back_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.core_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.core_beginner_button.prop('checked', false);
-    Vars.core_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.core_novice_button.prop('checked', false);
-    Vars.core_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.core_intermediate_button.prop('checked', false);
-    Vars.core_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.core_experienced_button.prop('checked', false);
-    Vars.core_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.shoulders_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.shoulders_beginner_button.prop('checked', false);
-    Vars.shoulders_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.shoulders_novice_button.prop('checked', false);
-    Vars.shoulders_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.shoulders_intermediate_button.prop('checked', false);
-    Vars.shoulders_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.shoulders_experienced_button.prop('checked', false);
-    Vars.shoulders_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
-    Vars.arms_buttons_container.css('border-bottom', '1px solid #C3C3C3');
+    Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
     Vars.arms_beginner_button.prop('checked', false);
-    Vars.arms_button_container_beginner.css('border-bottom', '1px solid #C3C3C3');
+    Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
     Vars.arms_novice_button.prop('checked', false);
-    Vars.arms_button_container_novice.css('border-bottom', '1px solid #C3C3C3');
+    Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
     Vars.arms_intermediate_button.prop('checked', false);
-    Vars.arms_button_container_intermediate.css('border-bottom', '1px solid #C3C3C3');
+    Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
     Vars.arms_experienced_button.prop('checked', false);
-    Vars.arms_button_container_experienced.css('border-bottom', '1px solid #C3C3C3');
+    Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
     // Reset Forgot Password Form
-    //**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
+    Vars.reset_password_email_input.val('');
+    Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+    Vars.reset_password_invalid_email.hide();
+    Vars.reset_password_button.css('opacity', '0.4');
+    Vars.reset_password_button.css("pointer-events", "none");
+    Vars.reset_password_logged_in_error.hide();
+    Vars.reset_password_current_code_error.hide();
   });
 
 
@@ -537,58 +454,204 @@ $(document).ready(function(){
     Vars.gateway_login_form_container.hide();
     Vars.gateway_forgot_password_form_container.hide();
     // Reset Register Form
+    // Vars.register_form_username_input.prop('disabled', false);
+    // Vars.register_form_username_input.val('');
+    // Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
+    // Vars.register_form_email_error_message.hide();
+    // Vars.register_form_email_input.prop('disabled', false);
+    // Vars.register_form_email_input.val('');
+    // Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
+    // Vars.register_form_password_input.prop('disabled', false);
+    // Vars.register_form_password_input.val('');
+    // Vars.register_form_password_input.attr("type","password");
+    // Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
+    // Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
+    // Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
+    // Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
+    // Vars.password_show.show();
+    // Vars.password_hide.hide();
+    // Vars.register_form_age_input.prop('disabled', false);
+    // Vars.register_form_age_input.val('');
+    // Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
+    // Vars.register_form_height_ft_input.prop('disabled', false);
+    // Vars.register_form_height_ft_input.val('');
+    // Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
+    // Vars.register_form_height_in_input.prop('disabled', false);
+    // Vars.register_form_height_in_input.val('');
+    // Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
+    // Vars.male_button.prop('disabled', false);
+    // Vars.male_button.prop('checked', false);
+    // Vars.male_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.female_button.prop('disabled', false);
+    // Vars.female_button.prop('checked', false);
+    // Vars.female_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
+    // Vars.eastern_time_button.prop('disabled', false);
+    // Vars.eastern_time_button.prop('checked', false);
+    // Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.pacific_time_button.prop('disabled', false);
+    // Vars.pacific_time_button.prop('checked', false);
+    // Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.alaska_time_button.prop('disabled', false);
+    // Vars.alaska_time_button.prop('checked', false);
+    // Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.central_time_button.prop('disabled', false);
+    // Vars.central_time_button.prop('checked', false);
+    // Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.mountain_time_button.prop('disabled', false);
+    // Vars.mountain_time_button.prop('checked', false);
+    // Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.hawaii_time_button.prop('disabled', false);
+    // Vars.hawaii_time_button.prop('checked', false);
+    // Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
+    // Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    // Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    $('.gateway-register-form-container-1-top-outer').scrollTop(0);
     Vars.register_form_username_input.prop('disabled', false);
+    Vars.register_form_email_input.prop('disabled', false);
+    Vars.register_form_password_input.prop('disabled', false);
+    Vars.password_show.css("pointer-events", "auto");
+    Vars.password_hide.css("pointer-events", "auto");
+    Vars.register_form_age_input.prop('disabled', false);
+    Vars.register_form_height_ft_input.prop('disabled', false);
+    Vars.register_form_height_in_input.prop('disabled', false);
+    Vars.male_button.prop('disabled', false);
+    Vars.female_button.prop('disabled', false);
+    Vars.eastern_time_button.prop('disabled', false);
+    Vars.pacific_time_button.prop('disabled', false);
+    Vars.alaska_time_button.prop('disabled', false);
+    Vars.central_time_button.prop('disabled', false);
+    Vars.mountain_time_button.prop('disabled', false);
+    Vars.hawaii_time_button.prop('disabled', false);
+    Vars.cardio_beginner_button.prop('disabled', false);
+    Vars.cardio_novice_button.prop('disabled', false);
+    Vars.cardio_intermediate_button.prop('disabled', false);
+    Vars.cardio_experienced_button.prop('disabled', false);
+    Vars.chest_beginner_button.prop('disabled', false);
+    Vars.chest_novice_button.prop('disabled', false);
+    Vars.chest_intermediate_button.prop('disabled', false);
+    Vars.chest_experienced_button.prop('disabled', false);
+    Vars.legs_beginner_button.prop('disabled', false);
+    Vars.legs_novice_button.prop('disabled', false);
+    Vars.legs_intermediate_button.prop('disabled', false);
+    Vars.legs_experienced_button.prop('disabled', false);
+    Vars.back_beginner_button.prop('disabled', false);
+    Vars.back_novice_button.prop('disabled', false);
+    Vars.back_intermediate_button.prop('disabled', false);
+    Vars.back_experienced_button.prop('disabled', false);
+    Vars.core_beginner_button.prop('disabled', false);
+    Vars.core_novice_button.prop('disabled', false);
+    Vars.core_intermediate_button.prop('disabled', false);
+    Vars.core_experienced_button.prop('disabled', false);
+    Vars.shoulders_beginner_button.prop('disabled', false);
+    Vars.shoulders_novice_button.prop('disabled', false);
+    Vars.shoulders_intermediate_button.prop('disabled', false);
+    Vars.shoulders_experienced_button.prop('disabled', false);
+    Vars.arms_beginner_button.prop('disabled', false);
+    Vars.arms_novice_button.prop('disabled', false);
+    Vars.arms_intermediate_button.prop('disabled', false);
+    Vars.arms_experienced_button.prop('disabled', false);
+    Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    Vars.gateway_register_form_container_button.css("pointer-events", "none");
     Vars.register_form_username_input.val('');
     Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_email_error_message.hide();
-    Vars.register_form_email_input.prop('disabled', false);
     Vars.register_form_email_input.val('');
     Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_password_input.prop('disabled', false);
     Vars.register_form_password_input.val('');
-    Vars.register_form_password_input.attr("type","password");
     Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
-    Vars.password_show.show();
     Vars.password_hide.hide();
-    Vars.register_form_age_input.prop('disabled', false);
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
     Vars.register_form_age_input.val('');
     Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_height_ft_input.prop('disabled', false);
     Vars.register_form_height_ft_input.val('');
     Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_height_in_input.prop('disabled', false);
     Vars.register_form_height_in_input.val('');
     Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
-    Vars.male_button.prop('disabled', false);
     Vars.male_button.prop('checked', false);
     Vars.male_button_container.css('border', '1px solid #C3C3C3');
-    Vars.female_button.prop('disabled', false);
     Vars.female_button.prop('checked', false);
     Vars.female_button_container.css('border', '1px solid #C3C3C3');
     Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
-    Vars.eastern_time_button.prop('disabled', false);
     Vars.eastern_time_button.prop('checked', false);
     Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.pacific_time_button.prop('disabled', false);
     Vars.pacific_time_button.prop('checked', false);
     Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.alaska_time_button.prop('disabled', false);
     Vars.alaska_time_button.prop('checked', false);
     Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.central_time_button.prop('disabled', false);
     Vars.central_time_button.prop('checked', false);
     Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.mountain_time_button.prop('disabled', false);
     Vars.mountain_time_button.prop('checked', false);
     Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.hawaii_time_button.prop('disabled', false);
     Vars.hawaii_time_button.prop('checked', false);
     Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.gateway_register_form_container_button.css('opacity', '0.4');
-    Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.cardio_beginner_button.prop('checked', false);
+    Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.cardio_novice_button.prop('checked', false);
+    Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.cardio_intermediate_button.prop('checked', false);
+    Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.cardio_experienced_button.prop('checked', false);
+    Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.chest_beginner_button.prop('checked', false);
+    Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.chest_novice_button.prop('checked', false);
+    Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.chest_intermediate_button.prop('checked', false);
+    Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.chest_experienced_button.prop('checked', false);
+    Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.legs_beginner_button.prop('checked', false);
+    Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.legs_novice_button.prop('checked', false);
+    Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.legs_intermediate_button.prop('checked', false);
+    Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.legs_experienced_button.prop('checked', false);
+    Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.back_beginner_button.prop('checked', false);
+    Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.back_novice_button.prop('checked', false);
+    Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.back_intermediate_button.prop('checked', false);
+    Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.back_experienced_button.prop('checked', false);
+    Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.core_beginner_button.prop('checked', false);
+    Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.core_novice_button.prop('checked', false);
+    Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.core_intermediate_button.prop('checked', false);
+    Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.core_experienced_button.prop('checked', false);
+    Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_beginner_button.prop('checked', false);
+    Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_novice_button.prop('checked', false);
+    Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_intermediate_button.prop('checked', false);
+    Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_experienced_button.prop('checked', false);
+    Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.arms_beginner_button.prop('checked', false);
+    Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.arms_novice_button.prop('checked', false);
+    Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.arms_intermediate_button.prop('checked', false);
+    Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.arms_experienced_button.prop('checked', false);
+    Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
     // show register form container
     Vars.gateway_register_form_container.show();
     // Reset Login Form
@@ -603,8 +666,14 @@ $(document).ready(function(){
     Vars.login_form_password_input.css('border', '1px solid #C3C3C3');
     Vars.gateway_login_form_button.css('opacity', '0.4');
     Vars.gateway_login_form_button.css("pointer-events", "none");
-    //Reset Forgot PASSWORD Form
-    // /**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
+    //Reset Reset Password Form
+    Vars.reset_password_email_input.val('');
+    Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+    Vars.reset_password_invalid_email.hide();
+    Vars.reset_password_button.css('opacity', '0.4');
+    Vars.reset_password_button.css("pointer-events", "none");
+    Vars.reset_password_logged_in_error.hide();
+    Vars.reset_password_current_code_error.hide();
   });
 
 
@@ -625,63 +694,163 @@ $(document).ready(function(){
     // hide all Other tab containers
     Vars.gateway_login_form_container.hide();
     Vars.gateway_register_form_container.hide();
-    // Reset Forgot Password Form
-    // /**********************Yeet YEET yett MISSING STUFF HERE MISSING**********************
+    // Reset Reset Password Form
+    Vars.reset_password_email_input.val('');
+    Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+    Vars.reset_password_invalid_email.hide();
+    Vars.reset_password_button.css('opacity', '0.4');
+    Vars.reset_password_button.css("pointer-events", "none");
+    Vars.reset_password_logged_in_error.hide();
+    Vars.reset_password_current_code_error.hide();
     // show forgot password form container
     Vars.gateway_forgot_password_form_container.show();
     // Reset Register Form
+    $('.gateway-register-form-container-1-top-outer').scrollTop(0);
     Vars.register_form_username_input.prop('disabled', false);
+    Vars.register_form_email_input.prop('disabled', false);
+    Vars.register_form_password_input.prop('disabled', false);
+    Vars.password_show.css("pointer-events", "auto");
+    Vars.password_hide.css("pointer-events", "auto");
+    Vars.register_form_age_input.prop('disabled', false);
+    Vars.register_form_height_ft_input.prop('disabled', false);
+    Vars.register_form_height_in_input.prop('disabled', false);
+    Vars.male_button.prop('disabled', false);
+    Vars.female_button.prop('disabled', false);
+    Vars.eastern_time_button.prop('disabled', false);
+    Vars.pacific_time_button.prop('disabled', false);
+    Vars.alaska_time_button.prop('disabled', false);
+    Vars.central_time_button.prop('disabled', false);
+    Vars.mountain_time_button.prop('disabled', false);
+    Vars.hawaii_time_button.prop('disabled', false);
+    Vars.cardio_beginner_button.prop('disabled', false);
+    Vars.cardio_novice_button.prop('disabled', false);
+    Vars.cardio_intermediate_button.prop('disabled', false);
+    Vars.cardio_experienced_button.prop('disabled', false);
+    Vars.chest_beginner_button.prop('disabled', false);
+    Vars.chest_novice_button.prop('disabled', false);
+    Vars.chest_intermediate_button.prop('disabled', false);
+    Vars.chest_experienced_button.prop('disabled', false);
+    Vars.legs_beginner_button.prop('disabled', false);
+    Vars.legs_novice_button.prop('disabled', false);
+    Vars.legs_intermediate_button.prop('disabled', false);
+    Vars.legs_experienced_button.prop('disabled', false);
+    Vars.back_beginner_button.prop('disabled', false);
+    Vars.back_novice_button.prop('disabled', false);
+    Vars.back_intermediate_button.prop('disabled', false);
+    Vars.back_experienced_button.prop('disabled', false);
+    Vars.core_beginner_button.prop('disabled', false);
+    Vars.core_novice_button.prop('disabled', false);
+    Vars.core_intermediate_button.prop('disabled', false);
+    Vars.core_experienced_button.prop('disabled', false);
+    Vars.shoulders_beginner_button.prop('disabled', false);
+    Vars.shoulders_novice_button.prop('disabled', false);
+    Vars.shoulders_intermediate_button.prop('disabled', false);
+    Vars.shoulders_experienced_button.prop('disabled', false);
+    Vars.arms_beginner_button.prop('disabled', false);
+    Vars.arms_novice_button.prop('disabled', false);
+    Vars.arms_intermediate_button.prop('disabled', false);
+    Vars.arms_experienced_button.prop('disabled', false);
+    Vars.gateway_register_form_container_button.css('opacity', '0.4');
+    Vars.gateway_register_form_container_button.css("pointer-events", "none");
     Vars.register_form_username_input.val('');
     Vars.register_form_username_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_email_error_message.hide();
-    Vars.register_form_email_input.prop('disabled', false);
     Vars.register_form_email_input.val('');
     Vars.register_form_email_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_password_input.prop('disabled', false);
     Vars.register_form_password_input.val('');
-    Vars.register_form_password_input.attr("type","password");
     Vars.register_form_password_input.css('border', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-top', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-right', '1px solid #C3C3C3');
     Vars.register_form_password_input_eye_container.css('border-bottom', '1px solid #C3C3C3');
-    Vars.password_show.show();
     Vars.password_hide.hide();
-    Vars.register_form_age_input.prop('disabled', false);
+    Vars.password_show.show();
+    Vars.register_form_password_input.attr("type","password");
     Vars.register_form_age_input.val('');
     Vars.register_form_age_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_height_ft_input.prop('disabled', false);
     Vars.register_form_height_ft_input.val('');
     Vars.register_form_height_ft_input.css('border', '1px solid #C3C3C3');
-    Vars.register_form_height_in_input.prop('disabled', false);
     Vars.register_form_height_in_input.val('');
     Vars.register_form_height_in_input.css('border', '1px solid #C3C3C3');
-    Vars.male_button.prop('disabled', false);
     Vars.male_button.prop('checked', false);
     Vars.male_button_container.css('border', '1px solid #C3C3C3');
-    Vars.female_button.prop('disabled', false);
     Vars.female_button.prop('checked', false);
     Vars.female_button_container.css('border', '1px solid #C3C3C3');
     Vars.timezone_buttons_container.css('border', '1px solid #C3C3C3');
-    Vars.eastern_time_button.prop('disabled', false);
     Vars.eastern_time_button.prop('checked', false);
     Vars.eastern_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.pacific_time_button.prop('disabled', false);
     Vars.pacific_time_button.prop('checked', false);
     Vars.pacific_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.alaska_time_button.prop('disabled', false);
     Vars.alaska_time_button.prop('checked', false);
     Vars.alaska_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.central_time_button.prop('disabled', false);
     Vars.central_time_button.prop('checked', false);
     Vars.central_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.mountain_time_button.prop('disabled', false);
     Vars.mountain_time_button.prop('checked', false);
     Vars.mountain_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.hawaii_time_button.prop('disabled', false);
     Vars.hawaii_time_button.prop('checked', false);
     Vars.hawaii_time_button_container.css('border', '1px solid #C3C3C3');
-    Vars.gateway_register_form_container_button.css('opacity', '0.4');
-    Vars.gateway_register_form_container_button.css("pointer-events", "none");
+    Vars.cardio_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.cardio_beginner_button.prop('checked', false);
+    Vars.cardio_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.cardio_novice_button.prop('checked', false);
+    Vars.cardio_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.cardio_intermediate_button.prop('checked', false);
+    Vars.cardio_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.cardio_experienced_button.prop('checked', false);
+    Vars.cardio_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.chest_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.chest_beginner_button.prop('checked', false);
+    Vars.chest_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.chest_novice_button.prop('checked', false);
+    Vars.chest_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.chest_intermediate_button.prop('checked', false);
+    Vars.chest_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.chest_experienced_button.prop('checked', false);
+    Vars.chest_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.legs_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.legs_beginner_button.prop('checked', false);
+    Vars.legs_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.legs_novice_button.prop('checked', false);
+    Vars.legs_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.legs_intermediate_button.prop('checked', false);
+    Vars.legs_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.legs_experienced_button.prop('checked', false);
+    Vars.legs_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.back_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.back_beginner_button.prop('checked', false);
+    Vars.back_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.back_novice_button.prop('checked', false);
+    Vars.back_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.back_intermediate_button.prop('checked', false);
+    Vars.back_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.back_experienced_button.prop('checked', false);
+    Vars.back_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.core_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.core_beginner_button.prop('checked', false);
+    Vars.core_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.core_novice_button.prop('checked', false);
+    Vars.core_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.core_intermediate_button.prop('checked', false);
+    Vars.core_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.core_experienced_button.prop('checked', false);
+    Vars.core_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_beginner_button.prop('checked', false);
+    Vars.shoulders_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_novice_button.prop('checked', false);
+    Vars.shoulders_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_intermediate_button.prop('checked', false);
+    Vars.shoulders_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.shoulders_experienced_button.prop('checked', false);
+    Vars.shoulders_button_container_experienced.css('border', '1px solid #C3C3C3');
+    Vars.arms_buttons_container.css('border', '1px solid #C3C3C3');
+    Vars.arms_beginner_button.prop('checked', false);
+    Vars.arms_button_container_beginner.css('border', '1px solid #C3C3C3');
+    Vars.arms_novice_button.prop('checked', false);
+    Vars.arms_button_container_novice.css('border', '1px solid #C3C3C3');
+    Vars.arms_intermediate_button.prop('checked', false);
+    Vars.arms_button_container_intermediate.css('border', '1px solid #C3C3C3');
+    Vars.arms_experienced_button.prop('checked', false);
+    Vars.arms_button_container_experienced.css('border', '1px solid #C3C3C3');
     // Reset Login Form
     Vars.logged_in_error.hide();
     Vars.login_form_email_error_message.hide();
@@ -3077,6 +3246,147 @@ $(document).ready(function(){
       });
     }
   });
+
+
+
+
+
+// *********************************************************************************** Reset Password Form Event Listeners
+  // Reset Password Email Input
+  Vars.reset_password_email_input.on('keyup', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    Vars.reset_password_invalid_email.hide();
+    Vars.reset_password_logged_in_error.hide();
+    Vars.reset_password_current_code_error.hide();
+    Vars.reset_password_email_input.css('border', '1px solid #3D456A');
+    if (Vars.reset_password_email_input.val()) {
+      Vars.reset_password_button.css('opacity', '1');
+      Vars.reset_password_button.css('pointer-events', 'auto');
+    } else {
+      Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+      Vars.reset_password_button.css('opacity', '0.4');
+      Vars.reset_password_button.css('pointer-events', 'none');
+    }
+  });
+
+  // Reset Password button click
+  Vars.reset_password_button.click(function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    // harambeyeet harambe
+    if (Vars.reset_password_email_input.val()){
+      Vars.gateway_nav_login.css('pointer-events', 'none');
+      Vars.gateway_nav_register.css('pointer-events', 'none');
+      Vars.reset_password_invalid_email.hide();
+      Vars.reset_password_logged_in_error.hide();
+      Vars.reset_password_current_code_error.hide();
+      Vars.reset_password_button.css('pointer-events', 'none');
+      Vars.reset_password_email_input.prop('disabled', true);
+      $.ajax({
+          data : {
+            email : Vars.reset_password_email_input.val()
+          },
+          type : 'POST',
+          url : '/resetpassword'
+      }).done(function(data){
+        if (data.error == 'missing data') {
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_button.css('opacity', '0.4');
+          Vars.reset_password_button.css('pointer-events', 'none');
+          Vars.reset_password_email_input.prop('disabled', false);
+          Vars.reset_password_email_input.val('');
+          Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+          alert('Server Request Failed for some reason, refresh the page or try again later');
+        } else if (data.error == 'current code') {
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_email_input.css('border', '1px solid #FC0D1B');
+          Vars.reset_password_current_code_error.show();
+          Vars.reset_password_button.css('opacity', '0.4');
+          Vars.reset_password_button.css('pointer-events', 'none');
+          Vars.reset_password_email_input.prop('disabled', false);
+        } else if (data.error == 'invalid email') {
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_invalid_email.show();
+          Vars.reset_password_email_input.css('border', '1px solid #FC0D1B');
+          Vars.reset_password_button.css('opacity', '0.4');
+          Vars.reset_password_button.css('pointer-events', 'none');
+          Vars.reset_password_email_input.prop('disabled', false);
+        } else if (data.error == 'none') {
+          // harambeyeet
+          Vars.hidden_passwordchange_form.submit();
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_invalid_email.hide();
+          Vars.reset_password_button.css('pointer-events', 'auto');
+          Vars.reset_password_email_input.prop('disabled', false);
+          Vars.reset_password_email_input.css('border', '1px solid #3D456A');
+          Vars.reset_password_email_input.focus();
+        } else if (data.error == 'logged_in') {
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_logged_in_error.show();
+          Vars.reset_password_button.css('opacity', '0.4');
+          Vars.reset_password_button.css('pointer-events', 'none');
+          Vars.reset_password_email_input.prop('disabled', false);
+          Vars.reset_password_email_input.css('border', '1px solid #FC0D1B');
+        } else {
+          Vars.gateway_nav_login.css('pointer-events', 'auto');
+          Vars.gateway_nav_register.css('pointer-events', 'auto');
+          Vars.reset_password_invalid_email.hide();
+          Vars.reset_password_button.css('opacity', '0.4');
+          Vars.reset_password_button.css('pointer-events', 'none');
+          Vars.reset_password_email_input.prop('disabled', false);
+          Vars.reset_password_email_input.val('');
+          Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+          alert('Server Request Failed for some reason, refresh the page or try again later');
+        }
+      }).fail(function(jqXHR, textStatus, errorThrown){
+        Vars.gateway_nav_login.css('pointer-events', 'auto');
+        Vars.gateway_nav_register.css('pointer-events', 'auto');
+        Vars.reset_password_invalid_email.hide();
+        Vars.reset_password_button.css('opacity', '0.4');
+        Vars.reset_password_button.css('pointer-events', 'none');
+        Vars.reset_password_email_input.prop('disabled', false);
+        Vars.reset_password_email_input.val('');
+        Vars.reset_password_email_input.css('border', '1px solid #C3C3C3');
+        alert('Server Request Failed for some reason, refresh the page or try again later');
+      });
+
+    }
+
+  });
+
+
+  // Vars.gateway_nav_login = $('.gateway-nav-login');
+  // Vars.gateway_login = $('#gateway-login');
+  // Vars.gateway_nav_register = $('.gateway-nav-register');
+  // Vars.gateway_register = $('#gateway-register');
+  // Vars.gateway_nav_forgot_password = $('.gateway-nav-forgot-password');
+  // Vars.gateway_forgot_password = $('#gateway-forgot-password');
+  //
+  //
+  // // *************Gateway Form Container Variables
+  // Vars.gateway_login_form_container = $('.gateway-login-form-container');
+  // Vars.gateway_register_form_container = $('.gateway-register-form-container');
+  // Vars.gateway_forgot_password_form_container = $('.gateway-forgot-password-form-container');
+
+
+  // harambe yeet harambeyeet
+  // Vars.reset_password_email_input = $('#reset-password-email-input');
+  // Vars.reset_password_invalid_email = $('#reset-invalid-email');
+  // Vars.reset_password_button = $('.reset-password-button');
+  // Vars.hidden_passwordchange_form = $('.hidden_passwordchange_form');
+
+
+
+
+
+
+
 
   Vars.fillForm = function(email){
     Vars.register_form_username_input.val("boy wizard")

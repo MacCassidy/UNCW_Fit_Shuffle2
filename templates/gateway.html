@@ -20,7 +20,7 @@
     </div>
     <div class="gateway-nav-space-filler"></div>
     <div class="gateway-nav-forgot-password">
-      <p id="gateway-forgot-password">Forgot Password</p>
+      <p id="gateway-forgot-password">Reset Password</p>
     </div>
     <div class="gateway-nav-space-filler"></div>
   </div>
@@ -38,7 +38,7 @@
             <p id="login-quote"><span id="login-quote-span">Welcome to Fit Shuffle:</span> A personalized training app that creates intuitive workout routines based on your experience and progress. <br><br> Login below, or click Register to sign up.</p>
           </div>
           <div class="gateway-login-form-top-outer-top-spacer">
-            <p id="logged_in_error">You're account's previous session has not expired. <br> Try again in a few minutes.</p>
+            <p id="logged_in_error">This account currently signed in, or it's previous session has not expired. <br> Try again in a few minutes.</p>
           </div>
           <div class="gateway-login-form-top-outer-bottom">
             <form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -474,10 +474,31 @@
     </div>
 
 
-
     <div class="gateway-forgot-password-form-container">
-      <p id="forgot-pass-note">Functionality for password reset coming soon!</p>
+      <div class="gateway-forgot-password-body">
+        <div class="gateway-forgot-password-body-top">
+          <p id="forgot-password-p">Enter your Email below: <br> <span id="forgot-password-p-span">A password-reset code will be sent to your email, check your spam mail if it does not appear in your main inbox.</span></p>
+        </div>
+        <div class="gateway-forgot-password-body-bottom">
+          <div class="gateway-forgot-password-body-bottom-input-container">
+            <div class="reset-password-logged-in-error-container">
+              <p id="reset-password-logged-in-error">This account is currently logged in.<br>Try again in 20 minutes.</p>
+              <p id="reset-password-current-code-error">This account has an active password reset code.<br>Try again in 20-30 minutes when the current code expires.</p>
+            </div>
+            <div class="reset-password-error-container">
+              <p id="reset-invalid-email">Invalid email</p>
+            </div>
+            <input type="text" name="email" placeholder="Email" id="reset-password-email-input" maxlength="50" onpaste="return false">
+          </div>
+          <!-- <input type="text" name="email" placeholder="Email" id="reset-password-email-input" maxlength="50" onpaste="return false"> -->
+        </div>
+      </div>
+      <div class="reset-password-button">
+        <p id="reset-password">Reset Password</p>
+      </div>
+      <form class="hidden_passwordchange_form" action="/passwordchange" method="get"></form>
     </div>
+
 
   </div>
 </div>

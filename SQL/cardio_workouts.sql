@@ -1,3 +1,19 @@
+-- ***These are all good***
+
+
+-- Core Workout list:
+
+-- Treadmill
+-- Burpees
+-- Jumping_Jacks
+-- High_Knees
+-- Butt_Kicks
+-- Jump_Rope
+-- Side_Shuffle
+-- Basketball_Shots
+
+
+-- Treadmill
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -59,69 +75,8 @@ INSERT INTO Workouts(workout_name,
                       'Keep pace for 10 minutes. Change Incline settings at your own discretion.',
                       'static/images/workouts/Treadmill.png'
 );
-INSERT INTO Workouts(workout_name,
-                     category,
-                     beginner_reps,
-                     beginner_sets,
-                     beginner_weight,
-                     beginner_pace,
-                     beginner_time_limit,
-                     beginner_rest_period,
-                     novice_reps,
-                     novice_sets,
-                     novice_weight,
-                     novice_pace,
-                     novice_time_limit,
-                     novice_rest_period,
-                     intermediate_reps,
-                     intermediate_sets,
-                     intermediate_weight,
-                     intermediate_pace,
-                     intermediate_time_limit,
-                     intermediate_rest_period,
-                     experienced_reps,
-                     experienced_sets,
-                     experienced_weight,
-                     experienced_pace,
-                     experienced_time_limit,
-                     experienced_rest_period,
-                     info,
-                     video_file_name,
-                     created) VALUES
-                     ('Treadmill',
-                      'cardio',
-                      Null,
-                      Null,
-                      Null,
-                      '3.5 MPH',
-                      720,
-                      Null,
 
-                      Null,
-                      Null,
-                      Null,
-                      '4 MPH',
-                      720,
-                      Null,
-
-                      Null,
-                      Null,
-                      Null,
-                      '5 MPH',
-                      720,
-                      Null,
-
-                      Null,
-                      Null,
-                      Null,
-                      '6 MPH',
-                      720,
-                      Null,
-                      'Keep pace for 10 minutes. Change Incline settings at your own discretion.',
-                      'static/images/workouts/Treadmill.png'
-);
-
-
+-- Burpees
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -184,7 +139,7 @@ INSERT INTO Workouts(workout_name,
                       'static/images/workouts/Burpees.png'
 );
 
-
+-- Jumping_Jacks
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -248,6 +203,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
+-- High_Knees
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -309,8 +265,9 @@ INSERT INTO Workouts(workout_name,
                       'High Knees info value',
                       'static/images/workoutsHigh_Knees.png'
 );
---
 
+
+-- Butt_Kicks
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -373,9 +330,7 @@ INSERT INTO Workouts(workout_name,
                       'static/images/workouts/Butt_Kicks.png'
 );
 
---
---
---
+-- Jump_Rope
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -437,8 +392,8 @@ INSERT INTO Workouts(workout_name,
                       'Keep a steady Jump Rope pace for the most of the time in the time limit. Reset timer if you run out of time',
                       'static/images/workouts/Jump_Rope.png'
 );
--- High_Knees
--- Butt_Kicks
+
+-- Side_Shuffle
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -500,8 +455,8 @@ INSERT INTO Workouts(workout_name,
                       'Keep a steady pace that you feel comfortable with, and shuffle 5 yards back and forth for the amount of reps.',
                       'static/images/workouts/Side_Shuffle.png'
 );
--- Side_Shuffle
-Basketball_Shots
+
+-- Basketball_Shots
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -531,7 +486,7 @@ INSERT INTO Workouts(workout_name,
                      info,
                      video_file_name,
                      created) VALUES
-                     ('Side Shuffle',
+                     ('Basketball Shots',
                       'cardio',
                       10,
                       3,
@@ -563,3 +518,68 @@ INSERT INTO Workouts(workout_name,
                       'Basketball_Shots info',
                       'static/images/workouts/Basketball_Shots.png'
 );
+
+
+
+-- Treadmill (duplicated for some reason so I commneted it out just incase we need it)
+-- INSERT INTO Workouts(workout_name,
+--                      category,
+--                      beginner_reps,
+--                      beginner_sets,
+--                      beginner_weight,
+--                      beginner_pace,
+--                      beginner_time_limit,
+--                      beginner_rest_period,
+--                      novice_reps,
+--                      novice_sets,
+--                      novice_weight,
+--                      novice_pace,
+--                      novice_time_limit,
+--                      novice_rest_period,
+--                      intermediate_reps,
+--                      intermediate_sets,
+--                      intermediate_weight,
+--                      intermediate_pace,
+--                      intermediate_time_limit,
+--                      intermediate_rest_period,
+--                      experienced_reps,
+--                      experienced_sets,
+--                      experienced_weight,
+--                      experienced_pace,
+--                      experienced_time_limit,
+--                      experienced_rest_period,
+--                      info,
+--                      video_file_name,
+--                      created) VALUES
+--                      ('Treadmill',
+--                       'cardio',
+--                       Null,
+--                       Null,
+--                       Null,
+--                       '3.5 MPH',
+--                       720,
+--                       Null,
+--
+--                       Null,
+--                       Null,
+--                       Null,
+--                       '4 MPH',
+--                       720,
+--                       Null,
+--
+--                       Null,
+--                       Null,
+--                       Null,
+--                       '5 MPH',
+--                       720,
+--                       Null,
+--
+--                       Null,
+--                       Null,
+--                       Null,
+--                       '6 MPH',
+--                       720,
+--                       Null,
+--                       'Keep pace for 10 minutes. Change Incline settings at your own discretion.',
+--                       'static/images/workouts/Treadmill.png'
+-- );

@@ -1,5 +1,6 @@
-if no jpg then its.png
-Cardio:
+
+
+Cardio: (finished)
 
 Treadmill
 Burpees
@@ -12,7 +13,8 @@ Basketball_Shots
 
 
 
-Chests:
+Chests: (finished)
+
 Push_Ups
 Decline_Push_Ups
 Incline_Push-Ups
@@ -26,21 +28,25 @@ Bench_Pull_Over
 
 
 
-Legs:
+
+Legs: (not-finished and some missing images)
 
 Squat
-Sumo_Squat.jpg
+Sumo_Squat
 Bulgarian_Split_Squat
 Step_Ups
 Leg_Press
 Calve_Raises
-Lunge.jpg
+Lunge
 Romanian_Dead_Lift
 Glute_Machine
 Hamstring_Machine
 Quad_Machine
 
-Back:
+
+
+
+Back: (not finished also check if images are finished)
 
 Chin_Up
 Pull_Up
@@ -55,8 +61,10 @@ Hyperextensions
 Reverse_Flys
 
 
-Core:
-plank
+
+Core: (no images and not finished at all)
+
+Plank
 side planks
 leg raises
 russian twist
@@ -67,7 +75,9 @@ toe touches
 mountain climbers
 heel touches
 
-Shoulders:
+
+
+Shoulders: (no images not finished at all)
 
 Lateral raise
 shoulder press
@@ -81,7 +91,8 @@ up right stand up rows
 Y raises
 
 
-Arms:
+
+Arms: (no images, not finished either at all)
 
 Hammer curls
 Forearm curls

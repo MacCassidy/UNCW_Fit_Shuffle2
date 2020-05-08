@@ -926,7 +926,11 @@
 
 
 
+
+
+
 /* Gateway Form Forgot Password Elements */
+
 .gateway-forgot-password-form-container{
   box-sizing: border-box;
   width: 100%;
@@ -939,17 +943,219 @@
   overflow: hidden;
   /* background-color: yellow; */
 }
-#forgot-pass-note{
+.gateway-forgot-password-body{
+  box-sizing: border-box;
+  width: 100%;
+  height: 87%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 16px;
+}
+
+.gateway-forgot-password-body-top{
+  box-sizing: border-box;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* background-color: blue; */
+  /* padding: 0px;
+  margin: 0px;
+  font-size: 18px;
+  text-align: center; */
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Montserrat', Arial, sans-serif; */
+  /* color: #3C446B; */
+}
+#forgot-password-p{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #3C446B;
+}
+#forgot-password-p-span{
+  font-size: 13px;
+}
+.gateway-forgot-password-body-bottom{
+  box-sizing: border-box;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: red; */
+  overflow: scroll;
+}
+.gateway-forgot-password-body-bottom-input-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 190px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+}
+.reset-password-logged-in-error-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background-color: red; */
+}
+#reset-password-logged-in-error{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 15px;
+  display: none;
+  color: #FC0D1B;
+}
+#reset-password-current-code-error{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 15px;
+  display: none;
+  color: #FC0D1B;
+}
+.reset-password-error-container{
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 2px;
+  /* harambeyeet */
+}
+
+#reset-invalid-email{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 14px;
+  /* display: none; */
+  color: #FC0D1B;
+}
+#reset-password-email-input{
+  box-sizing: border-box;
+  width: 100%;
+  height: 70px;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #C3C3C3;
+  font-family: Arial, 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding-left: 7px;
+  overflow: hidden;
+}
+
+/* box-sizing: border-box;
+height: 50px;
+width: 100%;
+outline: none;
+-webkit-appearance: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+border-radius: 0;
+border: 1px solid #C3C3C3;
+font-family: Arial, 'Montserrat', sans-serif;
+font-size: 18px;
+padding-left: 7px;
+overflow: hidden; */
+#reset-password-email-input::placeholder{
+  /* color: #C3C3C3; */
+  color: #B3B8BF;
+  /* harambe */
+}
+  /* harambe */
+  /* left off here */
+  /* passwordchange */
+  /* yeet notes */
+  /* write passwordchange route (left off here)
+  add the javascript variables
+  deal with switching tabs
+  ajax to check if email is invalid
+  go add the change if statments for all other routes (did most of this already)
+  rename it to reset password
+  cancel button same
+  scheduler like for register code
+  session keys declared right
+  route to successfulchange after successful password change (this page will have a return to login button)
+  make sure last_activity has been updated again */
+
+.reset-password-button{
+  box-sizing: border-box;
+  width: 100%;
+  height: 13%;
+  background-color: #107E79;
+  border-top: 1px solid #AFAFAF;
+  opacity: 0.4;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+#reset-password{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hidden_passwordchange_form{
+  display: none;
+}
+
+
+
+/* #forgot-pass-note{
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
   text-align: center;
-  /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 30px;
   color: #3C446B;
   cursor: default;
-}
+} */
 
 /* figure out the user select stuff and all the mobile front end stuff */
 /* -webkit-touch-callout:none; */

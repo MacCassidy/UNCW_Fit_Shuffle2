@@ -1,4 +1,21 @@
--- workout: Push Ups
+-- *** These are all good ***
+
+
+-- Chest Workouts list:
+
+-- Push_Ups
+-- Decline_Push_Ups
+-- Incline_Push-Ups
+-- Bench_Press
+-- Flys
+-- Dips
+-- Incline_Bench_Press
+-- Decline_Bench_Press
+-- Plate_Squeeze
+-- Bench_Pull_Over
+
+
+-- Push_Ups
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -189,6 +206,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
+-- Bench_Press
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -253,8 +271,7 @@ INSERT INTO Workouts(workout_name,
 
 
 
-
-
+-- Flys
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -284,7 +301,7 @@ INSERT INTO Workouts(workout_name,
                      info,
                      video_file_name,
                      created) VALUES
-                     ('Dumbbell Flys',
+                     ('Flys',
                       'chest',
                       5,
                       3,
@@ -317,7 +334,7 @@ INSERT INTO Workouts(workout_name,
                       'static/images/workouts/Flys.png'
 );
 
-
+-- Dips
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -380,6 +397,8 @@ INSERT INTO Workouts(workout_name,
                       'static/images/workouts/Dips.png'
 );
 
+
+-- Incline_Bench_Press
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -442,6 +461,7 @@ INSERT INTO Workouts(workout_name,
                       'static/images/workouts/Incline_Bench_Press.png'
 );
 
+-- Decline_Bench_Press
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
@@ -505,7 +525,7 @@ INSERT INTO Workouts(workout_name,
 );
 
 
-
+-- Plate_Squeeze
 INSERT INTO Workouts(workout_name,
                      category,
                      beginner_reps,
