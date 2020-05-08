@@ -1,0 +1,8 @@
+flask
+flask-mysqldb
+flask_apscheduler
+pytz
+bcrypt
+validate_email
+certifi
+nylas

@@ -2,7 +2,6 @@ from flask import Flask, render_template, redirect, url_for, request, session, j
 from flask_mysqldb import MySQL
 import datetime
 import pytz
-import time
 from datetime import datetime
 from datetime import timedelta
 import MySQLdb.cursors
